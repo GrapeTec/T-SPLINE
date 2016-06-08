@@ -74,32 +74,32 @@ our article[1].
 To build and compile the T-SPLINE library, CMake tools have to be used.
 	
 ### 3.1. BUILDING on Windows systems:
-- Run CMake;
-- Specify the source code and binary directories (fill the corresponding entries with value 
-  "../SOURCE_DIRECTORY" or drag the "CMakeLists.txt" file);
-- Press Configure button, set up the Generator settings(choose the Microsoft Visual C++ (MSVC) version);
-- After configuring done few options can be chosen:
-	BUILD_DOCUMENTATION (allows to generate gocumentation): <yes> <no> (Doxygen tool is required to use this option); 
-	CMAKE_INSTALL_PREFIX(define the directory where "*.lib" files and header files will be generated);
-	OpenMP (allows to activate multiprocessing): <yes> <no>.
-- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY);
-- Open tspline.sln file in MSVC and build the solution;
-- If problems with building of the "viewer" project appears, see section 2.4 to solve them;
-- To generate "*.lib" files and header files, build INSTALL project;
-- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
+	- Run CMake;
+	- Specify the source code and binary directories (fill the corresponding entries with value 
+	  "../SOURCE_DIRECTORY" or drag the "CMakeLists.txt" file);
+	- Press Configure button, set up the Generator settings(choose the Microsoft Visual C++ (MSVC) version);
+	- After configuring done few options can be chosen:
+		BUILD_DOCUMENTATION (allows to generate gocumentation): <yes> <no> (Doxygen tool is required to use this option); 
+		CMAKE_INSTALL_PREFIX(define the directory where "*.lib" files and header files will be generated);
+		OpenMP (allows to activate multiprocessing): <yes> <no>.
+	- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY);
+	- Open tspline.sln file in MSVC and build the solution;
+	- If problems with building of the "viewer" project appears, see section 2.4 to solve them;
+	- To generate "*.lib" files and header files, build INSTALL project;
+	- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
 		
 ### 3.2. BUILDING on unix/debian-like systems:
-- Run the following comands in terminal:
-	$ cd SOURCE_DIRECTORY
-	$ cmake .
-	$ make 
-		(try make -j4 for a faster build if you have a multi-core machine)
-		(all "*.exe" files and "*.a" libraries will be generated in the SOURCE_DIRECTORY)
-	$ sudo make install
-		(will install all the header files, default directory is /usr/local/include)				
-- If you also want to build the documentation, then run:
-	$ make doc
-		(this should create the documentation in the SOURCE_DIRECTORY/doxy directory)
+	- Run the following comands in terminal:
+		$ cd SOURCE_DIRECTORY
+		$ cmake .
+		$ make 
+			(try make -j4 for a faster build if you have a multi-core machine)
+			(all "*.exe" files and "*.a" libraries will be generated in the SOURCE_DIRECTORY)
+		$ sudo make install
+			(will install all the header files, default directory is /usr/local/include)				
+	- If you also want to build the documentation, then run:
+		$ make doc
+			(this should create the documentation in the SOURCE_DIRECTORY/doxy directory)
 
 ### 3.3. BUILDING on Mac systems:
 3.3.1. Using Command Line: all the steps are similar to the steps described in section 2.2. BUILDING on unix/debian-like systems 
@@ -117,97 +117,97 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 		
 ### 3.4. Solving the problem with building of the "viewer" project on Windows systems:
 Because the "viewer" project is using OpenGL the following steps to setup the system have to be done:
-- Provide all necessary header files (add gl.h, glu.h, and glaux.h header files in 
-  "../Microsoft Visual Studio XX.X/VC/include/gl" folder);
-- Provide *.lib files (for Win32 project add glu32.lib, glut32.lib, opengl32.lib files or the similar 
-  libraries in "../Microsoft Visual Studio XX.X/VC/lib" folder);
-- Provide *.dll files (for Win32 project add glu32.dll, glut32.dll, opengl32.dll or the similar files  
-  in "../Microsoft Visual Studio XX.X/VC/bin" folder);
-- Link *.lib files to the project(viewer->Properties->Linker->Input: add glu32.lib;glut32.lib;opengl32.lib 
-  or the similar libraries in the field "Additional Dependencies");
-- If you meet errors about SAFESEH, in the Property Page of the viewer project, Configuration Properties -> Linker -> Advanced
-  Image Has Safe Exception Handlers => change to "NO (/SAFESEH:NO)"
+	- Provide all necessary header files (add gl.h, glu.h, and glaux.h header files in 
+	  "../Microsoft Visual Studio XX.X/VC/include/gl" folder);
+	- Provide *.lib files (for Win32 project add glu32.lib, glut32.lib, opengl32.lib files or the similar 
+	  libraries in "../Microsoft Visual Studio XX.X/VC/lib" folder);
+	- Provide *.dll files (for Win32 project add glu32.dll, glut32.dll, opengl32.dll or the similar files  
+	  in "../Microsoft Visual Studio XX.X/VC/bin" folder);
+	- Link *.lib files to the project(viewer->Properties->Linker->Input: add glu32.lib;glut32.lib;opengl32.lib 
+	  or the similar libraries in the field "Additional Dependencies");
+	- If you meet errors about SAFESEH, in the Property Page of the viewer project, Configuration Properties -> Linker -> Advanced
+	  Image Has Safe Exception Handlers => change to "NO (/SAFESEH:NO)"
 		
 ## 4. HOW TO USE
 ### 4.1 DEMO
 The demo project will show you how to use the T-spline kernel. It creates a mouse T-spline model and generates STL files(ASCII & BINARY), OBJ file, DXF files(T-imgage, T-connect and T-pointset), STEP file and GNUPlot files.
 
-- //// Create a mouse T-spline model.
-- MouseDemoPtr demo = makePtr<MouseDemo>();
--
-- //// Get the T-spline pointer of the mouse model.
-- TSplinePtr spline = demo->findTSpline();
--
-- //// Construct the tessellator using T-spline pointer.
-- TTessellator tessellator(spline);
--
-- //// Tessellation and get all the triangle meshes.
-- TriMeshPtr trimesh = tessellator.interpolateAll();
--
-- //// Write a single mesh to the STL ASCII file.
-- StlWriter stlwriter(dirname + "/" + splinename, trimesh);
-    - stlwriter.writeStlAcii();
-    -
-- ObjWriter objwriter(dirname + "/" + splinename, 0);
-- std::vector<std::string> faces;
-- demo->findTFaceNames(faces);
-- for (int i=0;i<faces.size();i++)
-- {
-- 	//// Tessellation for every T-face seperately.
-- 	TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]);
-- 	objwriter.addMesh(trimesh);
-- 	//// Write every mesh to the STL BINARY file.
-- 	StlWriter stlwriter(dirname + "/" + splinename+"-"+faces[i], trimesh);
-- 	stlwriter.writeStlBinary();
-- }
-- //// Write a single mesh to the OBJ file.
-- objwriter.writeObj();
-- DxfWriter dxfwriter(dirname + "/" + splinename, spline);
-    - dxfwriter.writeDxfTPointset(); //Write T-pointset to the DXF file.
-    - dxfwriter.writeDxfTConnect(); //Write T-connect to the DXF file.
-    - dxfwriter.writeDxfTImage(); //Write T-image to the DXF file.
-- StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
-    - stepwriter.writeStep(); //Write T-spline model to the STEP file.
-- GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
-- gplwriter.writeGnuplMesh(); //Write T-mesh to the GNUPlot file.
-- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
-- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
-- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.	
+	- //// Create a mouse T-spline model.
+	- MouseDemoPtr demo = makePtr<MouseDemo>();
+	-
+	- //// Get the T-spline pointer of the mouse model.
+	- TSplinePtr spline = demo->findTSpline();
+	-
+	- //// Construct the tessellator using T-spline pointer.
+	- TTessellator tessellator(spline);
+	-
+	- //// Tessellation and get all the triangle meshes.
+	- TriMeshPtr trimesh = tessellator.interpolateAll();
+	-
+	- //// Write a single mesh to the STL ASCII file.
+	- StlWriter stlwriter(dirname + "/" + splinename, trimesh);
+	- stlwriter.writeStlAcii();
+	-
+	- ObjWriter objwriter(dirname + "/" + splinename, 0);
+	- std::vector<std::string> faces;
+	- demo->findTFaceNames(faces);
+	- for (int i=0;i<faces.size();i++)
+	- {
+	- 	//// Tessellation for every T-face seperately.
+	- 	TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]);
+	- 	objwriter.addMesh(trimesh);
+	- 	//// Write every mesh to the STL BINARY file.
+	- 	StlWriter stlwriter(dirname + "/" + splinename+"-"+faces[i], trimesh);
+	- 	stlwriter.writeStlBinary();
+	- }
+	- //// Write a single mesh to the OBJ file.
+	- objwriter.writeObj();
+	- DxfWriter dxfwriter(dirname + "/" + splinename, spline);
+	- dxfwriter.writeDxfTPointset(); //Write T-pointset to the DXF file.
+	- dxfwriter.writeDxfTConnect(); //Write T-connect to the DXF file.
+	- dxfwriter.writeDxfTImage(); //Write T-image to the DXF file.
+	- StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
+	- stepwriter.writeStep(); //Write T-spline model to the STEP file.
+	- GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
+	- gplwriter.writeGnuplMesh(); //Write T-mesh to the GNUPlot file.
+	- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
+	- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
+	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.	
 
 ### 4.2 TSM2STL
 
-- Converts a TSM file to a STL ASCII/BINARY file.
-- Usage: tsm2stl.exe [*.tsm] [-asc/-bin]
+	- Converts a TSM file to a STL ASCII/BINARY file.
+	- Usage: tsm2stl.exe [*.tsm] [-asc/-bin]
 	
 ### 4.3 TSM2OBJ
 
-- Converts a TSM file to an OBJ file.
-- Usage: tsm2obj.exe [*.tsm]
+	- Converts a TSM file to an OBJ file.
+	- Usage: tsm2obj.exe [*.tsm]
 
 ### 4.4 TSM2STEP
 
-- Converts a TSM file to a STEP file.
-- Usage: tsm2stp.exe [*.tsm]
+	- Converts a TSM file to a STEP file.
+	- Usage: tsm2stp.exe [*.tsm]
 
 ### 4.5 TSM2DXF
 
-- Converts a TSM file to DXF(T-imgage, T-connect and T-pointset) files.
-- Usage: tsm2dxf.exe [*.tsm] [-img/-cnt/-pst]
+	- Converts a TSM file to DXF(T-imgage, T-connect and T-pointset) files.
+	- Usage: tsm2dxf.exe [*.tsm] [-img/-cnt/-pst]
 
 ### 4.6 TSM2GPL
 
-- Converts TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files.
-- Usage: tsm2gpl.exe [*.tsm]
+	- Converts TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files.
+	- Usage: tsm2gpl.exe [*.tsm]
 
 ### 4.7 VIEWER
 
-- Renders the TSM file. (Windows Only)
-- Usage: viewer.exe [*.tms]
+	- Renders the TSM file. (Windows Only)
+	- Usage: viewer.exe [*.tms]
 	
 ### 4.8 NOTES
 
-- For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.
-- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
+	- For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.
+	- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
 
 ## Reference: 
-- [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianming Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+	- [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianming Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)

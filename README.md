@@ -1,4 +1,214 @@
 # T-SPLINE
-We will bring very different data models of T-spline from conventional definitions. The new data structures are very powerful yet quite comprehensive for both human and computer.
+/**
+\mainpage The mainpage documentation
 
-Our article has been accepted. The source codes will be uploaded on 2016/06/09.
+T-SPLINE Library. \n
+Connect: xiaowenlei@buaa.edu.cn
+
+- 1. INTRODUCTION
+
+1.1 Overview
+
+T-SPLINE -- A T-spline object oriented package in C++
+Copyright (C) 2015-  Wenlei Xiao
+
+The T-SPLINE Library is an OPEN SOURCE, EASY TO UNDERSTAND, EASY TO COMPILE, and EASY TO USE C++ package for T-spline.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as
+published by the Free Software Foundation; either version 3.0 of the
+License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Report problems and direct all questions to:
+
+Wenlei Xiao, Ph.D
+School of Mechanical Engineering and Automation
+Beijing University of Aeronautics and Astronautics
+D-315, New Main Building, 
+Beijing, P.R. China, 100191
+
+email: xiaowenlei@buaa.edu.cn
+
+1.2 History & Credits
+
+Developing History:
+- 2015.03: Wenlei Xiao started the project;
+- 2016.01: Wenlei Xiao released the first version of T-SPLINE Library;
+- 2016.01: Yazui Liu joined the team;
+- 2016.03: Yazui Liu rewrite the rhino tsm parser from matlab to c++;
+- 2016.04: Wenlei Xiao and Yazui Liu added projects: tsm2stl, tsm2obj, tsm2dxf and tsm2stp;
+- 2016.04: Oleksandr Zavalnyi joined the team;
+- 2016.05: Oleksandr Zavalnyi added projects: tsm2gpl and viewer;
+- 2016.06: Yazui Liu added OpenMP to support more efficient tessellation;
+
+Acknowledgements:\par
+
+T-SPLINE was developed for more than one year. Beside the developers, I wish to thank and acknowledge the contributions of the following group of people:
+- Gang Zhao: He helped to define the terms of new data structures and promoted the idea of T-mapper.
+- Rui Li: He gave many advices on the T-spline thoery during the development;
+- Wei Wang: He had the first discussion with me on the efficiency and complexity of T-spline;
+
+1.3 Citation
+
+It is recommended to cite our article, if the source code can help you:\par
+Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)\par
+[the citation in bibtex will be given soon later]
+
+- 2. HOW TO UNDERSTAND
+
+T-spline is a new approach to define freeform surfaces with relatively less control points than NURBS and is able to represent a model using a single surface without joining errors.
+Whereas, the complexity of T-spline data models leads numerous difficulties in its programming, which hinders the research and development of T-spline technologies. 
+Here, the T-SPLINE kernel gives a set of redesigned data models which have much more understanding conveniences to both human and computer. For more detail information, please refer to 
+our article[1].\par
+
+- 3. HOW TO BUILD
+
+To build and compile the T-SPLINE library, CMake tools have to be used.
+Definition is used in this section:
+	- SOURCE_DIRECTORY - the root folder where the source code is. 
+	
+	3.1. BUILDING on Windows systems:
+		- Run CMake;
+		- Specify the source code and binary directories (fill the corresponding entries with value 
+		  "../SOURCE_DIRECTORY" or drag the "CMakeLists.txt" file);
+		- Press Configure button, set up the Generator settings(choose the Microsoft Visual C++ (MSVC) version);
+		- After configuring done few options can be chosen:
+			BUILD_DOCUMENTATION (allows to generate gocumentation): <yes> <no> (Doxygen tool is required to use this option); 
+			CMAKE_INSTALL_PREFIX(define the directory where "*.lib" files and header files will be generated);
+			OpenMP (allows to activate multiprocessing): <yes> <no>.
+		- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY);
+		- Open tspline.sln file in MSVC and build the solution;
+		- If problems with building of the "viewer" project appears, see section 2.4 to solve them;
+		- To generate "*.lib" files and header files, build INSTALL project;
+		- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
+		
+	3.2. BUILDING on unix/debian-like systems:
+		- Run the following comands in terminal:
+			$ cd SOURCE_DIRECTORY
+			$ cmake .
+			$ make 
+				(try make -j4 for a faster build if you have a multi-core machine)
+				(all "*.exe" files and "*.a" libraries will be generated in the SOURCE_DIRECTORY)
+			$ sudo make install
+				(will install all the header files, default directory is /usr/local/include)				
+		- If you also want to build the documentation, then run:
+			$ make doc
+				(this should create the documentation in the SOURCE_DIRECTORY/doxy directory)
+
+	3.3. BUILDING on Mac systems:
+		2.3.1. Using Command Line: all the steps are similar to the steps described in section 2.2. BUILDING on unix/debian-like systems 
+		2.3.2. Using Cmake software:
+			- Run Cmake;
+			- Specify the source code and binary directories (fill the corresponding entries with value 
+			  "../SOURCE_DIRECTORY" or drag the "CMakeLists.txt" file);
+			- Press Configure button, set up the Generator settings(choose the Generator)			 				
+			- After configuring done few options can be chosen:
+				BUILD_DOCUMENTATION (allows to generate gocumentation): <yes> <no> (Doxygen tool is required to use this option); 
+			- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY)
+				(if Unix Makefiles Generator has been chosen it will produce Makefile in the SOURCE_DIRECTORY and all the comands 
+				described in section 2.2. BUILDING on unix/debian-like systems (except $ cmake .)have to be run in Command Line).
+			- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
+		
+	3.4. Solving the problem with building of the "viewer" project on Windows systems:\par
+		Because the "viewer" project is using OpenGL the following steps to setup the system have to be done:
+		- Provide all necessary header files (add gl.h, glu.h, and glaux.h header files in 
+		  "../Microsoft Visual Studio XX.X/VC/include/gl" folder);
+		- Provide *.lib files (for Win32 project add glu32.lib, glut32.lib, opengl32.lib files or the similar 
+		  libraries in "../Microsoft Visual Studio XX.X/VC/lib" folder);
+		- Provide *.dll files (for Win32 project add glu32.dll, glut32.dll, opengl32.dll or the similar files  
+		  in "../Microsoft Visual Studio XX.X/VC/bin" folder);
+		- Link *.lib files to the project(viewer->Properties->Linker->Input: add glu32.lib;glut32.lib;opengl32.lib 
+		  or the similar libraries in the field "Additional Dependencies");
+		- If you meet errors about SAFESEH, in the Property Page of the viewer project, Configuration Properties -> Linker -> Advanced
+		  Image Has Safe Exception Handlers => change to "NO (/SAFESEH:NO)"
+		
+- 4. HOW TO USE
+	
+4.1 DEMO
+	\par
+	The demo project will show you how to use the T-spline kernel. It creates a mouse T-spline model and generates STL files(ASCII & BINARY), OBJ file, DXF files(T-imgage, T-connect and T-pointset), STEP file and GNUPlot files.
+	\par
+	//// Create a mouse T-spline model. \n
+	MouseDemoPtr demo = makePtr<MouseDemo>(); \n
+	//// Get the T-spline pointer of the mouse model. \n
+	TSplinePtr spline = demo->findTSpline(); \n
+	//// Construct the tessellator using T-spline pointer. \n
+	TTessellator tessellator(spline); \n
+	//// Tessellation and get all the triangle meshes. \n
+	TriMeshPtr trimesh = tessellator.interpolateAll(); \n
+	//// Write a single mesh to the STL ASCII file. \n
+	StlWriter stlwriter(dirname + "/" + splinename, trimesh); \n
+    stlwriter.writeStlAcii(); \n
+	ObjWriter objwriter(dirname + "/" + splinename, 0); \n
+	std::vector<std::string> faces; \n
+	demo->findTFaceNames(faces); \n
+	for (int i=0;i<faces.size();i++) \n
+	{ \n
+		//// Tessellation for every T-face seperately. \n
+		TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]); \n
+		objwriter.addMesh(trimesh); \n
+		//// Write every mesh to the STL BINARY file. \n
+		StlWriter stlwriter(dirname + "/" + splinename+"-"+faces[i], trimesh); \n
+		stlwriter.writeStlBinary(); \n
+	} \n
+	//// Write a single mesh to the OBJ file. \n
+	objwriter.writeObj();\n
+	DxfWriter dxfwriter(dirname + "/" + splinename, spline); \n
+    dxfwriter.writeDxfTPointset();		//Write T-pointset to the DXF file. \n
+    dxfwriter.writeDxfTConnect();		//Write T-connect to the DXF file. \n
+    dxfwriter.writeDxfTImage();			//Write T-image to the DXF file. \n
+	StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup()); \n
+    stepwriter.writeStep();				//Write T-spline model to the STEP file. \n
+	GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline); \n
+	gplwriter.writeGnuplMesh();			//Write T-mesh to the GNUPlot file. \n
+	gplwriter.writeGnuplTImage();		//Write T-image to the GNUPlot file. \n	
+	gplwriter.writeGnuplTConnect();		//Write T-connect to the GNUPlot file. \n
+	gplwriter.writeGnuplTPointset();	//Write T-pointset to the GNUPlot file.	
+
+4.2 TSM2STL
+	\par
+	Convert a TSM file to a STL ASCII/BINARY file. \n
+	Usage: tsm2stl.exe [*.tsm] [-asc/-bin]
+	
+4.3 TSM2OBJ
+	\par
+	Convert a TSM file to an OBJ file. \n
+	Usage: tsm2obj.exe [*.tsm]
+
+4.4 TSM2STEP
+	\par
+	Convert a TSM file to a STEP file. \n
+	Usage: tsm2stp.exe [*.tsm]
+
+4.5 TSM2DXF
+	\par
+	Convert a TSM file to DXF(T-imgage, T-connect and T-pointset) files. \n
+	Usage: tsm2dxf.exe [*.tsm] [-img/-cnt/-pst]
+
+4.6 TSM2GPL
+	\par
+	Convert TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files. \n
+	Usage: tsm2gpl.exe [*.tsm]
+
+4.7 VIEWER
+	\par
+	Render the TSM file. (Windows Only) \n
+	Usage: viewer.exe [*.tms]
+	
+NOTE:\par
+	For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.\n
+	For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
+
+Reference: 
+- [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianming Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+
+*/

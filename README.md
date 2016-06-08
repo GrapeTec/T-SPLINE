@@ -1,6 +1,6 @@
 # T-SPLINE
 T-SPLINE Library.
-Connect: xiaowenlei@buaa.edu.cn
+Contact: xiaowenlei@buaa.edu.cn
 
 - 1. INTRODUCTION
 

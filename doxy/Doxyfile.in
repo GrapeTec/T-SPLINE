@@ -1,0 +1,21 @@
+PROJECT_NAME           = "@CMAKE_PROJECT_NAME@"
+PROJECT_NUMBER         = @VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@
+STRIP_FROM_PATH        = @PROJECT_SOURCE_DIR@ \
+                         @PROJECT_BINARY_DIR@ \
+						 @PROJECT_SOURCE_DIR@/newmat
+INPUT                  = @doxy_main_page@ \
+                         @PROJECT_SOURCE_DIR@/source \
+						 mainpage.dox
+FILE_PATTERNS          = *.h \
+                         *.cpp
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+GENERATE_HTMLHELP		= YES
+CHM_FILE 				= @CMAKE_PROJECT_NAME@.chm
+HHC_LOCATION			= "@HTML_HELP_COMPILER@"
+EXCLUDE_PATTERNS       = */thirdparty/*
+USE_MDFILE_AS_MAINPAGE = @doxy_main_page@
+ENABLE_PREPROCESSING = NO
+PROJECT_LOGO			= tspline.png

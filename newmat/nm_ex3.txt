@@ -1,0 +1,50 @@
+Values from precisio.h
+printed as individual numbers - no special formatting
+
+Epsilon      2.22045e-016
+Maximum      1.79769e+308
+LnMaximum    709.783
+Minimum      2.22507e-308
+LnMinimum    -708.396
+
+Load values into a ColumnVector and print in scientific format
+
+Values in scientific format
+   2.22045e-016 
+   1.79769e+308 
+   7.09783e+002 
+   2.22507e-308 
+  -7.08396e+002 
+
+Print in fixed format
+
+Selected values in fixed format (omit Maximum)
+        0.00000 
+      709.78271 
+        0.00000 
+     -708.39642 
+
+Test Epsilon
+
+This value should be non-zero
+(1.0 + Epsilon) - 1.0       2.22045e-016
+This value should be zero
+(1.0 + Epsilon / 2) - 1.0   0.00000e+000
+
+Test Minimum
+
+This value should be non-zero
+Minimum                     2.22507e-308
+Not clear whether this should be zero
+Minimum  * Epsilon          4.94066e-324
+This value should be zero
+Minimum  * Epsilon / 2.0    0.00000e+000
+
+Test LnMaximum and LnMinimum
+
+This should print a value close to Maximum
+Fails with some compilers - needs fixing
+exp(LnMaximum)              1.79769e+308
+This should print a value close to Minimum, not zero
+exp(LnMinimum)              2.22507e-308
+

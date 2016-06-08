@@ -1,0 +1,29 @@
+/// \ingroup newmat
+///@{
+
+/// \file _newmat.dox Introduction to Newmat.
+///
+/// \page newmat Newmat matrix manipulation library.
+///This package is intended for scientists and engineers who need to manipulate a variety of types of
+///matrices using standard matrix operations. Emphasis is on the kind of operations needed in
+///statistical calculations such as least squares, linear equation solve and eigenvalues.
+///
+///It supports a variety of matrix types and the standard matrix operations.
+///Currently, only one element type (float or double) is supported.
+///
+///The package includes the operations Kronecker product, Schur (elementwise) product, concatenation,
+///inverse, transpose, conversion between types, submatrix, determinant, Cholesky decomposition,
+///QR decomposition, singular value decomposition, eigenvalues of a symmetric matrix, sorting,
+///fast Fourier transform, fast trigonometric transforms, printing and an interface with
+///Numerical Recipes in C.
+///
+///It is intended for matrices in the range 10 x 10 to the maximum size your machine will
+///accommodate in a single array. The package will work for very small matrices but becomes
+///rather inefficient.
+
+///@}
+
+
+
+
+

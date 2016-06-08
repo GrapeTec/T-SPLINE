@@ -1,0 +1,6594 @@
+
+Begin test
+Now print a real number: 3.14159
+
+Matrix type: Rect  (1, 8)
+
+0	0	0	0	0	0	0	1	
+
++     UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    UT    Squ   Rect  Squ   Squ   Squ   UT    UT    Squ   UT    Squ   Squ   Squ   
+LT    Squ   LT    Rect  Squ   Squ   Squ   LT    LT    Squ   Squ   LT    Squ   Squ   
+Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Squ   Squ   Squ   Rect  Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   
+Sym   Squ   Squ   Rect  Squ   Sym   Squ   Sym   Sym   Squ   Squ   Squ   Sym   Squ   
+Skew  Squ   Squ   Rect  Squ   Squ   Skew  Squ   Squ   Squ   Squ   Squ   Squ   Skew  
+Diag  UT    LT    Rect  Squ   Sym   Squ   Diag  Diag  Band  UpBnd LwBnd SmBnd Band  
+Ident UT    LT    Rect  Squ   Sym   Squ   Diag  Ident Band  UpBnd LwBnd SmBnd Band  
+Band  Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+UpBnd UT    Squ   Rect  Squ   Squ   Squ   UpBnd UpBnd Band  UpBnd Band  Band  Band  
+LwBnd Squ   LT    Rect  Squ   Squ   Squ   LwBnd LwBnd Band  Band  LwBnd Band  Band  
+SmBnd Squ   Squ   Rect  Squ   Sym   Squ   SmBnd SmBnd Band  Band  Band  SmBnd Band  
+SkBnd Squ   Squ   Rect  Squ   Squ   Skew  Band  Band  Band  Band  Band  Band  SkBnd 
+
+*     UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    UT    Squ   Rect  Squ   Squ   Squ   UT    UT    Squ   UT    Squ   Squ   Squ   
+LT    Squ   LT    Rect  Squ   Squ   Squ   LT    LT    Squ   Squ   LT    Squ   Squ   
+Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Squ   Squ   Squ   Rect  Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   
+Sym   Squ   Squ   Rect  Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   
+Skew  Squ   Squ   Rect  Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   Squ   
+Diag  UT    LT    Rect  Squ   Squ   Squ   Diag  Diag  Band  UpBnd LwBnd Band  Band  
+Ident UT    LT    Rect  Squ   Squ   Squ   Diag  Ident Band  UpBnd LwBnd Band  Band  
+Band  Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+UpBnd UT    Squ   Rect  Squ   Squ   Squ   UpBnd UpBnd Band  UpBnd Band  Band  Band  
+LwBnd Squ   LT    Rect  Squ   Squ   Squ   LwBnd LwBnd Band  Band  LwBnd Band  Band  
+SmBnd Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+SkBnd Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+
+|     UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+LT    Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Squ   Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Sym   Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Skew  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Diag  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Ident Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Band  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+UpBnd Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+LwBnd Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+SmBnd Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+SkBnd Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+
+SP    UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    UT    Diag  UT    UT    UT    UT    Diag  Diag  UpBnd UpBnd Diag  UpBnd UpBnd 
+LT    Diag  LT    LT    LT    LT    LT    Diag  Diag  LwBnd Diag  LwBnd LwBnd LwBnd 
+Rect  UT    LT    Rect  Squ   Squ   Squ   Diag  Diag  Band  UpBnd LwBnd Band  Band  
+Squ   UT    LT    Squ   Squ   Squ   Squ   Diag  Diag  Band  UpBnd LwBnd Band  Band  
+Sym   UT    LT    Squ   Squ   Sym   Skew  Diag  Diag  Band  UpBnd LwBnd SmBnd SkBnd 
+Skew  UT    LT    Squ   Squ   Skew  Sym   ????? ????? Band  UpBnd LwBnd SkBnd SmBnd 
+Diag  Diag  Diag  Diag  Diag  Diag  ????? Diag  Diag  Diag  Diag  Diag  Diag  ????? 
+Ident Diag  Diag  Diag  Diag  Diag  ????? Diag  Ident Diag  Diag  Diag  Diag  ????? 
+Band  UpBnd LwBnd Band  Band  Band  Band  Diag  Diag  Band  UpBnd LwBnd Band  Band  
+UpBnd UpBnd Diag  UpBnd UpBnd UpBnd UpBnd Diag  Diag  UpBnd UpBnd Diag  UpBnd UpBnd 
+LwBnd Diag  LwBnd LwBnd LwBnd LwBnd LwBnd Diag  Diag  LwBnd Diag  LwBnd LwBnd LwBnd 
+SmBnd UpBnd LwBnd Band  Band  SmBnd SkBnd Diag  Diag  Band  UpBnd LwBnd SmBnd SkBnd 
+SkBnd UpBnd LwBnd Band  Band  SkBnd SmBnd ????? ????? Band  UpBnd LwBnd SkBnd SmBnd 
+
+KP    UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    UT    Squ   Rect  Squ   Squ   Squ   UpBnd UpBnd Band  UpBnd Band  Band  Band  
+LT    Squ   LT    Rect  Squ   Squ   Squ   LwBnd LwBnd Band  Band  LwBnd Band  Band  
+Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  Rect  
+Squ   Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+Sym   Squ   Squ   Rect  Squ   Sym   Squ   SmBnd SmBnd Band  Band  Band  SmBnd Band  
+Skew  Squ   Squ   Rect  Squ   Squ   Skew  Band  Band  Band  Band  Band  Band  SkBnd 
+Diag  UT    LT    Rect  Squ   Sym   Squ   Diag  Diag  Band  UpBnd LwBnd SmBnd Band  
+Ident UT    LT    Rect  Squ   Sym   Squ   Diag  Diag  Band  UpBnd LwBnd SmBnd Band  
+Band  Squ   Squ   Rect  Squ   Squ   Squ   Band  Band  Band  Band  Band  Band  Band  
+UpBnd UT    Squ   Rect  Squ   Squ   Squ   UpBnd UpBnd Band  UpBnd Band  Band  Band  
+LwBnd Squ   LT    Rect  Squ   Squ   Squ   LwBnd LwBnd Band  Band  LwBnd Band  Band  
+SmBnd Squ   Squ   Rect  Squ   Sym   Squ   SmBnd SmBnd Band  Band  Band  SmBnd Band  
+SkBnd Squ   Squ   Rect  Squ   Squ   Skew  Band  Band  Band  Band  Band  Band  SkBnd 
+
+>=    UT    LT    Rect  Squ   Sym   Skew  Diag  Ident Band  UpBnd LwBnd SmBnd SkBnd 
+UT    Yes   No    Yes   Yes   No    No    No    No    No    No    No    No    No    
+LT    No    Yes   Yes   Yes   No    No    No    No    No    No    No    No    No    
+Rect  No    No    Yes   Yes   No    No    No    No    No    No    No    No    No    
+Squ   No    No    Yes   Yes   No    No    No    No    No    No    No    No    No    
+Sym   No    No    Yes   Yes   Yes   No    No    No    No    No    No    No    No    
+Skew  No    No    Yes   Yes   No    Yes   No    No    No    No    No    No    No    
+Diag  Yes   Yes   Yes   Yes   Yes   No    Yes   No    Yes   Yes   Yes   Yes   No    
+Ident Yes   Yes   Yes   Yes   Yes   No    Yes   Yes   Yes   Yes   Yes   Yes   No    
+Band  No    No    Yes   Yes   No    No    No    No    Yes   No    No    No    No    
+UpBnd Yes   No    Yes   Yes   No    No    No    No    Yes   Yes   No    No    No    
+LwBnd No    Yes   Yes   Yes   No    No    No    No    Yes   No    Yes   No    No    
+SmBnd No    No    Yes   Yes   Yes   No    No    No    Yes   No    No    Yes   No    
+SkBnd No    No    Yes   Yes   No    Yes   No    No    Yes   No    No    No    Yes   
+
+
+  * First test of Matrix package
+  * Matrix test program
+
+Matrix type: LT    (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: UT    (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 8)
+
+All elements are zero
+
+Matrix type: Rect  (20, 6)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 20)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+  * Second test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (8, 10)
+
+All elements are zero
+
+Matrix type: Rect  (8, 10)
+
+All elements are zero
+
+Matrix type: Rect  (8, 10)
+
+All elements are zero
+
+Matrix type: Rect  (8, 10)
+
+All elements are zero
+
+Matrix type: Rect  (8, 10)
+
+All elements are zero
+
+Matrix type: Rect  (100, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 7)
+
+All elements are zero
+
+Matrix type: Rect  (4, 7)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (10, 20)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (0, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 0)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (14, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (4, 6)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (2, 3)
+
+All elements are zero
+
+Matrix type: Rect  (2, 3)
+
+All elements are zero
+
+  * Third test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (6, 7)
+
+All elements are zero
+
+Matrix type: Rect  (6, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (6, 6)
+
+All elements are zero
+
+Matrix type: Diag  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (4, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+  * Fourth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (3, 10)
+
+All elements are zero
+
+Matrix type: Rect  (3, 10)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 8)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Diag  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Diag  (4, 4)
+
+All elements are zero
+
+Matrix type: Diag  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (5, 6)
+
+All elements are zero
+
+Matrix type: Rect  (3, 4)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (5, 6)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: UT    (0, 0)
+
+All elements are zero
+
+Matrix type: UT    (20, 20)
+
+All elements are zero
+
+Matrix type: LT    (0, 0)
+
+All elements are zero
+
+Matrix type: LT    (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (0, 0)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (0, 0)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (1, 0)
+
+All elements are zero
+
+Matrix type: Rect  (1, 20)
+
+All elements are zero
+
+Matrix type: Rect  (0, 1)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+  * Fifth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 6)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (2, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (5, 6)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Rect  (31, 31)
+
+All elements are zero
+
+Matrix type: Diag  (31, 31)
+
+All elements are zero
+
+  * Sixth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: LT    (5, 5)
+
+All elements are zero
+
+Matrix type: LT    (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 10)
+
+All elements are zero
+
+Matrix type: Rect  (5, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 18)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 99)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 100)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+Matrix type: Rect  (1, 101)
+
+All elements are zero
+
+  * Seventh test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 121)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (11, 11)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 15)
+
+All elements are zero
+
+Matrix type: Rect  (11, 8)
+
+All elements are zero
+
+Matrix type: Rect  (15, 25)
+
+All elements are zero
+
+Matrix type: Rect  (15, 25)
+
+All elements are zero
+
+Matrix type: Rect  (29, 27)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (38, 17)
+
+All elements are zero
+
+Matrix type: Rect  (38, 17)
+
+All elements are zero
+
+Matrix type: Rect  (15, 25)
+
+All elements are zero
+
+Matrix type: Rect  (15, 25)
+
+All elements are zero
+
+Matrix type: Rect  (29, 27)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (38, 17)
+
+All elements are zero
+
+Matrix type: Rect  (38, 17)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (23, 23)
+
+All elements are zero
+
+Matrix type: Squ   (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (23, 23)
+
+All elements are zero
+
+Matrix type: Sym   (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (23, 23)
+
+All elements are zero
+
+Matrix type: LT    (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (23, 23)
+
+All elements are zero
+
+Matrix type: UT    (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (23, 23)
+
+All elements are zero
+
+Matrix type: Diag  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (1, 13)
+
+All elements are zero
+
+Matrix type: Rect  (1, 13)
+
+All elements are zero
+
+Matrix type: Rect  (1, 23)
+
+All elements are zero
+
+Matrix type: Rect  (1, 50)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (23, 1)
+
+All elements are zero
+
+Matrix type: Rect  (50, 1)
+
+All elements are zero
+
+  * Eighth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Diag  (6, 6)
+
+All elements are zero
+
+Matrix type: Diag  (6, 6)
+
+All elements are zero
+
+Matrix type: Diag  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: LT    (4, 4)
+
+All elements are zero
+
+Matrix type: UT    (4, 4)
+
+All elements are zero
+
+Matrix type: Diag  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (10, 6)
+
+All elements are zero
+
+Matrix type: Rect  (5, 9)
+
+All elements are zero
+
+Matrix type: Rect  (3, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (6, 0)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+  * Ninth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 3)
+
+All elements are zero
+
+Matrix type: Rect  (7, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (18, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (22, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (51, 51)
+
+All elements are zero
+
+Matrix type: Rect  (51, 51)
+
+All elements are zero
+
+Matrix type: Rect  (51, 51)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+  * Tenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (8, 6)
+
+All elements are zero
+
+Matrix type: Rect  (8, 6)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (4, 2)
+
+All elements are zero
+
+Matrix type: Rect  (4, 2)
+
+All elements are zero
+
+Matrix type: Rect  (4, 2)
+
+All elements are zero
+
+Matrix type: UT    (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 2)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+  * Eleventh test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 10)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (3, 4)
+
+All elements are zero
+
+Matrix type: Rect  (6, 4)
+
+All elements are zero
+
+Matrix type: Rect  (7, 6)
+
+All elements are zero
+
+Matrix type: Rect  (3, 4)
+
+All elements are zero
+
+Matrix type: Rect  (2, 3)
+
+All elements are zero
+
+  * Twelfth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (15, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 5)
+
+All elements are zero
+
+Matrix type: Rect  (15, 1)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 5)
+
+All elements are zero
+
+Matrix type: Rect  (7, 5)
+
+All elements are zero
+
+Matrix type: Rect  (7, 5)
+
+All elements are zero
+
+Matrix type: UT    (20, 20)
+
+All elements are zero
+
+Matrix type: UT    (5, 5)
+
+All elements are zero
+
+Matrix type: UT    (20, 20)
+
+All elements are zero
+
+Matrix type: UT    (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: UT    (20, 20)
+
+All elements are zero
+
+Matrix type: LT    (20, 20)
+
+All elements are zero
+
+Matrix type: LT    (5, 5)
+
+All elements are zero
+
+Matrix type: LT    (20, 20)
+
+All elements are zero
+
+Matrix type: LT    (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 8)
+
+All elements are zero
+
+Matrix type: LT    (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 30)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 30)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 30)
+
+All elements are zero
+
+Matrix type: Rect  (0, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 60)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (29, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 29)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (0, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 0)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (100, 100)
+
+All elements are zero
+
+Matrix type: Rect  (100, 100)
+
+All elements are zero
+
+Matrix type: Rect  (15, 40)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (20, 1)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (17, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 17)
+
+All elements are zero
+
+Matrix type: Rect  (29, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 29)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (0, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 0)
+
+All elements are zero
+
+Matrix type: Rect  (37, 23)
+
+All elements are zero
+
+Matrix type: Rect  (33, 33)
+
+All elements are zero
+
+Matrix type: Rect  (37, 23)
+
+All elements are zero
+
+Matrix type: Rect  (30, 30)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (10, 13)
+
+All elements are zero
+
+Matrix type: Rect  (17, 17)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: UT    (19, 19)
+
+All elements are zero
+
+Matrix type: UT    (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Sym   (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+Matrix type: Rect  (13, 13)
+
+All elements are zero
+
+  * Thirteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 3)
+
+All elements are zero
+
+Matrix type: Rect  (3, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 7)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (40, 40)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (50, 50)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (1, 30)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (1, 30)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 5)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (21, 21)
+
+All elements are zero
+
+Matrix type: Rect  (21, 21)
+
+All elements are zero
+
+Matrix type: Rect  (21, 21)
+
+All elements are zero
+
+  * Fourteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (8, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (21, 20)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Rect  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Rect  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (21, 21)
+
+All elements are zero
+
+Matrix type: Diag  (30, 30)
+
+All elements are zero
+
+Matrix type: Rect  (30, 30)
+
+All elements are zero
+
+Matrix type: Rect  (30, 30)
+
+All elements are zero
+
+Matrix type: Rect  (30, 30)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Diag  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Diag  (2, 2)
+
+All elements are zero
+
+Matrix type: Diag  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Diag  (2, 2)
+
+All elements are zero
+
+Matrix type: Diag  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (22, 20)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Sym   (10, 10)
+
+All elements are zero
+
+Matrix type: Diag  (9, 9)
+
+All elements are zero
+
+Matrix type: Diag  (9, 9)
+
+All elements are zero
+
+Matrix type: Diag  (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Diag  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Diag  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+  * Fifteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2187, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2187, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2310, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2310, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2401, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2401, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2197, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2197, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2021, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2021, 1)
+
+All elements are zero
+
+Matrix type: Rect  (768, 1)
+
+All elements are zero
+
+Matrix type: Rect  (768, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1280, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1280, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1792, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1792, 1)
+
+All elements are zero
+
+Matrix type: Rect  (320, 1)
+
+All elements are zero
+
+Matrix type: Rect  (320, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (50, 1)
+
+All elements are zero
+
+Matrix type: Rect  (50, 1)
+
+All elements are zero
+
+Matrix type: Rect  (98, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (22, 1)
+
+All elements are zero
+
+Matrix type: Rect  (51, 1)
+
+All elements are zero
+
+Matrix type: Rect  (51, 1)
+
+All elements are zero
+
+Matrix type: Rect  (100, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1025, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1025, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1226, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1226, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2450, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (9, 1)
+
+All elements are zero
+
+Matrix type: Rect  (9, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (30, 1)
+
+All elements are zero
+
+Matrix type: Rect  (30, 1)
+
+All elements are zero
+
+Matrix type: Rect  (42, 1)
+
+All elements are zero
+
+Matrix type: Rect  (42, 1)
+
+All elements are zero
+
+Matrix type: Rect  (24, 1)
+
+All elements are zero
+
+Matrix type: Rect  (24, 1)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (48, 1)
+
+All elements are zero
+
+Matrix type: Rect  (48, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (26, 1)
+
+All elements are zero
+
+Matrix type: Rect  (26, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (18, 1)
+
+All elements are zero
+
+Matrix type: Rect  (18, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (27, 1)
+
+All elements are zero
+
+Matrix type: Rect  (27, 1)
+
+All elements are zero
+
+Matrix type: Rect  (33, 1)
+
+All elements are zero
+
+Matrix type: Rect  (33, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (1, 16)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 3)
+
+All elements are zero
+
+Matrix type: Rect  (4, 3)
+
+All elements are zero
+
+Matrix type: Rect  (4, 3)
+
+All elements are zero
+
+Matrix type: Rect  (4, 3)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (4, 5)
+
+All elements are zero
+
+Matrix type: Rect  (5, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 3)
+
+All elements are zero
+
+Matrix type: Rect  (5, 3)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2187, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2187, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2310, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2310, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2401, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2401, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2197, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2197, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2021, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2021, 1)
+
+All elements are zero
+
+Matrix type: Rect  (768, 1)
+
+All elements are zero
+
+Matrix type: Rect  (768, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1280, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1280, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1792, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1792, 1)
+
+All elements are zero
+
+Matrix type: Rect  (320, 1)
+
+All elements are zero
+
+Matrix type: Rect  (320, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (50, 1)
+
+All elements are zero
+
+Matrix type: Rect  (50, 1)
+
+All elements are zero
+
+Matrix type: Rect  (98, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (22, 1)
+
+All elements are zero
+
+Matrix type: Rect  (51, 1)
+
+All elements are zero
+
+Matrix type: Rect  (51, 1)
+
+All elements are zero
+
+Matrix type: Rect  (100, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1025, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1025, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2048, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1226, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1226, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2450, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (13, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (12, 1)
+
+All elements are zero
+
+Matrix type: Rect  (9, 1)
+
+All elements are zero
+
+Matrix type: Rect  (9, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (16, 1)
+
+All elements are zero
+
+Matrix type: Rect  (30, 1)
+
+All elements are zero
+
+Matrix type: Rect  (30, 1)
+
+All elements are zero
+
+Matrix type: Rect  (42, 1)
+
+All elements are zero
+
+Matrix type: Rect  (42, 1)
+
+All elements are zero
+
+Matrix type: Rect  (24, 1)
+
+All elements are zero
+
+Matrix type: Rect  (24, 1)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (40, 1)
+
+All elements are zero
+
+Matrix type: Rect  (48, 1)
+
+All elements are zero
+
+Matrix type: Rect  (48, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 1)
+
+All elements are zero
+
+Matrix type: Rect  (4, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (5, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (26, 1)
+
+All elements are zero
+
+Matrix type: Rect  (26, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (32, 1)
+
+All elements are zero
+
+Matrix type: Rect  (18, 1)
+
+All elements are zero
+
+Matrix type: Rect  (18, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (202, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1000, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (275, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1001, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (3, 1)
+
+All elements are zero
+
+Matrix type: Rect  (27, 1)
+
+All elements are zero
+
+Matrix type: Rect  (27, 1)
+
+All elements are zero
+
+Matrix type: Rect  (33, 1)
+
+All elements are zero
+
+Matrix type: Rect  (33, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 1)
+
+All elements are zero
+
+  * Sixteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (1, 7)
+
+All elements are zero
+
+Matrix type: Rect  (1, 6)
+
+All elements are zero
+
+Matrix type: Rect  (1, 6)
+
+All elements are zero
+
+Matrix type: Rect  (1, 8)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 5)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+  * Seventeenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (6, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 7)
+
+All elements are zero
+
+Matrix type: Rect  (80, 1)
+
+All elements are zero
+
+Matrix type: Rect  (80, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (80, 1)
+
+All elements are zero
+
+Matrix type: Rect  (80, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 1)
+
+All elements are zero
+
+Matrix type: Rect  (7, 1)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (7, 2)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Sym   (20, 20)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (10, 10)
+
+All elements are zero
+
+Matrix type: Rect  (6, 6)
+
+All elements are zero
+
+Matrix type: Rect  (9, 2)
+
+All elements are zero
+
+Matrix type: Rect  (1, 1)
+
+All elements are zero
+
+Matrix type: Rect  (20, 30)
+
+All elements are zero
+
+Matrix type: UT    (25, 25)
+
+All elements are zero
+
+Matrix type: LT    (25, 25)
+
+All elements are zero
+
+Matrix type: Diag  (25, 25)
+
+All elements are zero
+
+Matrix type: Sym   (25, 25)
+
+All elements are zero
+
+Matrix type: Diag  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (10, 1)
+
+All elements are zero
+
+Matrix type: Rect  (1, 10)
+
+All elements are zero
+
+Matrix type: Rect  (5, 5)
+
+All elements are zero
+
+Matrix type: Diag  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (4, 4)
+
+All elements are zero
+
+Matrix type: Rect  (1, 2)
+
+All elements are zero
+
+Matrix type: Rect  (8, 9)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (9, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (8, 8)
+
+All elements are zero
+
+Matrix type: Rect  (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (9, 9)
+
+All elements are zero
+
+Matrix type: Rect  (8, 9)
+
+All elements are zero
+
+Matrix type: Rect  (99, 1)
+
+All elements are zero
+
+Matrix type: Rect  (24, 30)
+
+All elements are zero
+
+Matrix type: Rect  (1, 30)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (14, 15)
+
+All elements are zero
+
+  * Eighteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (23, 1)
+
+All elements are zero
+
+Matrix type: Rect  (10, 20)
+
+All elements are zero
+
+  * Nineteenth test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (13, 7)
+
+All elements are zero
+
+Matrix type: Rect  (13, 7)
+
+All elements are zero
+
+Matrix type: Rect  (13, 7)
+
+All elements are zero
+
+Matrix type: Rect  (13, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: Diag  (7, 7)
+
+All elements are zero
+
+Matrix type: LT    (7, 7)
+
+All elements are zero
+
+Matrix type: LT    (7, 7)
+
+All elements are zero
+
+Matrix type: LT    (7, 7)
+
+All elements are zero
+
+Matrix type: LT    (7, 7)
+
+All elements are zero
+
+Matrix type: UT    (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (25, 25)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (19, 19)
+
+All elements are zero
+
+Matrix type: Rect  (2, 1)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+Matrix type: Rect  (7, 7)
+
+All elements are zero
+
+  * Twentieth test of Matrix package
+  * Matrix test program
+C subscripts not enabled, not tested
+
+
+  * Twenty first test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (1, 28)
+
+All elements are zero
+
+  * Twenty second test of Matrix package
+  * Matrix test program
+
+Matrix type: Rect  (8, 9)
+
+All elements are zero
+
+Matrix type: Diag  (150, 150)
+
+All elements are zero
+
+Matrix type: UT    (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: UT    (12, 12)
+
+All elements are zero
+
+Matrix type: LT    (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: UT    (12, 12)
+
+All elements are zero
+
+Matrix type: LT    (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (24, 24)
+
+All elements are zero
+
+Matrix type: Rect  (24, 24)
+
+All elements are zero
+
+Matrix type: Rect  (24, 24)
+
+All elements are zero
+
+Matrix type: Rect  (1, 4)
+
+All elements are zero
+
+Matrix type: UT    (24, 24)
+
+All elements are zero
+
+Matrix type: LT    (24, 24)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (12, 12)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Rect  (1, 15)
+
+All elements are zero
+
+Matrix type: Rect  (15, 1)
+
+All elements are zero
+
+Matrix type: Rect  (15, 15)
+
+All elements are zero
+
+Matrix type: Rect  (3, 12)
+
+All elements are zero
+
+Matrix type: Rect  (2, 2)
+
+All elements are zero
+
+Matrix type: Rect  (3, 3)
+
+All elements are zero
+
+Matrix type: Squ   (5, 5)
+
+All elements are zero
+
+Matrix type: Squ   (4, 4)
+
+All elements are zero
+
+Matrix type: Squ   (4, 4)
+
+All elements are zero
+
+End of tests
+
+(The following memory checks are probably not valid with all
+compilers - see documentation)
+
+Checking for lost memory (large block): 10501164 10501164  - ok
+
+
+Checking for lost memory (small block): 10501164 10501164  - ok
+
+Number of matrices tested                 = 1604
+Number of non-zero matrices (should be 1) = 1
+
+Elapsed (processor) time = 0.36 seconds
+

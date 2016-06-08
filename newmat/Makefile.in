@@ -1,0 +1,116 @@
+#
+#	makefile for newmat
+#
+
+srcdir = .
+
+### Placeholder for Makefile fragment
+#####
+###
+
+# standard stuff
+
+OPT++DEFINES	= $(OPTPP_DEFS) $(NEWMAT_DEFS) $(ARCH_DEFINES)
+
+OPT++INCLUDES	= -I$(srcdir) $(OPTPP_INCL) $(ARCH_INCLUDES)
+
+LIB		= $(NEWMAT_ARCHIVE)
+
+LIBOBJ = fft.o evalue.o submat.o cholesky.o hholder.o sort.o newmatrm.o   \
+	 jacobi.o svd.o newmat8.o newmat7.o newmat6.o newmat5.o newmat3.o \
+	 newmat4.o newmat2.o newmat1.o bandmat.o myexcept.o newmatex.o \
+	 newfft.o nm_misc.o
+
+all:		$(LIB)
+
+$(LIB): 	$(LIBOBJ)
+	$(RM) $(LIB)
+	$(AR) $(AR_FLAGS) $(LIB) $(LIBOBJ)
+	$(RANLIB) $(LIB)
+
+clean:
+	$(RM) *.o *.d *.ti *~ *.log *.dat *.out*, core
+	$(RM) -r SunWS_cache ii_files cxx_repository
+
+clobber:
+	$(RM) *.o *.d *.ti *~ *.log *.dat *.out*, core
+	$(RM) -r SunWS_cache ii_files cxx_repository
+	$(RM) $(PGM) $(LIB)
+
+distclean:
+	$(RM) *.o *.d *.ti *~ *.log *.dat *.out*, core
+	$(RM) -r SunWS_cache ii_files cxx_repository
+	$(RM) $(PGM) $(LIB)
+	$(RM) config.status Makefile Makefile-$(TARGET_NAME)
+
+newmatxx = $(srcdir)/include.h $(srcdir)/newmat.h $(srcdir)/myexcept.h
+
+myexcept.o:   $(srcdir)/include.h $(srcdir)/myexcept.h $(srcdir)/myexcept.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/myexcept.cpp
+
+newmatex.o:   $(newmatxx) $(srcdir)/newmatex.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmatex.cpp
+
+cholesky.o:   $(newmatxx) $(srcdir)/cholesky.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/cholesky.cpp
+
+evalue.o:     $(newmatxx) $(srcdir)/newmatrm.h $(srcdir)/precisio.h $(srcdir)/evalue.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/evalue.cpp
+
+fft.o:        $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/fft.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/fft.cpp
+
+newfft.o:      $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/newfft.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newfft.cpp
+
+hholder.o:    $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/hholder.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/hholder.cpp
+
+jacobi.o:     $(newmatxx) $(srcdir)/precisio.h $(srcdir)/newmatrm.h $(srcdir)/jacobi.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/jacobi.cpp
+
+bandmat.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/bandmat.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/bandmat.cpp
+
+newmat1.o:    $(newmatxx) $(srcdir)/newmat1.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat1.cpp
+
+newmat2.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat2.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat2.cpp
+
+newmat3.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat3.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat3.cpp
+
+newmat4.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat4.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat4.cpp
+
+newmat5.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat5.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat5.cpp
+
+newmat6.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat6.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat6.cpp
+
+newmat7.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmat7.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat7.cpp
+
+newmat8.o:    $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/newmat8.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat8.cpp
+
+newmat9.o:    $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/newmatio.h newmat9.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmat9.cpp
+
+newmatrm.o:   $(newmatxx) $(srcdir)/newmatrm.h $(srcdir)/newmatrm.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/newmatrm.cpp
+
+nm_misc.o:   $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/nm_misc.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/nm_misc.cpp
+
+sort.o:       $(newmatxx) $(srcdir)/newmatap.h $(srcdir)/sort.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/sort.cpp
+
+submat.o:     $(newmatxx) $(srcdir)/newmatrc.h $(srcdir)/controlw.h $(srcdir)/submat.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/submat.cpp
+
+svd.o:        $(newmatxx) $(srcdir)/newmatrm.h $(srcdir)/precisio.h $(srcdir)/svd.cpp
+	$(CXX) $(CXXFLAGS) $(OPT++DEFINES) $(OPT++INCLUDES) $(srcdir)/svd.cpp
+

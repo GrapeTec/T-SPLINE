@@ -47,7 +47,7 @@ Developing History:
 - 2016.05: Oleksandr Zavalnyi added projects: tsm2gpl and viewer;
 - 2016.06: Yazui Liu added OpenMP to support more efficient tessellation;
 
-Acknowledgements:\par
+Acknowledgements:
 
 T-SPLINE was developed for more than one year. Beside the developers, I wish to thank and acknowledge the contributions of the following group of people:
 - Gang Zhao: He helped to define the terms of new data structures and promoted the idea of T-mapper.
@@ -67,7 +67,7 @@ Reconsideration of T-spline data models and their exchanges using STEP. Computer
 T-spline is a new approach to define freeform surfaces with relatively less control points than NURBS and is able to represent a model using a single surface without joining errors.
 Whereas, the complexity of T-spline data models leads numerous difficulties in its programming, which hinders the research and development of T-spline technologies. 
 Here, the T-SPLINE kernel gives a set of redesigned data models which have much more understanding conveniences to both human and computer. For more detail information, please refer to 
-our article[1].\par
+our article[1].
 
 - 3. HOW TO BUILD
 

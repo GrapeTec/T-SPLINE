@@ -138,20 +138,20 @@ Definition is used in this section:
 
 	- //// Create a mouse T-spline model.
 	- MouseDemoPtr demo = makePtr<MouseDemo>();
-
+	-
 	- //// Get the T-spline pointer of the mouse model.
 	- TSplinePtr spline = demo->findTSpline();
-	
+	-
 	- //// Construct the tessellator using T-spline pointer.
 	- TTessellator tessellator(spline);
-	
+	-
 	- //// Tessellation and get all the triangle meshes.
 	- TriMeshPtr trimesh = tessellator.interpolateAll();
-	
+	-
 	- //// Write a single mesh to the STL ASCII file.
 	- StlWriter stlwriter(dirname + "/" + splinename, trimesh);
     	- stlwriter.writeStlAcii();
-    	
+    	-
 	- ObjWriter objwriter(dirname + "/" + splinename, 0);
 	- std::vector<std::string> faces;
 	- demo->findTFaceNames(faces);

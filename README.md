@@ -167,16 +167,16 @@ Definition is used in this section:
 	- //// Write a single mesh to the OBJ file.
 	- objwriter.writeObj();
 	- DxfWriter dxfwriter(dirname + "/" + splinename, spline);
-    	- dxfwriter.writeDxfTPointset();		//Write T-pointset to the DXF file.
-    	- dxfwriter.writeDxfTConnect();		//Write T-connect to the DXF file.
-    	- dxfwriter.writeDxfTImage();			//Write T-image to the DXF file.
+    	- dxfwriter.writeDxfTPointset(); //Write T-pointset to the DXF file.
+    	- dxfwriter.writeDxfTConnect(); //Write T-connect to the DXF file.
+    	- dxfwriter.writeDxfTImage(); //Write T-image to the DXF file.
 	- StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
-    	- stepwriter.writeStep();				//Write T-spline model to the STEP file.
+    	- stepwriter.writeStep(); //Write T-spline model to the STEP file.
 	- GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
-	- gplwriter.writeGnuplMesh();			//Write T-mesh to the GNUPlot file.
-	- gplwriter.writeGnuplTImage();		//Write T-image to the GNUPlot file.
-	- gplwriter.writeGnuplTConnect();		//Write T-connect to the GNUPlot file.
-	- gplwriter.writeGnuplTPointset();	//Write T-pointset to the GNUPlot file.	
+	- gplwriter.writeGnuplMesh(); //Write T-mesh to the GNUPlot file.
+	- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
+	- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
+	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.	
 
 4.2 TSM2STL
 	Convert a TSM file to a STL ASCII/BINARY file.

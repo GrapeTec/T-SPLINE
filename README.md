@@ -178,30 +178,37 @@ Definition is used in this section:
 	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.	
 
 4.2 TSM2STL
+
 	- Converts a TSM file to a STL ASCII/BINARY file.
 	- Usage: tsm2stl.exe [*.tsm] [-asc/-bin]
 	
 4.3 TSM2OBJ
+
 	- Converts a TSM file to an OBJ file.
 	- Usage: tsm2obj.exe [*.tsm]
 
 4.4 TSM2STEP
+
 	- Converts a TSM file to a STEP file.
 	- Usage: tsm2stp.exe [*.tsm]
 
 4.5 TSM2DXF
+
 	- Converts a TSM file to DXF(T-imgage, T-connect and T-pointset) files.
 	- Usage: tsm2dxf.exe [*.tsm] [-img/-cnt/-pst]
 
 4.6 TSM2GPL
+
 	- Converts TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files.
 	- Usage: tsm2gpl.exe [*.tsm]
 
 4.7 VIEWER
+
 	- Renders the TSM file. (Windows Only)
 	- Usage: viewer.exe [*.tms]
 	
 NOTE:
+
 	- For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.
 	- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
 

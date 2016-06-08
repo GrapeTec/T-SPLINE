@@ -210,4 +210,4 @@ The demo project will show you how to use the T-spline kernel. It creates a mous
 	- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
 
 ## Reference: 
-	- [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianming Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+* [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianming Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)

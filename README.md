@@ -84,7 +84,7 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 		OpenMP (allows to activate multiprocessing): <yes> <no>.
 	- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY);
 	- Open tspline.sln file in MSVC and build the solution;
-	- If problems with building of the "viewer" project appears, see section 2.4 to solve them;
+	- If problems with building of the "viewer" project appears, see section 3.4 to solve them;
 	- To generate "*.lib" files and header files, build INSTALL project;
 	- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
 		

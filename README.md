@@ -56,8 +56,10 @@ T-SPLINE was developed for more than one year. Beside the developers, I wish to 
 
 1.3 Citation
 
-It is recommended to cite our article, if the source code can help you:\par
-Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)\par
+It is recommended to cite our article, if the source code can help you:
+
+Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+
 [the citation in bibtex will be given soon later]
 
 - 2. HOW TO UNDERSTAND

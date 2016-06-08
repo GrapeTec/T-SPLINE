@@ -49,7 +49,7 @@ Developing History:
 
 Acknowledgements:
 
-T-SPLINE was developed for more than one year. Beside the developers, I wish to thank and acknowledge the contributions of the following group of people:
+T-SPLINE has been developed for more than one year. Beside the developers, I wish to thank and acknowledge the contributions of the following group of people:
 - Gang Zhao: He helped to define the terms of new data structures and promoted the idea of T-mapper.
 - Rui Li: He gave many advices on the T-spline thoery during the development;
 - Wei Wang: He had the first discussion with me on the efficiency and complexity of T-spline;

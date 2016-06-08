@@ -1,8 +1,5 @@
 # T-SPLINE
-/**
-\mainpage The mainpage documentation
-
-T-SPLINE Library. \n
+T-SPLINE Library.
 Connect: xiaowenlei@buaa.edu.cn
 
 - 1. INTRODUCTION

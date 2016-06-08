@@ -102,9 +102,9 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 			(this should create the documentation in the SOURCE_DIRECTORY/doxy directory)
 
 ### 3.3. BUILDING on Mac systems:
-3.3.1. Using Command Line: all the steps are similar to the steps described in section 2.2. BUILDING on unix/debian-like systems 
-3.3.2. Using Cmake software:
-	- Run Cmake;
+	- Using Command Line: all the steps are similar to the steps described in section 2.2. BUILDING on unix/debian-like systems 
+	- Using CMake software:
+	- Run CMake;
 	- Specify the source code and binary directories (fill the corresponding entries with value 
 	  "../SOURCE_DIRECTORY" or drag the "CMakeLists.txt" file);
 	- Press Configure button, set up the Generator settings(choose the Generator)			 				
@@ -116,7 +116,7 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 	- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
 		
 ### 3.4. Solving the problem with building of the "viewer" project on Windows systems:
-Because the "viewer" project is using OpenGL the following steps to setup the system have to be done:
+	- Because the "viewer" project is using OpenGL the following steps to setup the system have to be done:
 	- Provide all necessary header files (add gl.h, glu.h, and glaux.h header files in 
 	  "../Microsoft Visual Studio XX.X/VC/include/gl" folder);
 	- Provide *.lib files (for Win32 project add glu32.lib, glut32.lib, opengl32.lib files or the similar 

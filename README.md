@@ -132,7 +132,8 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 ### 4.1 DEMO
 The demo project will show you how to use the T-spline kernel. It creates a mouse T-spline model and generates STL files(ASCII & BINARY), OBJ file, DXF files(T-imgage, T-connect and T-pointset), STEP file and GNUPlot files.
 '"cpp
-	- //// Create a mouse T-spline model.
+//// Create a mouse T-spline model.
+'"
 	- MouseDemoPtr demo = makePtr<MouseDemo>();
 	-
 	- //// Get the T-spline pointer of the mouse model.
@@ -173,7 +174,6 @@ The demo project will show you how to use the T-spline kernel. It creates a mous
 	- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
 	- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
 	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
-'"
 
 ### 4.2 TSM2STL
 

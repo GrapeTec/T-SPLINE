@@ -9,7 +9,7 @@ Contact: xiaowenlei@buaa.edu.cn
 T-SPLINE -- A T-spline object oriented package in C++
 Copyright (C) 2015-  Wenlei Xiao
 
-The T-SPLINE Library is an OPEN SOURCE, EASY TO UNDERSTAND, EASY TO COMPILE, and EASY TO USE C++ package for T-spline.
+The T-SPLINE Library is an *OPEN SOURCE*, *EASY TO UNDERSTAND*, *EASY TO COMPILE*, and *EASY TO USE* C++ package for T-spline.
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as

@@ -29,7 +29,7 @@ Report problems and direct all questions to:
 
 Wenlei Xiao, Ph.D
 School of Mechanical Engineering and Automation
-Beijing University of Aeronautics and Astronautics
+Beihang University
 D-315, New Main Building, 
 Beijing, P.R. China, 100191
 

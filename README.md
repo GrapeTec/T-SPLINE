@@ -27,11 +27,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 Report problems and direct all questions to:
 
-Wenlei Xiao, Ph.D
-School of Mechanical Engineering and Automation
-Beihang University
-D-315, New Main Building, 
-Beijing, P.R. China, 100191
+Wenlei Xiao, Ph.D<br>
+School of Mechanical Engineering and Automation<br>
+Beihang University<br>
+D-315, New Main Building, <br>
+Beijing, P.R. China, 100191<br>
 
 email: xiaowenlei@buaa.edu.cn
 

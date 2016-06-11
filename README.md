@@ -133,48 +133,48 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 The demo project will show you how to use the T-spline kernel. It creates a mouse T-spline model and generates STL files(ASCII & BINARY), OBJ file, DXF files(T-imgage, T-connect and T-pointset), STEP file and GNUPlot files.
 
 ```cpp
-	- //// Create a mouse T-spline model.
+	//// Create a mouse T-spline model.
 
-	- MouseDemoPtr demo = makePtr<MouseDemo>();
-	-
-	- //// Get the T-spline pointer of the mouse model.
-	- TSplinePtr spline = demo->findTSpline();
-	-
-	- //// Construct the tessellator using T-spline pointer.
-	- TTessellator tessellator(spline);
-	-
-	- //// Tessellation and get all the triangle meshes.
-	- TriMeshPtr trimesh = tessellator.interpolateAll();
-	-
-	- //// Write a single mesh to the STL ASCII file.
-	- StlWriter stlwriter(dirname + "/" + splinename, trimesh);
-	- stlwriter.writeStlAcii();
-	-
-	- ObjWriter objwriter(dirname + "/" + splinename, 0);
-	- std::vector<std::string> faces;
-	- demo->findTFaceNames(faces);
-	- for (int i=0;i<faces.size();i++)
-	- {
-	- 	//// Tessellation for every T-face seperately.
-	- 	TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]);
-	- 	objwriter.addMesh(trimesh);
-	- 	//// Write every mesh to the STL BINARY file.
-	- 	StlWriter stlwriter(dirname + "/" + splinename+"-"+faces[i], trimesh);
-	- 	stlwriter.writeStlBinary();
-	- }
-	- //// Write a single mesh to the OBJ file.
-	- objwriter.writeObj();
-	- DxfWriter dxfwriter(dirname + "/" + splinename, spline);
-	- dxfwriter.writeDxfTPointset(); //Write T-pointset to the DXF file.
-	- dxfwriter.writeDxfTConnect(); //Write T-connect to the DXF file.
-	- dxfwriter.writeDxfTImage(); //Write T-image to the DXF file.
-	- StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
-	- stepwriter.writeStep(); //Write T-spline model to the STEP file.
-	- GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
-	- gplwriter.writeGnuplMesh(); //Write T-mesh to the GNUPlot file.
-	- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
-	- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
-	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
+	MouseDemoPtr demo = makePtr<MouseDemo>();
+	
+	//// Get the T-spline pointer of the mouse model.
+	TSplinePtr spline = demo->findTSpline();
+	
+	//// Construct the tessellator using T-spline pointer.
+	TTessellator tessellator(spline);
+
+	//// Tessellation and get all the triangle meshes.
+	TriMeshPtr trimesh = tessellator.interpolateAll();
+	
+	//// Write a single mesh to the STL ASCII file.
+	StlWriter stlwriter(dirname + "/" + splinename, trimesh);
+	stlwriter.writeStlAcii();
+	
+	ObjWriter objwriter(dirname + "/" + splinename, 0);
+	std::vector<std::string> faces;
+	demo->findTFaceNames(faces);
+	for (int i=0;i<faces.size();i++)
+	{
+		//// Tessellation for every T-face seperately.
+		TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]);
+		objwriter.addMesh(trimesh);
+		//// Write every mesh to the STL BINARY file.
+		StlWriter stlwriter(dirname + "/" + splinename+"-"+faces[i], trimesh);
+		stlwriter.writeStlBinary();
+	}
+	//// Write a single mesh to the OBJ file.
+	objwriter.writeObj();
+	DxfWriter dxfwriter(dirname + "/" + splinename, spline);
+	dxfwriter.writeDxfTPointset(); //Write T-pointset to the DXF file.
+	dxfwriter.writeDxfTConnect(); //Write T-connect to the DXF file.
+	dxfwriter.writeDxfTImage(); //Write T-image to the DXF file.
+	StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
+	stepwriter.writeStep(); //Write T-spline model to the STEP file.
+	GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
+	gplwriter.writeGnuplMesh(); //Write T-mesh to the GNUPlot file.
+	gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
+	gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
+	gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
 ```
 ### 4.2 TSM2STL
 

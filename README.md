@@ -184,7 +184,7 @@ The demo project will show you how to use the T-spline kernel. It creates a mous
 	- Converts a TSM file to an OBJ file.
 	- Usage: tsm2obj.exe [*.tsm]
 
-### 4.4 TSM2STEP
+### 4.4 TSM2STP
 
 	- Converts a TSM file to a STEP file.
 	- Usage: tsm2stp.exe [*.tsm]

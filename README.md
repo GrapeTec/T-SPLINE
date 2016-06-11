@@ -134,7 +134,6 @@ The demo project will show you how to use the T-spline kernel. It creates a mous
 
 ```cpp
 	- //// Create a mouse T-spline model.
-```
 
 	- MouseDemoPtr demo = makePtr<MouseDemo>();
 	-
@@ -176,7 +175,7 @@ The demo project will show you how to use the T-spline kernel. It creates a mous
 	- gplwriter.writeGnuplTImage(); //Write T-image to the GNUPlot file.
 	- gplwriter.writeGnuplTConnect(); //Write T-connect to the GNUPlot file.
 	- gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
-
+```
 ### 4.2 TSM2STL
 
 	- Converts a TSM file to a STL ASCII/BINARY file.

@@ -58,9 +58,25 @@ T-SPLINE has been developed for more than one year. Beside the developers, I wis
 
 It is recommended to cite our article, if the source code can help you:
 
-Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Published on-line)
 
-[the citation in bibtex will be given soon later]
+@article{Xiao2016,
+title = "Reconsideration of T-spline data models and their exchanges using \{STEP\} ",
+journal = "Computer-Aided Design ",
+volume = "",
+number = "",
+pages = " - ",
+year = "2016",
+note = "",
+issn = "0010-4485",
+doi = "http://dx.doi.org/10.1016/j.cad.2016.06.004",
+url = "http://www.sciencedirect.com/science/article/pii/S0010448516300616",
+author = "Wenlei Xiao and Yazui Liu and Rui Li and Wei Wang and Jianming Zheng and Gang Zhao",
+keywords = "T-spline",
+keywords = "Data model",
+keywords = "STEP",
+keywords = "Data exchange "
+}
 
 ## 2. HOW TO UNDERSTAND
 

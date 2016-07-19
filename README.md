@@ -60,18 +60,18 @@ It is recommended to cite our article, if the source code can help you:
 
 Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Published on-line)
 
-	@article{Xiao2016,
+	@article{Xiao201636,
 	title = "Reconsideration of T-spline data models and their exchanges using \{STEP\} ",
 	journal = "Computer-Aided Design ",
-	volume = "",
+	volume = "79",
 	number = "",
-	pages = " - ",
+	pages = "36 - 47",
 	year = "2016",
 	note = "",
 	issn = "0010-4485",
 	doi = "http://dx.doi.org/10.1016/j.cad.2016.06.004",
 	url = "http://www.sciencedirect.com/science/article/pii/S0010448516300616",
-	author = "Wenlei Xiao and Yazui Liu and Rui Li and Wei Wang and Jianming Zheng and Gang Zhao",
+	author = "Wenlei Xiao and Yazui Liu and Rui Li and Wei Wang and Jianmin Zheng and Gang Zhao",
 	keywords = "T-spline",
 	keywords = "Data model",
 	keywords = "STEP",
@@ -231,4 +231,4 @@ gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
 * 5.2 T-NURCCS has not been supported yet.
 
 ## Reference: 
-* [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianmin Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Accept)
+* [1] Wenlei Xiao, Yazui Liu, Rui Li, Wei Wang, Jianmin Zheng, Gang Zhao. Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016, 79, 36 - 47.

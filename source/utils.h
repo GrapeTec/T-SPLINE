@@ -196,12 +196,12 @@ inline bool isEven(int value)
 }
 
 /** Check if float value is near to zero. */
-inline Real isZero(Real value)
+inline bool isZero(Real value)
 {
-	if(abs(value) < M_EPS)
-		return 0;
+	if(fabs(value) < M_EPS)
+		return true;
 	else
-		return value;
+		return false;
 }
 
 #ifdef use_namespace

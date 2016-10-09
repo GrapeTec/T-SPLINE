@@ -41,6 +41,17 @@ namespace TSPLINE {
   using namespace NEWMAT;
 #endif
 
+Frame3D::Frame3D( const Point3D &origin, const Vector3D &axis_x, const Vector3D &axis_z ) :
+	_origin(origin), _axis_x(axis_x), _axis_z(axis_z)
+{
+
+}
+
+Frame3D::~Frame3D()
+{
+
+}
+
 ParameterSquare::ParameterSquare( const Parameter &parameter )
 {
 	seedParameter(parameter);

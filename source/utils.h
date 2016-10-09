@@ -204,6 +204,18 @@ inline bool isZero(Real value)
 		return false;
 }
 
+inline bool isEqual(Real x, Real y)
+{
+	return isZero(x-y);
+}
+
+inline ReturnMatrix TensorProduct(const Matrix &a, const Matrix& b)
+{
+	Matrix tensor = a.AsColumn() * b.AsRow();
+	tensor.Release();
+	return tensor;
+}
+
 #ifdef use_namespace
 }
 #endif

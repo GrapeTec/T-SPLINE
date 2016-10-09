@@ -33,6 +33,8 @@ Revision_history:
 - Created.
 2016/04/02: Wenlei Xiao
 - Doxygen comments added.
+2016/10/09: Wenlei Xiao, Yazui Liu
+- Analytical and matrix forms of basis functions added.
 -------------------------------------------------------------------------------
 */
 
@@ -46,7 +48,7 @@ Revision_history:
   *  @brief  Spline base classes
   *  @author  <Wenlei Xiao>  
   *  @date  <2015.04.08>  
-  *  @version  <v1.0>  
+  *  @version  <v1.1>  
   *  @note  
   *  The spline base classes provide some basic spline calculations.
 */
@@ -83,19 +85,27 @@ public:
 
 	/** Get the knots as a column vector*/
 	ColumnVector getKnots() const;
+	Real getKnot(int i) const;
 	/** Get the knots from a column vector*/
 	void setKnots(const ColumnVector &k);
 
 public:
 	/** Calculate the basic derivation. (universal algorithm) */
 	virtual Real baseFunc(Real u) const;
+	virtual Real baseFunc_m(Real u) const;
 	/** Calculate the first oder basic derivation. (universal algorithm) */
 	virtual Real baseFunc1st(Real u) const;
+	virtual Real baseFunc1st_m(Real u) const;
 	/** Calculate the second oder basic derivation. (universal algorithm) */
 	virtual Real baseFunc2nd(Real u) const;
+	virtual Real baseFunc2nd_m(Real u) const;
 
 protected:
 	Real Nip(unsigned int i, unsigned int p, Real u) const;
+
+	virtual void init() {}
+	virtual void init_m() {}
+
 private:
 	ColumnVector _knots;	
 	unsigned int _order;	
@@ -125,6 +135,7 @@ public:
 	virtual Real baseFunc2nd(Real u) const;
 };
 
+enum K5Domain {K5_OUT, K5_E1, K5_E2, K5_E3, K5_E4};
 DECLARE_SMARTPTR(CubicSpline)
 /**  
   *  @class  <CubicSpline> 
@@ -143,10 +154,52 @@ public:
 public:
 	/** Calculate the cubic basis function. */
 	virtual Real baseFunc(Real u) const;
+	virtual Real baseFunc_m(Real u) const;
 	/** Calculate the first order of cubic basis function. */
 	virtual Real baseFunc1st(Real u) const;
+	virtual Real baseFunc1st_m(Real u) const;
 	/** Calculate the second order of cubic basis function. */
 	virtual Real baseFunc2nd(Real u) const;
+	virtual Real baseFunc2nd_m(Real u) const;
+
+	//////////////////////////////////////////////////////////////////////////
+	ReturnMatrix H0() { return _H0; }
+	ReturnMatrix H1() { return _H1; }
+	ReturnMatrix H2() { return _H2; }
+	ReturnMatrix H3() { return _H3; }
+
+	K5Domain domain(Real u) const;
+	ReturnMatrix H(const K5Domain d) const
+	{
+		switch (d)
+		{
+		case TSPLINE::K5_OUT:
+			return Matrix();
+			break;
+		case TSPLINE::K5_E1:
+			return _H0;
+			break;
+		case TSPLINE::K5_E2:
+			return _H1;
+			break;
+		case TSPLINE::K5_E3:
+			return _H2;
+			break;
+		case TSPLINE::K5_E4:
+			return _H3;
+			break;
+		default:
+			return Matrix();
+			break;
+		}
+	}
+
+protected:
+	virtual void init();
+	virtual void init_m();
+private:
+	Real _a0, _b0, _b1, _b2, _c0, _c1, _c2, _d0;
+	Matrix _H0, _H1, _H2, _H3;
 };
 
 DECLARE_SMARTPTR(CrossSpline)
@@ -164,15 +217,25 @@ public:
 public:
 	/** Calculate the cross basis function. */
 	Real baseFunc(Real u, Real v) const;
+	Real baseFunc_m(Real u, Real v) const;
 	/** Calculate the U first order of cross basis function. */
 	Real baseFunc1stU(Real u, Real v) const;
+	Real baseFunc1stU_m(Real u, Real v) const;
 	/** Calculate the V first order of cross basis function. */
 	Real baseFunc1stV(Real u, Real v) const;
+	Real baseFunc1stV_m(Real u, Real v) const;
 	/** Calculate the U second order of cross basis function. */
 	Real baseFunc2ndU(Real u, Real v) const;
+	Real baseFunc2ndU_m(Real u, Real v) const;
 	/** Calculate the V second order of cross basis function. */
 	Real baseFunc2ndV(Real u, Real v) const;
+	Real baseFunc2ndV_m(Real u, Real v) const;
+	/** Calculate the UV second order of cross basis function. */
+	Real baseFunc2ndUV(Real u, Real v) const;
+	Real baseFunc2ndUV_m(Real u, Real v) const;
 
+	SplineBasePtr spline_u() { return _spline_u; }
+	SplineBasePtr spline_v() { return _spline_v; }
 public:
 	/** Set the UV knots. */
 	virtual void setUVNodes(const ColumnVector &ku, const ColumnVector &kv);
@@ -234,9 +297,9 @@ public:
 	void addRationalPointWithNodes(const std::vector<Real> &u_knots, const std::vector<Real> &v_knots,
 		Point3D &point, Real weight);
 	/** Computer the point. */
-	Point3D compute(Real u, Real v);
+	Point3D computePoint(Real u, Real v);
 	/** Computer the point. */
-	Point3D compute(const Parameter &p);
+	Point3D computePoint(const Parameter &p);
 	/** Computer the normal. */
 	Vector3D computeNormal(Real u, Real v);
 	/** Computer the normal. */
@@ -245,16 +308,42 @@ public:
 	void computePointAndNormal(Real u, Real v, Point3D &point, Vector3D &normal);
 	/** Computer the point and normal. */
 	void computePointAndNormal(const Parameter &p, Point3D &point, Vector3D &normal);
+
+	enum DERIVE_SUFFIX{DER_U, DER_V};
+
+	ReturnMatrix computeFirstDerivative(const DERIVE_SUFFIX der, const Real u, const Real v);
+	ReturnMatrix computeFirstDerivative(const DERIVE_SUFFIX der, const Parameter &p);
+
+	ReturnMatrix computeUpToFirstDerivatives(const Real u, const Real v);
+	ReturnMatrix computeUpToFirstDerivatives(const Parameter &p);
+
+	ReturnMatrix computeSecondDerivative(const DERIVE_SUFFIX der1, const DERIVE_SUFFIX der2, const Real u, const Real v);
+	ReturnMatrix computeSecondDerivative(const DERIVE_SUFFIX der1, const DERIVE_SUFFIX der2, const Parameter &p);
+	
+	ReturnMatrix computeUpToSecondDerivatives(const Real u, const Real v);
+	ReturnMatrix computeUpToSecondDerivatives(const Parameter &p);
+
+	//////////////////////////////////////////////////////////////////////////
+	void computeTensorMatrices(Matrix &tmx, Matrix &tmy, Matrix &tmz, Matrix &tm1,
+		Real u, Real v, std::vector<K5Domain> lastu, std::vector<K5Domain> lastv);
+	void initializeTensorMatrices(Real u, Real v);
+	void updateTensorMatrices(std::vector<K5Domain> domainu, std::vector<K5Domain> domainv);
+
 private:
 	class RationalPoint3DWithUVNodes : public Point3D
 	{
 	public:
-		RationalPoint3DWithUVNodes(Real x, Real y, Real z, Real w) : Point3D(x, y, z), weight(w) {}
+		RationalPoint3DWithUVNodes(Real x, Real y, Real z, Real w) : Point3D(x, y, z), weight(w) {cross_spline = makePtr<CrossCubicSpline>();}
 		~RationalPoint3DWithUVNodes() {}
 	public:
 		Real weight;				
 		std::vector<Real> u_knots;	
-		std::vector<Real> v_knots;	
+		std::vector<Real> v_knots;
+		CrossSplinePtr cross_spline;
+		void setCrossSpline()
+		{
+			cross_spline->setUVNodes(getUNodesAsColumnVector(), getVNodesAsColumnVector());
+		}
 		/** Set the U knots. */
 		void setUNodes(const std::vector<Real> &vals)
 		{
@@ -290,7 +379,13 @@ private:
 	};
 	typedef std::vector<RationalPoint3DWithUVNodes> VRPVK;
 	CrossSplinePtr _cross_spline;			
-	VRPVK _rational_points_with_knots;		
+	VRPVK _rational_points_with_knots;
+
+	Matrix _tmx, _tmy, _tmz, _tm1;
+
+	std::vector<K5Domain> _lastu;
+	std::vector<K5Domain> _lastv;
+	void getDomain(Real u, Real v, std::vector<K5Domain> &domainu, std::vector<K5Domain> &domainv);
 };
 
 #ifdef use_namespace

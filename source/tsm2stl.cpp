@@ -99,8 +99,6 @@ int main(int argc, char **argv)
    mkdir(dirname.c_str(), 0744);
    #endif 
 
-   double start_time = clock();
-
    RhBuilderPtr reader = makePtr<RhBuilder>(filename);
    TSplinePtr spline = reader->findTSpline();
    
@@ -110,8 +108,6 @@ int main(int argc, char **argv)
    
    std::vector<std::string> faces;
    reader->findTFaceNames(faces);
-
-   double end_time = clock();
 
    if(option == "-asc")
    {
@@ -134,7 +130,6 @@ int main(int argc, char **argv)
 	   cout << "Do not support the option." << endl;
    }
 
-   cout << "parser and tessellation time: " << (double)(end_time-start_time)/CLOCKS_PER_SEC << endl;
 
    return(0);
 }

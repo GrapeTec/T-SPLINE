@@ -30,9 +30,7 @@ email: xiaowenlei@buaa.edu.cn
 Revision_history:
 
 2015/04/08: Wenlei Xiao
-- Created.
-2016/06/06: Yazui Liu
-- Add TriMesh::merge() function.
+   - Created.
 -------------------------------------------------------------------------------
 */
 

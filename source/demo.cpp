@@ -47,6 +47,9 @@ Revision_history:
 #include <factory.h>
 #include <tessellator.h>
 #include <writer.h>
+#include <derivator.h>
+#include <finder.h>
+#include <extractor.h>
 
 #ifdef _WIN32
 #include <direct.h>
@@ -104,7 +107,7 @@ int main(void)
 	   stlwriter.writeStlBinary();
 	   cout << "STL file: " << stlwriter.fileName() << " is written!" <<  endl;
    }
-
+   
    objwriter.writeObj();
    cout << "OBJ file: " << objwriter.fileName() << " is written!" <<  endl;
 
@@ -117,8 +120,7 @@ int main(void)
    StepWriter stepwriter(dirname + "/" + splinename, demo->findTGroup());
    stepwriter.writeStep();
    cout << "STEP file: " << stepwriter.fileName() << " is written!" <<  endl;
-
-
+   
    GnuplotWriter gplwriter(dirname + "/" + splinename, trimesh, spline);
    gplwriter.writeGnuplMesh();
    gplwriter.writeGnuplTImage();
@@ -126,7 +128,6 @@ int main(void)
    gplwriter.writeGnuplTPointset();
    cout << "GNUpl files: " << gplwriter.fileName() << " is written!" << endl;
    
-
    return(0);
 }
 

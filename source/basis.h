@@ -59,6 +59,7 @@ namespace TSPLINE {
 DECLARE_ASSISTANCES(Parameter, Par);
 DECLARE_ASSISTANCES(Point3D, P3d);
 DECLARE_ASSISTANCES(Vector3D, N3d);
+DECLARE_ASSISTANCES(Frame3D, F3d);
 DECLARE_ASSISTANCES(ParameterSquare, ParaSqu);
 
 /**  
@@ -133,6 +134,13 @@ public:
 	/** z coordinate */
 	Real z() const {return _coordinates[2];}
 	Real z(Real v) {_coordinates[2] = v; return v;}
+
+	ReturnMatrix asColumnVector() 
+	{
+		ColumnVector v(3);
+		v << x() << y() << z();
+		v.Release(); return v;
+	}
 public:
 	/** operator = */
 	Point3D& operator=(const Point3D &p) { x(p.x()); y(p.y()); z(p.z()); return *this;}
@@ -183,6 +191,7 @@ public:
 	Real k() const {return _point.z();}
 	Real k(Real v) {return _point.z(v);}
 
+	ReturnMatrix asColumnVector() { return _point.asColumnVector(); }
 public:
 	/** operator = */
 	Vector3D& operator=(const Vector3D &n) {_point = n._point; return *this;}
@@ -222,6 +231,28 @@ public:
 	Vector3D& normalize() { _point /= norm(); return *this;}
 private:
 	Point3D _point;
+};
+
+class Frame3D
+{
+public:
+	Frame3D(const Point3D &origin, const Vector3D &axis_x, const Vector3D &axis_z);
+	~Frame3D();
+public:
+	Point3D o() { return _origin; }
+	Vector3D x() { return _axis_x; }
+	Vector3D y() 
+	{
+		ColumnVector vx = _axis_x.asColumnVector();
+		ColumnVector vz = _axis_z.asColumnVector();
+		ColumnVector vy = CrossProduct(vz, vx);
+		return Vector3D(vy(1), vy(2), vy(3));
+	}
+	Vector3D z() { return _axis_z; }
+private:
+	Point3D _origin;
+	Vector3D _axis_x;
+	Vector3D _axis_z;
 };
 
 /**  

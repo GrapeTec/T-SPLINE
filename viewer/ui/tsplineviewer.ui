@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TSplineViewerClass</class>
+ <widget class="QMainWindow" name="TSplineViewerClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TSplineViewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionBottom_View"/>
+    <addaction name="actionTop_View"/>
+    <addaction name="actionLeft_VIew"/>
+    <addaction name="actionRight_View"/>
+    <addaction name="actionFront_View"/>
+    <addaction name="actionISO_View"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuRender">
+    <property name="title">
+     <string>Render</string>
+    </property>
+    <widget class="QMenu" name="menuRender_Mode">
+     <property name="title">
+      <string>Render Mode</string>
+     </property>
+     <addaction name="actionPoint"/>
+     <addaction name="actionLine"/>
+     <addaction name="actionFill"/>
+    </widget>
+    <addaction name="menuRender_Mode"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuRender"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionBottom_View">
+   <property name="text">
+    <string>Bottom View</string>
+   </property>
+  </action>
+  <action name="actionTop_View">
+   <property name="text">
+    <string>Top View</string>
+   </property>
+  </action>
+  <action name="actionLeft_VIew">
+   <property name="text">
+    <string>Left VIew</string>
+   </property>
+  </action>
+  <action name="actionRight_View">
+   <property name="text">
+    <string>Right View</string>
+   </property>
+  </action>
+  <action name="actionFront_View">
+   <property name="text">
+    <string>Front View</string>
+   </property>
+  </action>
+  <action name="actionISO_View">
+   <property name="text">
+    <string>ISO View</string>
+   </property>
+  </action>
+  <action name="actionFull_Screen">
+   <property name="text">
+    <string>Full Screen</string>
+   </property>
+  </action>
+  <action name="actionPoint">
+   <property name="text">
+    <string>Point</string>
+   </property>
+  </action>
+  <action name="actionLine">
+   <property name="text">
+    <string>Line</string>
+   </property>
+  </action>
+  <action name="actionFill">
+   <property name="text">
+    <string>Fill</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

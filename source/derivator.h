@@ -74,11 +74,24 @@ public:
 	virtual ~TDerivator();
 public:
 	/** Derive the zero oder point on the T-spline surface. */
-	virtual int zeroOrderDerive(const Parameter &parameter, Point3D &point);
+	virtual int pointDerive(const Parameter &parameter, Point3D &point);
 	/** Derive the first oder normal on the T-spline surface. */
-	virtual int firstOrderDerive(const Parameter &parameter, Vector3D &normal);
+	virtual int normalDerive(const Parameter &parameter, Vector3D &normal);
 	/** Derive both the zero and the first oder point and normal on the T-spline surface. */
-	virtual int zeroAndFirstOrderDerive(const Parameter &parameter, Point3D &point, Vector3D &normal);
+	virtual int pointAndNormalDerive(const Parameter &parameter, Point3D &point, Vector3D &normal);
+
+	Real normalCurvature(const Parameter &parameter, Real ds, Real dt);
+	void principalCurvature(const Parameter &parameter, Real &k1, Real &k2);
+
+	virtual ReturnMatrix firstPartialDeriveU(const Parameter &parameter);
+	virtual ReturnMatrix firstPartialDeriveV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveUU(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveUV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveVV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDerive(const Parameter &parameter);//uu uv vv u v s
+
+	ReturnMatrix firstAndSecondFundamentalForm(const Parameter &parameter);
+	
 protected:
 	TFacePtr findTFaceByParameter(const Parameter &parameter);
 	BlendingEquationPtr prepareEquationByTFace(const TFacePtr &tface);
@@ -101,13 +114,28 @@ public:
 	/** Get the specified T-face. */
 	TFacePtr getFace() {return _face;}
 	/** Derive the zero oder point on the T-face. */
-	virtual int zeroOrderDerive(const Parameter &parameter, Point3D &point);
+	virtual int pointDerive(const Parameter &parameter, Point3D &point);
 	/** Derive the first oder normal on the T-face. */
-	virtual int firstOrderDerive(const Parameter &parameter, Vector3D &normal);
+	virtual int normalDerive(const Parameter &parameter, Vector3D &normal);
 	/** Derive both the zero and the first oder point and normal on the T-face. */
-	virtual int zeroAndFirstOrderDerive(const Parameter &parameter, Point3D &point, Vector3D &normal);
+	virtual int pointAndNormalDerive(const Parameter &parameter, Point3D &point, Vector3D &normal);
+
+	virtual ReturnMatrix firstPartialDeriveU(const Parameter &parameter);
+	virtual ReturnMatrix firstPartialDeriveV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveUU(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveUV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDeriveVV(const Parameter &parameter);
+	virtual ReturnMatrix secondPartialDerive(const Parameter &parameter);//uu uv vv u v s
+
+protected:
+
 private:
 	TFacePtr _face;
+	BlendingEquationPtr _equation;
+	Matrix _xtm;
+	Matrix _ytm;
+	Matrix _ztm;
+	Matrix _1tm;
 };
 
 #ifdef use_namespace

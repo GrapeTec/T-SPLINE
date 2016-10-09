@@ -47,9 +47,6 @@ Revision_history:
 #include <factory.h>
 #include <tessellator.h>
 #include <writer.h>
-#include <derivator.h>
-#include <finder.h>
-#include <extractor.h>
 
 #ifdef _WIN32
 #include <direct.h>

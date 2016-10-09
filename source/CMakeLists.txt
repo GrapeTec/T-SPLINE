@@ -58,13 +58,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 add_definitions(-DUSE_OMP)
 endif()
 
-#if(WIN32)
-#add_executable(viewer WIN32 
-#			viewer.cpp
-#			viewer_model.cpp
-#			viewer_motions.cpp)
-#target_link_libraries(viewer rhino tspline newmat)
-#endif(WIN32)
+option(MATRIX_FORM "Using matrix form for the calculation of basis function" ON)
+if(MATRIX_FORM)
+add_definitions(-DMATRIX_FORM)
+endif()
+
 
 FILE(GLOB_RECURSE include_list "*.h")
 INSTALL(FILES ${include_list} DESTINATION include)

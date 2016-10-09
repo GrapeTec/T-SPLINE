@@ -95,6 +95,8 @@ int main(int argc, char **argv)
    mkdir(dirname.c_str(), 0744);
    #endif 
 
+   double start_time = clock();
+
    RhBuilderPtr reader = makePtr<RhBuilder>(filename);
    TSplinePtr spline = reader->findTSpline();
    
@@ -109,9 +111,13 @@ int main(int argc, char **argv)
 	   TriMeshPtr trimesh = tessellator.interpolateFace(faces[i]);
 	   objwriter.addMesh(trimesh);
    }
+   
+   double end_time = clock();
 
    objwriter.writeObj();
    cout << "OBJ file: " << objwriter.fileName() << " is written!" <<  endl;
+
+   cout << "parser and tessellation time: " << (double)(end_time-start_time)/CLOCKS_PER_SEC << endl;
 
    return(0);
 }

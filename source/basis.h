@@ -134,7 +134,7 @@ public:
 	/** z coordinate */
 	Real z() const {return _coordinates[2];}
 	Real z(Real v) {_coordinates[2] = v; return v;}
-
+	/** return point as column vector */
 	ReturnMatrix asColumnVector() 
 	{
 		ColumnVector v(3);
@@ -190,7 +190,7 @@ public:
 	/** k of vector */
 	Real k() const {return _point.z();}
 	Real k(Real v) {return _point.z(v);}
-
+	/** return vector as column vector */
 	ReturnMatrix asColumnVector() { return _point.asColumnVector(); }
 public:
 	/** operator = */
@@ -233,6 +233,12 @@ private:
 	Point3D _point;
 };
 
+/**  
+  *  @class  <Frame3D> 
+  *  @brief  A 3D coordinate system.   
+  *  @note  
+  *  A 3D coordinate system is specified using one point and two vectors.
+*/ 
 class Frame3D
 {
 public:
@@ -250,9 +256,9 @@ public:
 	}
 	Vector3D z() { return _axis_z; }
 private:
-	Point3D _origin;
-	Vector3D _axis_x;
-	Vector3D _axis_z;
+	Point3D _origin;	/** Origin point of the 3D coordinate system*/
+	Vector3D _axis_x;	/** X axis of the 3D coordinate system*/
+	Vector3D _axis_z;	/** Z axis of the 3D coordinate system*/
 };
 
 /**  

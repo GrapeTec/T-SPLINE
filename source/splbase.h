@@ -47,7 +47,7 @@ Revision_history:
 /**  @file  [splbase]  
   *  @brief  Spline base classes
   *  @author  <Wenlei Xiao>  
-  *  @date  <2015.04.08>  
+  *  @date  <2016.10.08>  
   *  @version  <v1.1>  
   *  @note  
   *  The spline base classes provide some basic spline calculations.
@@ -85,6 +85,7 @@ public:
 
 	/** Get the knots as a column vector*/
 	ColumnVector getKnots() const;
+	/** Get the ith knot vector*/
 	Real getKnot(int i) const;
 	/** Get the knots from a column vector*/
 	void setKnots(const ColumnVector &k);
@@ -92,12 +93,15 @@ public:
 public:
 	/** Calculate the basic derivation. (universal algorithm) */
 	virtual Real baseFunc(Real u) const;
+	/** Calculate the basic derivation. (matrix algorithm) */
 	virtual Real baseFunc_m(Real u) const;
 	/** Calculate the first oder basic derivation. (universal algorithm) */
 	virtual Real baseFunc1st(Real u) const;
+	/** Calculate the first oder basic derivation. (matrix algorithm) */
 	virtual Real baseFunc1st_m(Real u) const;
 	/** Calculate the second oder basic derivation. (universal algorithm) */
 	virtual Real baseFunc2nd(Real u) const;
+	/** Calculate the second oder basic derivation. (matrix algorithm) */
 	virtual Real baseFunc2nd_m(Real u) const;
 
 protected:
@@ -135,6 +139,7 @@ public:
 	virtual Real baseFunc2nd(Real u) const;
 };
 
+/** Domain definition for the cubic spline, see also definition of the basis function of cubic spline. */
 enum K5Domain {K5_OUT, K5_E1, K5_E2, K5_E3, K5_E4};
 DECLARE_SMARTPTR(CubicSpline)
 /**  
@@ -152,23 +157,27 @@ public:
 	virtual ~CubicSpline();
 
 public:
-	/** Calculate the cubic basis function. */
+	/** Calculate the cubic basis function. (universal algorithm) */
 	virtual Real baseFunc(Real u) const;
+	/** Calculate the cubic basis function. (matrix algorithm) */
 	virtual Real baseFunc_m(Real u) const;
-	/** Calculate the first order of cubic basis function. */
+	/** Calculate the first order of cubic basis function. (universal algorithm) */
 	virtual Real baseFunc1st(Real u) const;
+	/** Calculate the first order of cubic basis function. (matrix algorithm) */
 	virtual Real baseFunc1st_m(Real u) const;
-	/** Calculate the second order of cubic basis function. */
+	/** Calculate the second order of cubic basis function. (universal algorithm) */
 	virtual Real baseFunc2nd(Real u) const;
+	/** Calculate the second order of cubic basis function. (matrix algorithm) */
 	virtual Real baseFunc2nd_m(Real u) const;
 
-	//////////////////////////////////////////////////////////////////////////
-	ReturnMatrix H0() { return _H0; }
-	ReturnMatrix H1() { return _H1; }
-	ReturnMatrix H2() { return _H2; }
-	ReturnMatrix H3() { return _H3; }
+	ReturnMatrix H0() { return _H0; }/** Return H0 domain matrix */
+	ReturnMatrix H1() { return _H1; }/** Return H1 domain matrix */
+	ReturnMatrix H2() { return _H2; }/** Return H2 domain matrix */
+	ReturnMatrix H3() { return _H3; }/** Return H3 domain matrix */
 
+	/** Return the domain where parameter u is located.  */
 	K5Domain domain(Real u) const;
+	/** Return matrix according to the domain. */
 	ReturnMatrix H(const K5Domain d) const
 	{
 		switch (d)
@@ -215,26 +224,34 @@ public:
 	CrossSpline(const SplineBasePtr &spline_u, const SplineBasePtr &spline_v);
 	virtual ~CrossSpline();
 public:
-	/** Calculate the cross basis function. */
+	/** Calculate the cross basis function. (universal algorithm) */
 	Real baseFunc(Real u, Real v) const;
+	/** Calculate the cross basis function. (matrix algorithm) */
 	Real baseFunc_m(Real u, Real v) const;
-	/** Calculate the U first order of cross basis function. */
+	/** Calculate the U first order of cross basis function. (universal algorithm) */
 	Real baseFunc1stU(Real u, Real v) const;
+	/** Calculate the U first order of cross basis function. (matrix algorithm) */
 	Real baseFunc1stU_m(Real u, Real v) const;
-	/** Calculate the V first order of cross basis function. */
+	/** Calculate the V first order of cross basis function. (universal algorithm) */
 	Real baseFunc1stV(Real u, Real v) const;
+	/** Calculate the V first order of cross basis function. (matrix algorithm) */
 	Real baseFunc1stV_m(Real u, Real v) const;
-	/** Calculate the U second order of cross basis function. */
+	/** Calculate the U second order of cross basis function. (universal algorithm) */
 	Real baseFunc2ndU(Real u, Real v) const;
+	/** Calculate the U second order of cross basis function. (matrix algorithm) */
 	Real baseFunc2ndU_m(Real u, Real v) const;
-	/** Calculate the V second order of cross basis function. */
+	/** Calculate the V second order of cross basis function. (universal algorithm) */
 	Real baseFunc2ndV(Real u, Real v) const;
+	/** Calculate the V second order of cross basis function. (matrix algorithm) */
 	Real baseFunc2ndV_m(Real u, Real v) const;
-	/** Calculate the UV second order of cross basis function. */
+	/** Calculate the UV second order of cross basis function. (universal algorithm) */
 	Real baseFunc2ndUV(Real u, Real v) const;
+	/** Calculate the UV second order of cross basis function. (matrix algorithm) */
 	Real baseFunc2ndUV_m(Real u, Real v) const;
 
+	/** Return U spline base pointer. */
 	SplineBasePtr spline_u() { return _spline_u; }
+	/** Return V spline base pointer. */
 	SplineBasePtr spline_v() { return _spline_v; }
 public:
 	/** Set the UV knots. */
@@ -309,24 +326,40 @@ public:
 	/** Computer the point and normal. */
 	void computePointAndNormal(const Parameter &p, Point3D &point, Vector3D &normal);
 
+	/** Derivative direction. */
 	enum DERIVE_SUFFIX{DER_U, DER_V};
 
+	/** Calculate first derivative on the parameter(u,v) with respect to the derivative direction. */
 	ReturnMatrix computeFirstDerivative(const DERIVE_SUFFIX der, const Real u, const Real v);
 	ReturnMatrix computeFirstDerivative(const DERIVE_SUFFIX der, const Parameter &p);
 
+	/** Calculate all first derivatives on the parameter(u,v) and store them using a 3*3 matrix with column major order
+	1th column: U first derivative;
+	2th column: V first derivative;
+	3th column: point on the surface.
+	*/
 	ReturnMatrix computeUpToFirstDerivatives(const Real u, const Real v);
 	ReturnMatrix computeUpToFirstDerivatives(const Parameter &p);
 
+	/** Calculate second derivative on the parameter(u,v) with respect to the derivative direction. */
 	ReturnMatrix computeSecondDerivative(const DERIVE_SUFFIX der1, const DERIVE_SUFFIX der2, const Real u, const Real v);
 	ReturnMatrix computeSecondDerivative(const DERIVE_SUFFIX der1, const DERIVE_SUFFIX der2, const Parameter &p);
 	
+	/** Calculate all first and second derivatives on the parameter(u,v) and store them using a 3*6 matrix with column major order
+	1th column: U second derivative;
+	2th column: second mixed derivative;
+	3th column: V second derivative;
+	4th column: U first derivative;
+	5th column: V first derivative;
+	6th column: point on the surface.
+	*/
 	ReturnMatrix computeUpToSecondDerivatives(const Real u, const Real v);
 	ReturnMatrix computeUpToSecondDerivatives(const Parameter &p);
 
-	//////////////////////////////////////////////////////////////////////////
-	void computeTensorMatrices(Matrix &tmx, Matrix &tmy, Matrix &tmz, Matrix &tm1,
-		Real u, Real v, std::vector<K5Domain> lastu, std::vector<K5Domain> lastv);
+protected:
+	/** Initialize tensor matrices. */
 	void initializeTensorMatrices(Real u, Real v);
+	/** Update tensor matrices. */
 	void updateTensorMatrices(std::vector<K5Domain> domainu, std::vector<K5Domain> domainv);
 
 private:
@@ -340,6 +373,7 @@ private:
 		std::vector<Real> u_knots;	
 		std::vector<Real> v_knots;
 		CrossSplinePtr cross_spline;
+		/** Set UV knots for the cross spline belong to the control point. */
 		void setCrossSpline()
 		{
 			cross_spline->setUVNodes(getUNodesAsColumnVector(), getVNodesAsColumnVector());
@@ -383,8 +417,9 @@ private:
 
 	Matrix _tmx, _tmy, _tmz, _tm1;
 
-	std::vector<K5Domain> _lastu;
-	std::vector<K5Domain> _lastv;
+	std::vector<K5Domain> _lastu;/** All last stage U domains. */
+	std::vector<K5Domain> _lastv;/** All last stage V domains. */
+	/** Return all domains where parameter(u,v) located according to all the control points on the T-face. */
 	void getDomain(Real u, Real v, std::vector<K5Domain> &domainu, std::vector<K5Domain> &domainv);
 };
 

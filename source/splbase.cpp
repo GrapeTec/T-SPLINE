@@ -35,7 +35,6 @@ Revision_history:
 */
 
 #include <splbase.h>
-//#include <test_time.h>
 #ifdef use_namespace
 namespace TSPLINE {
   using namespace NEWMAT;
@@ -407,26 +406,6 @@ void CubicSpline::init_m()
 K5Domain CubicSpline::domain( Real u ) const
 {
 	Real k1 = getKnot(1), k2 = getKnot(2), k3 = getKnot(3), k4 = getKnot(4), k5 = getKnot(5);
-
-// #ifdef MATRIX_FORM
-// 	int s0 = _H0.size(), s1= _H1.size(), s2 = _H2.size(), s3 = _H3.size();
-// 	if (s0>0 && (s1+s2+s3)==0)
-// 	{
-// 		return K5_E1;
-// 	}
-// 	else if (s1>0 && (s0+s2+s3)==0)
-// 	{
-// 		return K5_E2;
-// 	}
-// 	else if (s2>0 && (s0+s1+s3)==0)
-// 	{
-// 		return K5_E3;
-// 	}
-// 	else if (s3>0 && (s0+s1+s2)==0)
-// 	{
-// 		return K5_E4;
-// 	}
-// #endif
 
 	if( (k1<=u && k2>u) || (isEqual(k5,k2) && isEqual(u,k2)) )
 	{
@@ -827,10 +806,6 @@ void BlendingEquation::computePointAndNormal( Real u, Real v, Point3D &point, Ve
 		Real dnu = _cross_spline->baseFunc1stU(u, v);
 		Real dnv = _cross_spline->baseFunc1stV(u, v);
 
-//   	Real nuv = _cross_spline->baseFunc_m(u, v);
-// 		Real dnu = _cross_spline->baseFunc1stU_m(u, v);
-// 		Real dnv = _cross_spline->baseFunc1stV_m(u, v);
-
 		Point3D point(iter->x(), iter->y(), iter->z());
 		Real w = (iter->weight);
 		pbw += (point * nuv * w);
@@ -920,8 +895,6 @@ NEWMAT::ReturnMatrix BlendingEquation::computeFirstDerivative( const DERIVE_SUFF
 		iter != _rational_points_with_knots.end(); iter++)
 	{
 		CrossSplinePtr cross_spline = (*iter).cross_spline;
-// 		cross_spline->setUVNodes(iter->getUNodesAsColumnVector(),
-// 			iter->getVNodesAsColumnVector());
 #ifndef MATRIX_FORM
 		Real Bi = cross_spline->baseFunc(u, v);
 #else
@@ -976,8 +949,6 @@ NEWMAT::ReturnMatrix BlendingEquation::computeUpToFirstDerivatives( const Real u
 		iter != _rational_points_with_knots.end(); iter++)
 	{
 		CrossSplinePtr cross_spline = (*iter).cross_spline;
-// 		_cross_spline->setUVNodes(iter->getUNodesAsColumnVector(),
-// 			iter->getVNodesAsColumnVector());
 #ifndef MATRIX_FORM
 		Real Bi = cross_spline->baseFunc(u, v);
 		Real dBi_u = cross_spline->baseFunc1stU(u, v);
@@ -1025,8 +996,6 @@ NEWMAT::ReturnMatrix BlendingEquation::computeSecondDerivative( const DERIVE_SUF
 		Real Wi = (iter->weight);
 
 		CrossSplinePtr cross_spline = (*iter).cross_spline;
-// 		_cross_spline->setUVNodes(iter->getUNodesAsColumnVector(),
-// 			iter->getVNodesAsColumnVector());
 #ifndef MATRIX_FORM
 		Real Bi = cross_spline->baseFunc(u, v);
 #else
@@ -1138,8 +1107,6 @@ NEWMAT::ReturnMatrix BlendingEquation::computeUpToSecondDerivatives( const Real 
 		Real Wi = (iter->weight);
 
 		CrossSplinePtr cross_spline = (*iter).cross_spline;
-// 		_cross_spline->setUVNodes(iter->getUNodesAsColumnVector(),
-// 			iter->getVNodesAsColumnVector());
 #ifndef MATRIX_FORM
 		Real Bi = cross_spline->baseFunc(u, v);
 #else
@@ -1207,51 +1174,6 @@ void BlendingEquation::addRationalPointWithNodes( const std::vector<Real> &u_kno
 }
 
 #ifdef MATRIX_FORM
-void BlendingEquation::computeTensorMatrices( Matrix &tmx, Matrix &tmy, Matrix &tmz, Matrix &tm1, 
-											 Real u, Real v, std::vector<K5Domain> lastu, 
-											 std::vector<K5Domain> lastv)
-{
-// 	tmx = TensorProduct(ColumnVector(4), ColumnVector(4));
-// 	tmy = TensorProduct(ColumnVector(4), ColumnVector(4));
-// 	tmz = TensorProduct(ColumnVector(4), ColumnVector(4));
-// 	tm1 = TensorProduct(ColumnVector(4), ColumnVector(4));
-	tmx = Matrix(4,4);
-	tmy = Matrix(4,4);
-	tmz = Matrix(4,4);
-	tm1 = Matrix(4,4);
-	tmx = 0; tmy = 0; tmz = 0; tm1 = 0;
-
-	CrossCubicSplinePtr cross_spline = makePtr<CrossCubicSpline>();
-	VRPVK::iterator iter;
-	for (iter = _rational_points_with_knots.begin(); \
-		iter != _rational_points_with_knots.end(); iter++)
-	{
-		cross_spline->setUVNodes(iter->getUNodesAsColumnVector(),
-			iter->getVNodesAsColumnVector());
-		CubicSplinePtr su = castPtr<CubicSpline>(cross_spline->spline_u());
-		CubicSplinePtr sv = castPtr<CubicSpline>(cross_spline->spline_v());
-		Point3D point(iter->x(), iter->y(), iter->z());
-		Real w = (iter->weight);
-
-		K5Domain current_domainu = su->domain(u);
-		K5Domain current_domainv = sv->domain(v);
-		Matrix hu = su->H(su->domain(u));
-		Matrix hv = sv->H(sv->domain(v));
-
-		Matrix tp(4,4);
-		if(hu.size() == 0 || hv.size() == 0)
-			tp = 0;
-		else
-			tp = TensorProduct(hu.row(1), hv.row(1));
-		tmx += iter->x() * tp;
-		tmy += iter->y() * tp;
-		tmz += iter->z() * tp;
-		tm1 += tp;
-
-
-	}
-}
-
 void BlendingEquation::getDomain( Real u, Real v, std::vector<K5Domain> &domainu, std::vector<K5Domain> &domainv )
 {
 	VRPVK::iterator iter;

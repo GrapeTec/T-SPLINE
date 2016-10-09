@@ -130,7 +130,7 @@ public:
 	/** Extract the parameter from a T-vertex*/
 	static Parameter extractParameterFromTVertex(const TVertexPtr &vertex);
 	
-	/** Extract the parameter from a T-spline*///lyz
+	/** Extract the maximum parameter from a T-spline*/
 	static Parameter extractParameterFromTSpline(const TSplinePtr &spline);
 
 	/** Extract T-vertices from a T-face*/

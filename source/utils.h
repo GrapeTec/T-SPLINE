@@ -204,11 +204,13 @@ inline bool isZero(Real value)
 		return false;
 }
 
+/** Check if x is equal to y. */
 inline bool isEqual(Real x, Real y)
 {
 	return isZero(x-y);
 }
 
+/** Calculate the tensor product between two column vectors. */
 inline ReturnMatrix TensorProduct(const Matrix &a, const Matrix& b)
 {
 	Matrix tensor = a.AsColumn() * b.AsRow();

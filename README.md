@@ -46,6 +46,7 @@ Developing History:
 - 2016.04: Oleksandr Zavalnyi joined the team;
 - 2016.05: Oleksandr Zavalnyi added projects: tsm2gpl and viewer;
 - 2016.06: Yazui Liu added OpenMP to support more efficient tessellation;
+- 2016.10: Wenlei Xiao and Yazui Liu added the analytical and matrix forms of basis functions;
 
 Acknowledgements:
 
@@ -131,19 +132,6 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 		described in section 2.2. BUILDING on unix/debian-like systems (except $ cmake .)have to be run in Command Line).
 	- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
 		
-### 3.4. Solving the problem with building of the "viewer" project on Windows systems:
-	- Because the "viewer" project is using OpenGL the following steps to setup the system have to be done:
-	- Provide all necessary header files (add gl.h, glu.h, and glaux.h header files in 
-	  "../Microsoft Visual Studio XX.X/VC/include/gl" folder);
-	- Provide *.lib files (for Win32 project add glu32.lib, glut32.lib, opengl32.lib files or the similar 
-	  libraries in "../Microsoft Visual Studio XX.X/VC/lib" folder);
-	- Provide *.dll files (for Win32 project add glu32.dll, glut32.dll, opengl32.dll or the similar files  
-	  in "../Microsoft Visual Studio XX.X/VC/bin" folder);
-	- Link *.lib files to the project(viewer->Properties->Linker->Input: add glu32.lib;glut32.lib;opengl32.lib 
-	  or the similar libraries in the field "Additional Dependencies");
-	- If you meet errors about SAFESEH, in the Property Page of the viewer project, Configuration Properties -> Linker -> Advanced
-	  Image Has Safe Exception Handlers => change to "NO (/SAFESEH:NO)"
-		
 ## 4. HOW TO USE
 ### 4.1 DEMO
 The demo project will show you how to use the T-spline kernel. It creates a mouse T-spline model and generates STL files(ASCII & BINARY), OBJ file, DXF files(T-imgage, T-connect and T-pointset), STEP file and GNUPlot files.
@@ -217,11 +205,6 @@ gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
 	- Converts TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files.
 	- Usage: tsm2gpl.exe [*.tsm]
 
-### 4.7 VIEWER
-
-	- Renders the TSM file. (Windows Only)
-	- Usage: viewer.exe [*.tms]
-	
 ### 4.8 NOTES
 
 	- For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.

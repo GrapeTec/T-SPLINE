@@ -196,12 +196,26 @@ inline bool isEven(int value)
 }
 
 /** Check if float value is near to zero. */
-inline Real isZero(Real value)
+inline bool isZero(Real value)
 {
-	if(abs(value) < M_EPS)
-		return 0;
+	if(fabs(value) < M_EPS)
+		return true;
 	else
-		return value;
+		return false;
+}
+
+/** Check if x is equal to y. */
+inline bool isEqual(Real x, Real y)
+{
+	return isZero(x-y);
+}
+
+/** Calculate the tensor product between two column vectors. */
+inline ReturnMatrix TensorProduct(const Matrix &a, const Matrix& b)
+{
+	Matrix tensor = a.AsColumn() * b.AsRow();
+	tensor.Release();
+	return tensor;
 }
 
 #ifdef use_namespace

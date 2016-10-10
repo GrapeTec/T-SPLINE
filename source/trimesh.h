@@ -33,8 +33,6 @@ Revision_history:
 - Created.
 2016/04/02: Wenlei Xiao
 - Doxygen comments added.
-2016/06/06: Yazui Liu
-- Add TriMesh::merge() function.
 -------------------------------------------------------------------------------
 */
 
@@ -103,7 +101,7 @@ DECLARE_ASSISTANCES(TriEdge, TriEdg)
   *  @brief  Represent a triangular mesh.
   *  @note  
   *  TriMesh is a simple triangular mesh constructor and manager. 
-*/
+  */
 DECLARE_ASSISTANCES(TriMesh, TriMsh)
 class TriMesh
 {
@@ -196,7 +194,6 @@ private:
 
 	std::vector<long> _polygon_buffer;
 };
-
 
 #ifdef use_namespace
 }

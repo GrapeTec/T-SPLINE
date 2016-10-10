@@ -33,8 +33,6 @@ Revision_history:
 - Created.
 2016/04/02: Wenlei Xiao
 - Doxygen comments added.
-2016/06/05: Yazui Liu
-- Tessellation OpenMP added.
 -------------------------------------------------------------------------------
 */
 

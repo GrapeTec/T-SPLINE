@@ -129,6 +129,9 @@ public:
 
 	/** Extract the parameter from a T-vertex*/
 	static Parameter extractParameterFromTVertex(const TVertexPtr &vertex);
+	
+	/** Extract the maximum parameter from a T-spline*/
+	static Parameter extractParameterFromTSpline(const TSplinePtr &spline);
 
 	/** Extract T-vertices from a T-face*/
 	static TVtxVector extractTVerticesFromTFace(const TFacePtr &face);
@@ -141,6 +144,5 @@ DECLARE_SMARTPTR(TExtractor)
 #ifdef use_namespace
 }
 #endif
-
 
 #endif

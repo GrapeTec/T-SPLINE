@@ -359,9 +359,7 @@ struct cmp_unique
 {
 	bool operator()(double index1, double index2)
 	{
-		if(!isZero(index1-index2))
-			return true;
-		return false;
+		return !isEqual(index1, index2);
 	}
 };
 
@@ -396,16 +394,16 @@ struct cmp_find : std::binary_function<T, T, bool>
 static void findVertexPosition(const TVertexPtr& vertex, std::vector<double>& uniques, std::vector<double>& uniquet, int& posx, int& posy)
 {
 	std::vector<double>::iterator results = std::find_if(uniques.begin(), uniques.end(), bind2nd(cmp_find<double>(),vertex->getS()));
-	if(results == uniques.end())
-		std::cout<<""<<std::endl;
-	else
+	if(results != uniques.end())
+	{
 		posx = std::distance(uniques.begin(), results);
+	}
 
 	std::vector<double>::iterator resultt = std::find_if(uniquet.begin(), uniquet.end(), bind2nd(cmp_find<double>(),vertex->getT()));
-	if(resultt == uniquet.end())
-		std::cout<<""<<std::endl;
-	else
+	if(resultt != uniquet.end())
+	{
 		posy = std::distance(uniquet.begin(), resultt);
+	}
 }
 
 void DxfWriter::writeEdgePosition(double posx1, double posy1, double posx2, double posy2, int color /*= 200*/, float layer /*= 0.0*/)

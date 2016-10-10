@@ -31,8 +31,6 @@ Revision_history:
 
 2015/04/08: Wenlei Xiao
    - Created.
-2016/06/05: Yazui Liu
-   - Tessellation OpenMP added.
 -------------------------------------------------------------------------------
 */
 
@@ -92,7 +90,7 @@ TriMeshPtr TTessellator::interpolateAll()
 	TriMshVector trimeshes;
 	TFacVector faces;
 	_finder->findObjects<TFace>(faces);
-	
+
 #pragma omp parallel for
 	for (int i = 0;i<faces.size();i++)
 	{
@@ -124,7 +122,6 @@ TriMeshPtr TTessellator::interpolateAll()
 	}
 	return tri_mesh;
 #endif // USE_OMP
-
 }
 
 void TTessellator::calculateResolution( const TFacePtr &face, Real ratio /*= 0.1*/ )
@@ -307,14 +304,14 @@ void TLinkTessellator::process( const TriMeshPtr &tri_mesh )
 	Point3D point; Vector3D normal;
 	for (long i=0;i<count;i++)
 	{
-		if (_derivator->zeroAndFirstOrderDerive(ps, point, normal))
+		if (_derivator->pointAndNormalDerive(ps, point, normal))
 		{
 			tri_mesh->addPointNormal(point, normal);
 		}
 		ps += dp;
 	}
 
-	if (_derivator->zeroAndFirstOrderDerive(pe, point, normal))
+	if (_derivator->pointAndNormalDerive(pe, point, normal))
 	{
 		tri_mesh->addPointNormal(point, normal);
 	}
@@ -343,14 +340,14 @@ void TParameterTessellator::process( const TriMeshPtr &tri_mesh )
 	Point3D point; Vector3D normal;
 	for (long i=0;i<count;i++)
 	{
-		if (_derivator->zeroAndFirstOrderDerive(ps, point, normal))
+		if (_derivator->pointAndNormalDerive(ps, point, normal))
 		{
 			tri_mesh->addPointNormal(point, normal);
 		}
 		ps += dp;
 	}
 
-	if (_derivator->zeroAndFirstOrderDerive(_end, point, normal))
+	if (_derivator->pointAndNormalDerive(_end, point, normal))
 	{
 		tri_mesh->addPointNormal(point, normal);
 	}

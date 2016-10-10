@@ -40,7 +40,7 @@ class Line(object):
         self.data.point.deleteValues(0)
         self.data.point.setValues(0, len(self.points), self.points)
 
-def mesh_sep(vertices, polygons, color=(1,1,0), draw_lines=True):
+def mesh_sep(vertices, polygons, color=(1,1,0), draw_lines=False):
     _vertices = vertices
     _polygons = []
     _lines = []

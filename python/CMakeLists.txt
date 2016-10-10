@@ -1,8 +1,8 @@
 find_package(PythonInterp)
 find_package(PythonLibs)
 EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c 
-"from distutils.sysconfig import get_python_lib; print(get_python_lib())"
-OUTPUT_VARIABLE python_libs OUTPUT_STRIP_TRAILING_WHITESPACE )
+    "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
+    OUTPUT_VARIABLE python_libs OUTPUT_STRIP_TRAILING_WHITESPACE )
 include_directories( ${PYTHON_INCLUDE_DIRS})
 
 SET(PYTHON_INSTALL_DIR ${python_libs}/tspline)

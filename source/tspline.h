@@ -628,11 +628,11 @@ public:
 	TNodVIterator blendingNodeIteratorEnd();
 
 public:
-	/** Get the length of the T-link. */
+	/** Get the width of the T-face. */
 	virtual Real width();
-	/** Check if the T-link is to the north. */
+	/** Get the height of the T-face. */
 	virtual Real height();
-	/** Check if the T-link is to the west. */
+	/** Get the area of the T-face. */
 	virtual Real area();
 	/** Get the northwest parameter of the T-face. */
 	virtual Parameter northWest();

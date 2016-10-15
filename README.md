@@ -48,6 +48,7 @@ Developing History:
 - 2016.06: Yazui Liu added OpenMP to support more efficient tessellation;
 - 2016.10: Wenlei Xiao and Yazui Liu added the analytical and matrix forms of basis functions;
 - 2016.10：Lorenz Lechner from TU Graz, Austria added the python bindings;
+- 2016.10: Yazui Liu and Oleksandr Zavalnyi rewrite the viewer using GLC Player;
 
 Acknowledgements:
 

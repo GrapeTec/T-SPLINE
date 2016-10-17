@@ -5,8 +5,10 @@ project(tspline)
 add_library(tspline 
 			utils.cpp
 			basis.cpp
+			basis2.cpp
 			splbase.cpp
 			tspline.cpp
+			tspline2.cpp
 			factory.cpp
 			virtual.cpp
 			tjunction.cpp

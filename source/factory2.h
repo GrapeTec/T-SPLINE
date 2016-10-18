@@ -85,6 +85,11 @@ public:
 	TFace2Ptr createTFace2(const std::string &name);
 	/** Create a T-node valence 6 object*/
 	TNodeV6Ptr createTNodeV6(const std::string &name);
+
+	void patchTVertex2(const std::string &vertex, const std::string &up, const std::string &down,
+		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
+	void patchTVertex2(const TVertex2Ptr &vertex, const std::string &up, const std::string &down,
+		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
 };
 
 #ifdef use_namespace

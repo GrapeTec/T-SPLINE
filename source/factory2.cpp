@@ -85,6 +85,26 @@ TNodeV6Ptr TFactory2::createTNodeV6( const std::string &name )
 	return createTObject<TNodeV6>(name);
 }
 
+void TFactory2::patchTVertex2( const std::string &vertex, 
+							  const std::string &up, const std::string &down, 
+							  const std::string &north, const std::string &west, 
+							  const std::string &south, const std::string &east )
+{
+	patchTVertex2(findTObject<TVertex2>(vertex), up, down, north, west, south, east);
+}
+
+void TFactory2::patchTVertex2( const TVertex2Ptr &vertex, const std::string &up, const std::string &down, const std::string &north, const std::string &west, const std::string &south, const std::string &east )
+{
+	TLink2Ptr link_up = findTObject<TLink2>(up);
+	TLink2Ptr link_down = findTObject<TLink2>(down);
+	TLink2Ptr link_north = findTObject<TLink2>(north);
+	TLink2Ptr link_west = findTObject<TLink2>(west);
+	TLink2Ptr link_south = findTObject<TLink2>(south);
+	TLink2Ptr link_east = findTObject<TLink2>(east);
+
+	vertex->setNeighbours(link_up, link_down, link_north, link_west, link_south, link_east);
+}
+
 #ifdef use_namespace
 }
 #endif

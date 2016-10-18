@@ -64,7 +64,7 @@ TLinkPtr TVertex2::checkNeighborhood( const TVertexPtr &vertex )
 	if (vertex == getEndVertex(getDown())) return getDown();
 }
 
-int TVertex2::numberOfNeighbors()
+int TVertex2::numberOfNeighbors() const
 {
 	int number = 0;
 	if (getNorth()) number++;
@@ -125,7 +125,7 @@ TEdge2::TEdge2( const std::string & name /*= ""*/ ) : TEdge(name)
 
 }
 
-bool TEdge2::toUp()
+bool TEdge2::toUp() const
 {
 	TVertex2Ptr vs = getStartVertex()->asTVertex2();
 	TVertex2Ptr ve = getEndVertex()->asTVertex2();
@@ -140,7 +140,7 @@ bool TEdge2::toUp()
 	}
 }
 
-bool TEdge2::toDown()
+bool TEdge2::toDown() const
 {
 	TVertex2Ptr vs = getStartVertex()->asTVertex2();
 	TVertex2Ptr ve = getEndVertex()->asTVertex2();
@@ -229,16 +229,6 @@ void TBox::findSouthBoxes( TBoxVector &boxes )
 void TBox::findEastBoxes( TBoxVector &boxes )
 {
 
-}
-
-long TBox::sizeFaces()
-{
-	return _faces.size();
-}
-
-long TBox::sizeBlendingNodes()
-{
-	return _blending_nodes.size();
 }
 
 TImage2::TImage2( const std::string & name /*= ""*/ ) : TImage(name)

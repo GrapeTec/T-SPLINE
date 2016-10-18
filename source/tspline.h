@@ -139,7 +139,7 @@ public:
 	virtual TSplinePtr asTSpline() { return 0; }
 
 	/** Check if this object is virtual */
-	virtual bool isVirtual() { return false; }
+	virtual bool isVirtual() const { return false; }
 
 	/** Set the name of this object */
 	void setName (const std::string & name) { _name = name; }
@@ -153,7 +153,7 @@ public:
 	/** Set the collector which contains this object */
 	void setCollector(const TGroupPtr &collector) { _collector = collector; }
 	/** Get the collector which contains this object */
-	TGroupPtr getCollector() { return _collector; }
+	TGroupPtr getCollector() const { return _collector; }
 //private:
 	/** Get the physical ID number */
 	const unsigned int getPhysicalId() const { return _physical_id; }
@@ -325,7 +325,7 @@ public:
 	/** Return the end iterator of the T-nodes */
 	TNodVIterator nodeIteratorEnd();
 	/** Return the number of the T-nodes */
-	long sizeNodes();
+	long sizeNodes() const;
 	
 public:
 	/** Width of the T-mapper. */
@@ -395,7 +395,7 @@ public:
 	/** Check if the vertex is the neighborhood of the current vertex. Return the location of the vertex. */
 	TLinkPtr checkNeighborhood(const TVertexPtr &vertex);
 	/** Return the numbers of the neighbors. */
-	int numberOfNeighbors();
+	int numberOfNeighbors() const;
 
 	/** Return the north vertex. */
 	TVertexPtr getNorthTVertex() const;
@@ -476,15 +476,15 @@ public:
 	bool isBoundary() const {return _boundary;}
 
 	/** Return the length of the T-edge. */
-	Real length();
+	Real length() const;
 	/** Check if the orientation of T-edge is north. */
-	bool toNorth();
+	bool toNorth() const;
 	/** Check if the orientation of T-edge is west. */
-	bool toWest();
+	bool toWest() const;
 	/** Check if the orientation of T-edge is south. */
-	bool toSouth();
+	bool toSouth() const;
 	/** Check if the orientation of T-edge is east. */
-	bool toEast();
+	bool toEast() const;
 public:
 	/** Width of the T-vertex. */
 	virtual Real width();
@@ -522,9 +522,9 @@ public:
 	virtual TLink2Ptr asTLink2() { return 0; }
 
 	/** Return the T-edge attaching the T-link. */
-	inline TEdgePtr getTEdge() { return _edge; }
+	TEdgePtr getTEdge() const { return _edge; }
 	/** Return the orientation of the T-link. */
-	inline bool getOrientation() { return _orientation; }
+	bool getOrientation() const { return _orientation; }
 	/** Set the T-edge and orientation of the T-link. */
 	void setOrientedEdge(const TEdgePtr &edge, bool orientation = true);
 
@@ -543,13 +543,13 @@ public:
 	/** Get the length of the T-link. */
 	Real length() const;
 	/** Check if the T-link is to the north. */
-	bool toNorth();
+	bool toNorth() const;
 	/** Check if the T-link is to the west. */
-	bool toWest();
+	bool toWest() const;
 	/** Check if the T-link is to the south. */
-	bool toSouth();
+	bool toSouth() const;
 	/** Check if the T-link is to the east. */
-	bool toEast();
+	bool toEast() const;
 private:
 	TEdgePtr _edge;		//!< Attached T-edge.
 	bool _orientation;	//!< Orientation.
@@ -580,7 +580,7 @@ public:
 	void findEastLinks(TLnkVector &east_links);
 
 	/** Return the number of the T-links. */
-	long size();
+	long size() const { return _links.size(); }
 	/** Return the begin iterator of the T-link loop. */
 	TLnkLIterator linkIteratorBegin();
 	/** Return the end iterator of the T-link loop. */
@@ -633,11 +633,11 @@ public:
 	virtual void findEastFaces(TFacVector &faces);
 
 	/** Return the number of T-links in the T-link loop. */
-	long sizeLinks();
+	long sizeLinks() const { return _link_loop->size(); }
 	/** Return the size of the blending T-nodes belong to the T-face. */
-	long sizeBlendingNodes();
+	long sizeBlendingNodes() const { return _blending_nodes.size(); }
 	/** Get the T-link loop. */
-	TLinkLoopPtr getLinkLoop() {return _link_loop;}
+	TLinkLoopPtr getLinkLoop() const { return _link_loop; }
 	/** Return the begin iterator of the T-link loop. */
 	TLnkLIterator linkIteratorBegin();
 	/** Return the end iterator of the T-link loop. */
@@ -684,9 +684,9 @@ public:
 	/** Set the boundary condition of the T-edge. */
 	void setEdgeCondition(const TEdgePtr &edge, bool boundary_condition);
 	/** Get the T-edge. */
-	TEdgePtr getEdge();
+	TEdgePtr getEdge() const { return _edge; }
 	/** Get the boundary condition. */
-	bool getBoundaryCondtion();
+	bool getBoundaryCondtion() { return _boundary_condition; }
 
 private:
 	TEdgePtr _edge;				
@@ -719,13 +719,13 @@ public:
 	void addVertex(const TVertexPtr &vertex);
 	
 	/** Return the number of T-faces. */
-	int sizeFaces();
+	int sizeFaces() const { return _faces.size(); }
 	/** Return the number of T-edges. */
-	int sizeEdges();
+	int sizeEdges() const { return _edges.size(); }
 	/** Return the number of T-links. */
-	int sizeLinks();
+	int sizeLinks() const { return _links.size(); }
 	/** Return the number of T-vertices. */
-	int sizeVertices();
+	int sizeVertices() const { return _vertices.size(); }
 
 	/** Return the begin iterator of T-faces. */
 	TFacVIterator faceIteratorBegin();
@@ -751,7 +751,6 @@ private:
 	TVtxVector _vertices;	
 };
 
-class TNodeV4;
 /**  
   *  @class  <TNode> 
   *  @brief  T-node class
@@ -771,16 +770,16 @@ public:
 	virtual TNodeV4Ptr asTNodeV4() { return 0; }
 
 	/** Get the T-mapper. */
-	TMappableObjectPtr getTMapper() {return _mapper;}
+	TMappableObjectPtr getTMapper() const {return _mapper;}
 
 	/** Get the T-mapper as a T-vertex. */
-	TVertexPtr getTVertex() {return _mapper->asTVertex();}
+	TVertexPtr getTVertex() const {return _mapper->asTVertex();}
 	/** Get the T-mapper as a T-edge. */
-	TEdgePtr getTEdge() {return _mapper->asTEdge();}
+	TEdgePtr getTEdge() const {return _mapper->asTEdge();}
 	/** Get the T-mapper as a T-face. */
-	TFacePtr getTFace() {return _mapper->asTFace();}
+	TFacePtr getTFace() const {return _mapper->asTFace();}
 	/** Get the T-point. */
-	TPointPtr getTPoint() {return _point;}
+	TPointPtr getTPoint() const {return _point;}
 
 	/** Set the T-mapper. */
 	void setTMappableObject(const TMappableObjectPtr &mapper);
@@ -793,7 +792,7 @@ public:
 	/** Set the T-point. */
 	void setTPoint(const TPointPtr &point);
 private:
-	TMappableObjectPtr _mapper;	
+	mutable TMappableObjectPtr _mapper;	
 	TPointPtr _point;			
 };
 
@@ -813,13 +812,13 @@ public:
 	virtual TNodeV4Ptr asTNodeV4();
 
 	/** Get the north T-node. */
-	TNodeV4Ptr getNorth() { return _north; }
+	TNodeV4Ptr getNorth() const { return _north; }
 	/** Get the west T-node. */
-	TNodeV4Ptr getWest() { return _west; }
+	TNodeV4Ptr getWest() const { return _west; }
 	/** Get the south T-node. */
-	TNodeV4Ptr getSouth() { return _south; }
+	TNodeV4Ptr getSouth() const { return _south; }
 	/** Get the east T-node. */
-	TNodeV4Ptr getEast() { return _east; } 
+	TNodeV4Ptr getEast() const { return _east; } 
 	/** Set the north T-node. */
 	void setNorth(const TNodeV4Ptr &node) { _north = node; }
 	/** Set the west T-node. */
@@ -888,11 +887,9 @@ public:
 	inline void setXYZW(Real x, Real y, Real z, Real w) 
 	{ _x = x; _y = y; _z = z; _w = w; }
 	/** Get the T-node. */
-	inline TNodePtr getTNode()
-	{ return _node; }
+	TNodePtr getTNode() const { return _node; }
 	/** Set the T-node. */
-	inline void setTNode(const TNodePtr node)
-	{ _node = node; }
+	void setTNode(const TNodePtr node) { _node = node; }
 private:
 	Real _x, _y, _z, _w;	
 	TNodePtr _node;			
@@ -934,30 +931,30 @@ public:
 	virtual TSplinePtr asTSpline();
 
 	/** Get the s degree. */
-	inline int getSDegree() {return _s_degree; }
+	int getSDegree() const {return _s_degree; }
 	/** Set the s degree. */
-	inline void setSDegree(int degree) { _s_degree = degree; }
+	void setSDegree(int degree) { _s_degree = degree; }
 	/** Get the t degree. */
-	inline int getTDegree() {return _t_degree; }
+	int getTDegree() const {return _t_degree; }
 	/** Set the s degree. */
-	inline void setTDegree(int degree) { _t_degree = degree; }
+	void setTDegree(int degree) { _t_degree = degree; }
 	/** Get the Bezier end condition flag. */
-	inline bool getForceBezierEndCondition() {return _force_bezier_end_condition; }
+	bool getForceBezierEndCondition() const {return _force_bezier_end_condition; }
 	/** Set the Bezier end condition flag. */
-	inline void setForceBezierEndCondition(bool force_bezier_end_condition) {_force_bezier_end_condition = force_bezier_end_condition;}
+	void setForceBezierEndCondition(bool force_bezier_end_condition) {_force_bezier_end_condition = force_bezier_end_condition;}
 
 	/** Get the T-image. */
-	inline TImagePtr getTImage() { return _image; }
+	TImagePtr getTImage() const { return _image; }
 	/** Set the T-image. */
-	inline void setTImage(const TImagePtr &image) { _image = image; }
+	void setTImage(const TImagePtr &image) { _image = image; }
 	/** Get the T-connect. */
-	inline TConnectPtr getTConnect() { return _connect; }
+	TConnectPtr getTConnect() const { return _connect; }
 	/** Set the T-connect. */
-	inline void setTConnect(const TConnectPtr &node_grid) { _connect = node_grid; } 
+	void setTConnect(const TConnectPtr &node_grid) { _connect = node_grid; } 
 	/** Get the T-pointset. */
-	inline TPointsetPtr getTPointset() { return _pointset; }
+	TPointsetPtr getTPointset() const { return _pointset; }
 	/** Set the T-pointset. */
-	inline void setTPointset(const TPointsetPtr &point_grid) { _pointset = point_grid; }
+	void setTPointset(const TPointsetPtr &point_grid) { _pointset = point_grid; }
 
 private:
 	int _s_degree;						

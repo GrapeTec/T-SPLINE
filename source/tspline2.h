@@ -96,7 +96,7 @@ public:
 	/** Check if the vertex is the neighborhood of the current vertex. Return the location of the vertex. */
 	virtual TLinkPtr checkNeighborhood(const TVertexPtr &vertex);
 	/** Return the numbers of the neighbors. */
-	virtual int numberOfNeighbors();
+	virtual int numberOfNeighbors() const;
 	
 	/** Return the up vertex. */
 	TVertexPtr getUpTVertex() const;
@@ -134,9 +134,9 @@ public:
 	void setBelowFace(const TFacePtr &below) { _below = below; }
 
 	/** Check if the orientation of T-edge is up. */
-	bool toUp();
+	bool toUp() const;
 	/** Check if the orientation of T-edge is down. */
-	bool toDown();
+	bool toDown() const;
 private:
 	TFacePtr _above;
 	TFacePtr _below;
@@ -154,9 +154,9 @@ public:
 	/** Return the below T-face of the T-link. */
 	TFacePtr getBelowFace() const;
 	/** Check if the T-link is to the up. */
-	bool toUp();
+	bool toUp() const;
 	/** Check if the T-link is to the down. */
-	bool toDown();
+	bool toDown() const;
 };
 
 class TFace2 : public TFace
@@ -168,11 +168,11 @@ public:
 	virtual TFace2Ptr asTFace2() { return castPtr<TFace2>(shared_from_this()); }
 
 	/** Check if the T-face is in x-plane. */
-	bool xPlane();
+	bool inXPlane() const;
 	/** Check if the T-face is in y-plane. */
-	bool yPlane();
+	bool inYPlane() const;
 	/** Check if the T-face is in z-plane. */
-	bool zPlane();
+	bool inZPlane() const;
 private:
 
 };
@@ -223,9 +223,9 @@ public:
 	virtual void findEastBoxes(TBoxVector &boxes);
 
 	/** Return the number of T-faces in the T-face set. */
-	long sizeFaces();
+	long sizeFaces() const { return _faces.size(); }
 	/** Return the size of the blending T-nodes belong to the T-face. */
-	long sizeBlendingNodes();
+	long sizeBlendingNodes() const { return _blending_nodes.size(); }
 private:
 	TFac2Vector _faces;
 	TNodVector _blending_nodes;		

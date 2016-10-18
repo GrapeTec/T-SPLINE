@@ -155,6 +155,95 @@ bool TEdge2::toDown() const
 	}
 }
 
+TFacePtr TLink2::getAboveFace() const
+{
+	TEdge2Ptr edge = getTEdge()->asTEdge2();
+	if (edge)
+	{
+		if (getOrientation())
+		{
+			return edge->getAboveFace();
+		}
+		else
+		{
+			return edge->getBelowFace();
+		}
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+TFacePtr TLink2::getBelowFace() const
+{
+	TEdge2Ptr edge = getTEdge()->asTEdge2();
+	if (edge)
+	{
+		if (getOrientation())
+		{
+			return edge->getBelowFace();
+		}
+		else
+		{
+			return edge->getAboveFace();
+		}
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+bool TLink2::toUp() const
+{
+	TEdge2Ptr edge = getTEdge()->asTEdge2();
+	if (edge)
+	{
+		if (getOrientation())
+		{
+			return edge->toUp();
+		}
+		else
+		{
+			return edge->toDown();
+		}
+	}
+	return false;
+}
+
+bool TLink2::toDown() const
+{
+	TEdge2Ptr edge = getTEdge()->asTEdge2();
+	if (edge)
+	{
+		if (getOrientation())
+		{
+			return edge->toDown();
+		}
+		else
+		{
+			return edge->toUp();
+		}
+	}
+	return false;
+}
+
+bool TFace2::inXPlane() const
+{
+	return false;
+}
+
+bool TFace2::inYPlane() const
+{
+	return false;
+}
+
+bool TFace2::inZPlane() const
+{
+	return false;
+}
+
 TBox::TBox( const std::string & name /*= ""*/ ) :
 	TMappableObject(name)
 {
@@ -250,7 +339,6 @@ TBoxVIterator TImage2::boxIteratorEnd()
 {
 	return _boxes.end();
 }
-
 
 #ifdef use_namespace
 }

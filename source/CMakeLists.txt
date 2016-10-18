@@ -10,6 +10,7 @@ add_library(tspline
 			tspline.cpp
 			tspline2.cpp
 			factory.cpp
+			factory2.cpp
 			virtual.cpp
 			tjunction.cpp
 			multiplicity.cpp
@@ -30,7 +31,8 @@ add_library(rhino
 add_executable(demo 
 			demo.cpp 
 			mouse.cpp 
-			simple.cpp)
+			simple.cpp
+			simple2.cpp)
 target_link_libraries(demo rhino tspline newmat)
 add_executable(tsm2stl 
 			tsm2stl.cpp)

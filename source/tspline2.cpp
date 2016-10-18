@@ -155,6 +155,11 @@ bool TEdge2::toDown() const
 	}
 }
 
+TLink2::TLink2( const std::string & name /*= ""*/ ) : TLink(name)
+{
+
+}
+
 TFacePtr TLink2::getAboveFace() const
 {
 	TEdge2Ptr edge = getTEdge()->asTEdge2();
@@ -227,6 +232,11 @@ bool TLink2::toDown() const
 		}
 	}
 	return false;
+}
+
+TFace2::TFace2( const std::string & name /*= ""*/ ) : TFace(name)
+{
+
 }
 
 bool TFace2::inXPlane() const

@@ -73,7 +73,7 @@ public:
 
 	/** Return the r parameter. */
 	Real getR(void) const { return _r; }
-	void SetRST(Real r, Real s, Real t) { _r = r; setST(s, t); }
+	void setRST(Real r, Real s, Real t) { _r = r; setST(s, t); }
 
 	/** Return the up link. */
 	TLinkPtr getUp(void) const { return _up; }

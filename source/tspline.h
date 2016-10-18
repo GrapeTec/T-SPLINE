@@ -335,7 +335,8 @@ private:
   *  @brief  T-vertex class 
   *  @note  
   *  TVertex contains a parametric coordinate (s, t).
-*/
+  */
+DECLARE_ASSISTANCES(TVertex2, TVtx2)
 class TVertex : public TMappableObject
 {
     friend class TEdge;
@@ -351,6 +352,7 @@ public:
    typedef TVertexTag TCategory;
 public:
 	virtual TVertexPtr asTVertex();
+	virtual TVertex2Ptr asTVertex2() { return 0; }
 
 	/** Return the s parameter. */
 	Real getS(void) const {return _s; }

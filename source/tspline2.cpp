@@ -53,6 +53,112 @@ void TVertex2::setNeighbours( const TLinkPtr &up, const TLinkPtr &down, const TL
 	TVertex::setNeighbours(north, west, south, east);
 }
 
+TLinkPtr TVertex2::checkNeighborhood( const TVertexPtr &vertex )
+{
+	if (!vertex) return 0;
+	if (vertex == getEndVertex(getNorth())) return getNorth();
+	if (vertex == getEndVertex(getWest())) return getWest();
+	if (vertex == getEndVertex(getSouth())) return getSouth();
+	if (vertex == getEndVertex(getEast())) return getEast();
+	if (vertex == getEndVertex(getUp())) return getUp();
+	if (vertex == getEndVertex(getDown())) return getDown();
+}
+
+int TVertex2::numberOfNeighbors()
+{
+	int number = 0;
+	if (getNorth()) number++;
+	if (getWest()) number++;
+	if (getSouth()) number++;
+	if (getNorth()) number++;
+	if (getUp()) number++;
+	if (getDown()) number++;
+	return number;
+}
+
+TVertexPtr TVertex2::getUpTVertex() const
+{
+	if (_up)
+	{
+		return _up->getEndVertex();
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+TVertexPtr TVertex2::getDownTVertex() const
+{
+	if (_down)
+	{
+		return _down->getEndVertex();
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+Real TVertex2::thickness()
+{
+	return 0.0;
+}
+
+Real TVertex2::volumn()
+{
+	return 0.0;
+}
+
+Parameter2 TVertex2::northWestUp()
+{
+	return Parameter2(getR(), getS(), getT());
+}
+
+Parameter2 TVertex2::southEastDown()
+{
+	return Parameter2(getR(), getS(), getT());
+}
+
+TVertex2Ptr TVertex2::asTVertex2()
+{
+	return castPtr<TVertex2>(shared_from_this());
+}
+
+TEdge2::TEdge2( const std::string & name /*= ""*/ ) : TEdge(name)
+{
+
+}
+
+bool TEdge2::toUp()
+{
+	TVertex2Ptr vs = getStartVertex()->asTVertex2();
+	TVertex2Ptr ve = getEndVertex()->asTVertex2();
+	Real dr = ve->getR() - vs->getR();
+	if (!isZero(dr))
+	{
+		return dr > 0.0;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool TEdge2::toDown()
+{
+	TVertex2Ptr vs = getStartVertex()->asTVertex2();
+	TVertex2Ptr ve = getEndVertex()->asTVertex2();
+	Real dr = ve->getR() - vs->getR();
+	if (!isZero(dr))
+	{
+		return dr < 0.0;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 TBox::TBox( const std::string & name /*= ""*/ ) :
 	TMappableObject(name)

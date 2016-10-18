@@ -59,7 +59,7 @@ namespace TSPLINE {
   using namespace NEWMAT;
 #endif
 
-DECLARE_ASSISTANCES(TVertex2, TVtx2)
+DECLARE_ASSISTANCES(TEdge2, TEdg2)
 DECLARE_ASSISTANCES(TLink2, TLnk2)
 DECLARE_ASSISTANCES(TFace2, TFac2)
 DECLARE_ASSISTANCES(TBox, TBox)
@@ -77,6 +77,8 @@ public:
 		Real t = 0.0);
 	virtual ~TVertex2() {}
 public:
+	virtual TVertex2Ptr asTVertex2();
+
 	/** Return the r parameter. */
 	Real getR(void) const { return _r; }
 	void SetRST(Real r, Real s, Real t) { _r = r; setST(s, t); }
@@ -119,6 +121,31 @@ private:
 	Real _r;
 	TLinkPtr _up;
 	TLinkPtr _down;
+};
+
+class TEdge2 : public TEdge
+{
+public:
+	TEdge2(const std::string & name = "");
+	virtual ~TEdge2(){}
+public:
+	/** Return the above T-face of the T-edge. */
+	TFacePtr getAboveFace() const { return _above; } 
+	/** Return the below T-face of the T-edge. */
+	TFacePtr getBelowFace() const { return _below; } 
+
+	/** Set the above T-face of the T-edge. */
+	void setAboveFace(const TFacePtr &above) { _above = above; }
+	/** Set the below T-face of the T-edge. */
+	void setBelowFace(const TFacePtr &below) { _below = below; }
+
+	/** Check if the orientation of T-edge is up. */
+	bool toUp();
+	/** Check if the orientation of T-edge is down. */
+	bool toDown();
+private:
+	TFacePtr _above;
+	TFacePtr _below;
 };
 
 class TLink2 : public TLink

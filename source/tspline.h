@@ -76,11 +76,20 @@ DECLARE_ASSISTANCES(TPointset, TPts)
 
 DECLARE_ASSISTANCES(TLinkLoop, TLnkLup) 
 
+DECLARE_ASSISTANCES(TVertex2, TVtx2)
+DECLARE_ASSISTANCES(TEdge2, TEdg2)
+DECLARE_ASSISTANCES(TLink2, TLnk2)
+DECLARE_ASSISTANCES(TFace2, TFac2)
+DECLARE_ASSISTANCES(TBox, TBox)
+DECLARE_ASSISTANCES(TImage2, TImg2)
+
 enum TObjType {E_TOBJECT, E_TGROUP, E_MAPPABLEOBJECT, E_TVERTEX, E_TEDGE, E_TLINK, 
 	E_TEDGECONDITION, E_TFACE, E_TIMAGE, E_TNODE, E_TNODEV4, E_TCONNECT,
 	E_TPOINT, E_TPOINTSET, E_TSPLINE};
+enum TObjType2 {E_TVERTEX2 = 15, E_TFACE2 = 16, E_TBOX = 17};
 
 enum TDirection {E_CENTER, E_NORTH, E_WEST, E_SOUTH, E_EAST};
+enum TDirection2 {E_UP = 5, E_DOWN = 6};
 
 /**  
   *  @class  <TObject> 
@@ -114,6 +123,8 @@ public:
 	virtual TEdgeConditionPtr asTEdgeCondition() { return 0; }
 	/** Check if this object is a TFace */
 	virtual TFacePtr asTFace() { return 0; }
+	/** Check if this object is a TBox */
+	virtual TBoxPtr asTBox() { return 0; }
 	/** Check if this object is a TImage */
 	virtual TImagePtr asTImage() { return 0; }
 	/** Check if this object is a TNode */
@@ -126,6 +137,7 @@ public:
 	virtual TPointsetPtr asTPointset() { return 0; }
 	/** Check if this object is a TSpline */
 	virtual TSplinePtr asTSpline() { return 0; }
+
 	/** Check if this object is virtual */
 	virtual bool isVirtual() { return false; }
 
@@ -336,7 +348,6 @@ private:
   *  @note  
   *  TVertex contains a parametric coordinate (s, t).
   */
-DECLARE_ASSISTANCES(TVertex2, TVtx2)
 class TVertex : public TMappableObject
 {
     friend class TEdge;
@@ -424,6 +435,7 @@ private:
   *  @note  
   *  TEdge contains its start and end T-vertices and left and right T-faces.
 */ 
+
 class TEdge : public TMappableObject
 {
    friend class TLink;
@@ -432,10 +444,12 @@ class TEdge : public TMappableObject
    friend class TImage;
 public:
    TEdge(const std::string & name = "");
-   ~TEdge(){}
+   virtual ~TEdge(){}
    typedef TEdgeTag TCategory;
 public:
 	virtual TEdgePtr asTEdge();
+	virtual TEdge2Ptr asTEdge2() { return 0; }
+
 	/** Return the start T-vertex of the T-edge. */
     TVertexPtr getStartVertex() const { return _start; } 
 	/** Return the end T-vertex of the T-edge. */
@@ -496,14 +510,16 @@ private:
   *  @note  
   *  TLink contains a pointer to a T-edge and defines the orientation. 
 */
+
 class TLink : public TObject
 {
 public:
    TLink( const std::string & name = "");
-   ~TLink(){}   //!< Destructor.
+   virtual ~TLink(){}   //!< Destructor.
    typedef TLinkTag TCategory;
 public:
 	virtual TLinkPtr asTLink();
+	virtual TLink2Ptr asTLink2() { return 0; }
 
 	/** Return the T-edge attaching the T-link. */
 	inline TEdgePtr getTEdge() { return _edge; }
@@ -581,6 +597,7 @@ private:
   *  @note  
   *  TFace contains a T-link loop and related T-nodes used for the blending calculation. 
 */
+
 class TFace : public TMappableObject
 {
 public:
@@ -590,6 +607,7 @@ public:
 	typedef TFaceTag TCategory;
 public:
 	virtual TFacePtr asTFace();
+	virtual TFace2Ptr asTFace2() { return 0; }
 
 	/** Add link to the T-face. */
 	void addLink(const TLinkPtr link);
@@ -658,7 +676,7 @@ class TEdgeCondition : public TObject
 {
 public:
    TEdgeCondition(const std::string & name = "");
-   ~TEdgeCondition(){}
+   virtual ~TEdgeCondition(){}
    typedef TEdgeConditionTag TCategory;
 public:
 	virtual TEdgeConditionPtr asTEdgeCondition();
@@ -675,7 +693,6 @@ private:
 	bool _boundary_condition;	
 };
 
-
 /**  
   *  @class  <TImage> 
   *  @brief  T-image class
@@ -686,10 +703,11 @@ class TImage : public TObject
 {
 public:
    TImage(const std::string & name = "");
-   ~TImage(){}
+   virtual ~TImage(){}
    typedef TImageTag TCategory;
 public:
 	virtual TImagePtr asTImage();
+	virtual TImage2Ptr asTImage2() { return 0; }
 
 	/** Add a T-face to the T-image. */
 	void addFace(const TFacePtr &face);
@@ -789,7 +807,7 @@ class TNodeV4 : public TNode
 {
 public:
    TNodeV4(const std::string & name = "");
-   ~TNodeV4(){}    //!< Destructor.
+   virtual ~TNodeV4(){}    //!< Destructor.
    typedef TNodeV4Tag TCategory;
 public:
 	virtual TNodeV4Ptr asTNodeV4();
@@ -834,7 +852,7 @@ class TConnect : public TGroup
 	friend class TPoint;
 public:
    TConnect(const std::string & name = "");
-   ~TConnect(){}
+   virtual ~TConnect(){}
    typedef TConnectTag TCategory;
 
 public:
@@ -853,7 +871,7 @@ class TPoint : public TObject
 	friend class TPointset;
 public:
    TPoint(const std::string & name = "", Real x = 0.0, Real y = 0.0, Real z = 0.0, Real w = 1.0);
-   ~TPoint(){}    //!< Destructor.
+   virtual ~TPoint(){}    //!< Destructor.
    typedef TPointTag TCategory;
 public:
 	virtual TPointPtr asTPoint();
@@ -892,7 +910,7 @@ class TPointset : public TGroup
 	friend class TSpline;
 public:
    TPointset(const std::string & name = "");
-   ~TPointset(){}
+   virtual ~TPointset(){}
    typedef TPointsetTag TCategory;
 public:
 	virtual TPointsetPtr asTPointset();
@@ -910,7 +928,7 @@ class TSpline : public TObject
 public:
    TSpline(const std::string & name = "", int degree = 3,
 	   bool force_bezier_end_condition = false);
-   ~TSpline(){}
+   virtual ~TSpline(){}
    typedef TSplineTag TCategory;
 public:
 	virtual TSplinePtr asTSpline();

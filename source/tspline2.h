@@ -59,14 +59,6 @@ namespace TSPLINE {
   using namespace NEWMAT;
 #endif
 
-DECLARE_ASSISTANCES(TEdge2, TEdg2)
-DECLARE_ASSISTANCES(TLink2, TLnk2)
-DECLARE_ASSISTANCES(TFace2, TFac2)
-DECLARE_ASSISTANCES(TBox, TBox)
-
-enum TObjType2 {E_TVERTEX2, E_TFACE32, E_TBOX};
-enum TDirection2 {E_UP = 5, E_DOWN = 6};
-
 class TVertex2 : public TVertex
 {
 	friend class TLink2;
@@ -77,7 +69,7 @@ public:
 		Real t = 0.0);
 	virtual ~TVertex2() {}
 public:
-	virtual TVertex2Ptr asTVertex2();
+	virtual TVertex2Ptr asTVertex2() { return castPtr<TVertex2>(shared_from_this()); }
 
 	/** Return the r parameter. */
 	Real getR(void) const { return _r; }
@@ -129,6 +121,8 @@ public:
 	TEdge2(const std::string & name = "");
 	virtual ~TEdge2(){}
 public:
+	virtual TEdge2Ptr asTEdge2() { return castPtr<TEdge2>(shared_from_this()); }
+
 	/** Return the above T-face of the T-edge. */
 	TFacePtr getAboveFace() const { return _above; } 
 	/** Return the below T-face of the T-edge. */
@@ -154,6 +148,7 @@ public:
 	TLink2(const std::string & name = "");
 	virtual ~TLink2() {}
 public:
+	virtual TLink2Ptr asTLink2() { return castPtr<TLink2>(shared_from_this()); }
 	/** Return the above T-face of the T-link. */
 	TFacePtr getAboveFace() const;
 	/** Return the below T-face of the T-link. */
@@ -170,6 +165,8 @@ public:
 	TFace2(const std::string & name = "");
 	virtual ~TFace2(){}
 public:
+	virtual TFace2Ptr asTFace2() { return castPtr<TFace2>(shared_from_this()); }
+
 	/** Check if the T-face is in x-plane. */
 	bool xPlane();
 	/** Check if the T-face is in y-plane. */
@@ -193,7 +190,7 @@ public:
 	virtual ~TBox(){}
 	typedef TBoxTag TCategory;
 public:
-	virtual TBoxPtr asTBox();
+	virtual TBoxPtr asTBox() { return castPtr<TBox>(shared_from_this()); }
 
 	void addFace(const TFace2Ptr face); 
 	/** Add blending T-node to the T-box. */
@@ -232,6 +229,28 @@ public:
 private:
 	TFac2Vector _faces;
 	TNodVector _blending_nodes;		
+};
+
+class TImage2 : public TImage
+{
+public:
+	TImage2(const std::string & name = "");
+	virtual ~TImage2() {}
+public:
+	virtual TImage2Ptr asTImage2() { return castPtr<TImage2>(shared_from_this()); }
+
+	/** Add a T-box to the T-image. */
+	void addBox(const TBoxPtr &box);
+	/** Return the number of T-boxes. */
+	int sizeBoxes() const { return _boxes.size(); }
+
+	/** Return the begin iterator of T-boxes. */
+	TBoxVIterator boxIteratorBegin();
+	/** Return the end iterator of T-boxes. */
+	TBoxVIterator boxIteratorEnd();
+
+private:
+	TBoxVector _boxes;
 };
 
 #ifdef use_namespace

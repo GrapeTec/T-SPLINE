@@ -120,11 +120,6 @@ Parameter2 TVertex2::southEastDown()
 	return Parameter2(getR(), getS(), getT());
 }
 
-TVertex2Ptr TVertex2::asTVertex2()
-{
-	return castPtr<TVertex2>(shared_from_this());
-}
-
 TEdge2::TEdge2( const std::string & name /*= ""*/ ) : TEdge(name)
 {
 
@@ -164,11 +159,6 @@ TBox::TBox( const std::string & name /*= ""*/ ) :
 	TMappableObject(name)
 {
 
-}
-
-TBoxPtr TBox::asTBox()
-{
-	return castPtr<TBox>(shared_from_this());
 }
 
 void TBox::addFace( const TFace2Ptr face )
@@ -250,6 +240,27 @@ long TBox::sizeBlendingNodes()
 {
 	return _blending_nodes.size();
 }
+
+TImage2::TImage2( const std::string & name /*= ""*/ ) : TImage(name)
+{
+
+}
+
+void TImage2::addBox( const TBoxPtr &box )
+{
+	_boxes.push_back(box);
+}
+
+TBoxVIterator TImage2::boxIteratorBegin()
+{
+	return _boxes.begin();
+}
+
+TBoxVIterator TImage2::boxIteratorEnd()
+{
+	return _boxes.end();
+}
+
 
 #ifdef use_namespace
 }

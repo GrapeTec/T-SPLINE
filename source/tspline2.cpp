@@ -350,6 +350,15 @@ void TNodeV6::setTBox( const TBoxPtr &box )
 	setTMappableObject(box);
 }
 
+void TNodeV6::setNeighbours( const TNodeV6Ptr &north, const TNodeV6Ptr &west,
+							const TNodeV6Ptr &south, const TNodeV6Ptr &east, 
+							const TNodeV6Ptr &up, const TNodeV6Ptr &down )
+{
+	setNorth(north); setWest(west); 
+	setSouth(south); setEast(east);
+	setUp(up); setDown(down);
+}
+
 #ifdef use_namespace
 }
 #endif

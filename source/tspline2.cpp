@@ -340,6 +340,16 @@ TBoxVIterator TImage2::boxIteratorEnd()
 	return _boxes.end();
 }
 
+TNodeV6::TNodeV6( const std::string & name /*= ""*/ ) : TNode(name)
+{
+
+}
+
+void TNodeV6::setTBox( const TBoxPtr &box )
+{
+	setTMappableObject(box);
+}
+
 #ifdef use_namespace
 }
 #endif

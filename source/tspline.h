@@ -82,6 +82,7 @@ DECLARE_ASSISTANCES(TLink2, TLnk2)
 DECLARE_ASSISTANCES(TFace2, TFac2)
 DECLARE_ASSISTANCES(TBox, TBox)
 DECLARE_ASSISTANCES(TImage2, TImg2)
+DECLARE_ASSISTANCES(TNodeV6, TNodV6)
 
 enum TObjType {E_TOBJECT, E_TGROUP, E_MAPPABLEOBJECT, E_TVERTEX, E_TEDGE, E_TLINK, 
 	E_TEDGECONDITION, E_TFACE, E_TIMAGE, E_TNODE, E_TNODEV4, E_TCONNECT,
@@ -768,6 +769,7 @@ public:
 public:
 	virtual TNodePtr asTNode();
 	virtual TNodeV4Ptr asTNodeV4() { return 0; }
+	virtual TNodeV6Ptr asTNodeV6() { return 0; }
 
 	/** Get the T-mapper. */
 	TMappableObjectPtr getTMapper() const {return _mapper;}

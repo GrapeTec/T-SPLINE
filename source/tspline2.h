@@ -253,6 +253,59 @@ private:
 	TBoxVector _boxes;
 };
 
+class TNodeV6 : public TNode
+{
+public:
+	TNodeV6(const std::string & name = "");
+	virtual ~TNodeV6() {}
+public:
+	virtual TNodeV6Ptr asTNodeV6() { return castPtr<TNodeV6>(shared_from_this()); }
+
+	/** Get the T-mapper as a T-box. */
+	TBoxPtr getTBox() const {return getTMapper()->asTBox();}
+	/** Set the T-mapper as a T-face. */
+	void setTBox(const TBoxPtr &box);
+
+	/** Get the north T-node. */
+	TNodeV6Ptr getNorth() const { return _north; }
+	/** Get the west T-node. */
+	TNodeV6Ptr getWest() const { return _west; }
+	/** Get the south T-node. */
+	TNodeV6Ptr getSouth() const { return _south; }
+	/** Get the east T-node. */
+	TNodeV6Ptr getEast() const { return _east; } 
+	/** Get the south T-node. */
+	TNodeV6Ptr getUp() const { return _up; }
+	/** Get the east T-node. */
+	TNodeV6Ptr getDown() const { return _down; } 
+
+	/** Set the north T-node. */
+	void setNorth(const TNodeV6Ptr &node) { _north = node; }
+	/** Set the west T-node. */
+	void setWest(const TNodeV6Ptr &node) { _west = node; }
+	/** Set the south T-node. */
+	void setSouth(const TNodeV6Ptr &node) { _south = node; }
+	/** Set the east T-node. */
+	void setEast(const TNodeV6Ptr &node) { _east = node; }
+	/** Set the up T-node. */
+	void setUp(const TNodeV6Ptr &node) { _up = node; }
+	/** Set the east T-node. */
+	void setDown(const TNodeV6Ptr &node) { _down = node; }
+
+	/** Set the neighbors. */
+	void setNeighbours(const TNodeV6Ptr &north,
+		const TNodeV6Ptr &west, const TNodeV6Ptr &south,
+		const TNodeV6Ptr &east, const TNodeV6Ptr &up,
+		const TNodeV6Ptr &down);
+private:
+	TNodeV6Ptr _north;	
+	TNodeV6Ptr _west;	
+	TNodeV6Ptr _south;	
+	TNodeV6Ptr _east;	
+	TNodeV6Ptr _up;	
+	TNodeV6Ptr _down;	
+};
+
 #ifdef use_namespace
 }
 #endif

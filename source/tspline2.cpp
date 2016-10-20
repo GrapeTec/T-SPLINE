@@ -369,6 +369,17 @@ void TNodeV6::setNeighbours( const TNodeV6Ptr &north, const TNodeV6Ptr &west,
 	setUp(up); setDown(down);
 }
 
+TPoint2::TPoint2(const std::string & name /*= ""*/, 
+				 Real x /*= 0.0*/, 
+				 Real y /*= 0.0*/, 
+				 Real z /*= 0.0*/, 
+				 Real c /*= 0.0*/, 
+				 Real w /*= 1.0*/):
+	TPoint(name,x,y,z),_c(c)
+{
+
+}
+
 #ifdef use_namespace
 }
 #endif

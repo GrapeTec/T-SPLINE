@@ -83,13 +83,33 @@ public:
 	TLink2Ptr createTLink2(const std::string &name);
 	/** Create a T-face2 object*/
 	TFace2Ptr createTFace2(const std::string &name);
-	/** Create a T-node valence 6 object*/
+	/** Create a T-node2 valence 6 object*/
 	TNodeV6Ptr createTNodeV6(const std::string &name);
+	/** Create a T-point2 object with a coordinate (x, y, z, c, w)*/
+	TPoint2Ptr createTPoint2(const std::string &name, Real x = 0.0, Real y = 0.0, Real z = 0.0, Real c = 0.0, Real w = 1.0);
 
+	/** Patch the T-pointset2 with needed attributes*/
+	void patchTPointset2(const TPointsetPtr &tpoint_grid, const std::vector<std::string> &points);
+	/** Patch the named T-pointset2 with needed attributes*/
+	void patchTPointset2(const std::string &tpoint_grid, const std::vector<std::string> &points);
+
+	/** Patch the T-vertex2 with needed attributes*/
 	void patchTVertex2(const std::string &vertex, const std::string &up, const std::string &down,
 		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
+	/** Patch the named T-vertex2 with needed attributes*/
 	void patchTVertex2(const TVertex2Ptr &vertex, const std::string &up, const std::string &down,
 		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
+
+	/** Patch the T-edge2 with needed attributes*/
+	void patchTEdge2(const TEdge2Ptr &edge, const std::string &vstart_name, const std::string &vend_name, const std::string &lface_name, const std::string &rface_name, const std::string &aface_name, const std::string &bface_name);
+	/** Patch the named T-edge2 with needed attributes*/
+	void patchTEdge2(const std::string &edge, const std::string &vstart_name, const std::string &vend_name, const std::string &lface_name, const std::string &rface_name, const std::string &aface_name, const std::string &bface_name);
+
+	//no need link
+	//no need edge_condition
+
+
+
 };
 
 #ifdef use_namespace

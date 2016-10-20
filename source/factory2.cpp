@@ -127,6 +127,18 @@ void TFactory2::patchTEdge2(const std::string &edge, const std::string &vstart_n
 	patchTEdge2(findTObject<TEdge2>(edge), vstart_name, vend_name, lface_name, rface_name, aface_name, bface_name);
 }
 
+void TFactory2::patchTNodeV6( const TNodeV6Ptr &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down )
+{
+	TFactory::patchTNode(node_v6, mapper, point);
+	node_v6->setNeighbours(findTObject<TNodeV6>(north), findTObject<TNodeV6>(west),findTObject<TNodeV6>(south), findTObject<TNodeV6>(east), 
+		findTObject<TNodeV6>(up), findTObject<TNodeV6>(down));
+}
+
+void TFactory2::patchTNodeV6( const std::string &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down )
+{
+	patchTNodeV6(findTObject<TNodeV6>(node_v6), mapper, point, north, west, south, east, up, down);
+}
+
 void TFactory2::patchTPointset2(const TPointsetPtr &tpoint_grid, const std::vector<std::string> &points)
 {
 	std::vector<std::string>::const_iterator iter;

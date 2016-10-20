@@ -108,6 +108,10 @@ public:
 	//no need link
 	//no need edge_condition
 
+	/** Patch the T-node valence 6 with needed attributes*/
+	void patchTNodeV6(const TNodeV6Ptr &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down);
+	/** Patch the named T-node valence 6 with needed attributes*/
+	void patchTNodeV6(const std::string &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down);
 
 
 };

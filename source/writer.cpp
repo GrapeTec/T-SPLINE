@@ -385,7 +385,6 @@ struct cmp_find : std::binary_function<T, T, bool>
 {
 	bool operator()(T index1, T index2) const
 	{
-		//if(isZero(index1-index2))
 		if(isEqual(index1,index2))
 			return true;
 		return false;

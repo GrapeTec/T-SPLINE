@@ -113,7 +113,17 @@ public:
 	/** Patch the named T-node valence 6 with needed attributes*/
 	void patchTNodeV6(const std::string &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down);
 
+	//no need point
 
+	/** Patch the T-vertex2 with needed attributes by T-vertex2 neighbors*/
+	void patchTVertexByVertices2(const TVertex2Ptr &vertex, const std::string &up, const std::string &down,
+		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
+	/** Patch the named T-vertex2 with needed attributes by T-vertex2 neighbors*/
+	void patchTVertexByVertices2(const std::string &vertex, const std::string &up, const std::string &down,
+		const std::string &north, const std::string &west, const std::string &south, const std::string &east);
+
+	/** Prepare all the T-nodes' half linkages*/
+	void prepareTNodeHalfLinkages();
 };
 
 #ifdef use_namespace

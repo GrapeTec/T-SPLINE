@@ -209,6 +209,12 @@ public:
 		return 0;
 	}
 
+	template<class T>
+	void findObjects(std::vector<std::shared_ptr<T>> &objects)
+	{
+		_finder->findObjects<T>(objects);
+	}
+
 	TLinkPtr findTLinkByStartEndVertices(const TVertexPtr &start, const TVertexPtr &end);
 private:
 	TGroupPtr _objects;

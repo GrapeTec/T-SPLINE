@@ -112,6 +112,30 @@ void TFactory2::patchTVertex2( const TVertex2Ptr &vertex, const std::string &up,
 	vertex->setNeighbours(link_up, link_down, link_north, link_west, link_south, link_east);
 }
 
+void TFactory2::patchTVertexByVertices2(const TVertex2Ptr &vertex, const std::string &up, const std::string &down, const std::string &north, const std::string &west, const std::string &south, const std::string &east)
+{
+	TVertex2Ptr vertex_up = findTObject<TVertex2>(up);
+	TVertex2Ptr vertex_down = findTObject<TVertex2>(down);
+	TVertex2Ptr vertex_north = findTObject<TVertex2>(north);
+	TVertex2Ptr vertex_west = findTObject<TVertex2>(west);
+	TVertex2Ptr vertex_south = findTObject<TVertex2>(south);
+	TVertex2Ptr vertex_east = findTObject<TVertex2>(east);
+
+	TLinkPtr link_up = findTLinkByStartEndVertices(vertex, vertex_up);
+	TLinkPtr link_down = findTLinkByStartEndVertices(vertex, vertex_down);
+	TLinkPtr link_north = findTLinkByStartEndVertices(vertex, vertex_north);
+	TLinkPtr link_west = findTLinkByStartEndVertices(vertex, vertex_west);
+	TLinkPtr link_south = findTLinkByStartEndVertices(vertex, vertex_south);
+	TLinkPtr link_east = findTLinkByStartEndVertices(vertex, vertex_east);
+
+	vertex->setNeighbours(link_up, link_down, link_north, link_west, link_south, link_east);
+}
+
+void TFactory2::patchTVertexByVertices2(const std::string &vertex, const std::string &up, const std::string &down, const std::string &north, const std::string &west, const std::string &south, const std::string &east)
+{
+	patchTVertexByVertices2(findTObject<TVertex2>(vertex), up, down, north, west, south, east);
+}
+
 void TFactory2::patchTEdge2(const TEdge2Ptr &edge, const std::string &vstart_name, const std::string &vend_name, const std::string &lface_name, const std::string &rface_name, const std::string &aface_name, const std::string &bface_name)
 {
 	edge->setStartVertex(findTObject<TVertex2>(vstart_name));
@@ -152,6 +176,13 @@ void TFactory2::patchTPointset2(const TPointsetPtr &tpoint_grid, const std::vect
 void TFactory2::patchTPointset2(const std::string &tpoint_grid, const std::vector<std::string> &points)
 {
 	patchTPointset2(findTObject<TPointset>(tpoint_grid), points);
+}
+
+void TFactory2::prepareTNodeHalfLinkages()
+{
+	TVtxVector vertices;
+	findObjects<TVertex>(vertices);
+	//std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTNodes2());
 }
 
 #ifdef use_namespace

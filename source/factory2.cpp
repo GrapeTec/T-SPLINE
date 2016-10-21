@@ -85,6 +85,13 @@ TNodeV6Ptr TFactory2::createTNodeV6( const std::string &name )
 	return createTObject<TNodeV6>(name);
 }
 
+TPoint2Ptr TFactory2::createTPoint2(const std::string &name, Real x /*= 0.0*/, Real y /*= 0.0*/, Real z /*= 0.0*/, Real c /*= 0.0*/, Real w /*= 1.0*/)
+{
+	TPoint2Ptr obj = createTObject<TPoint2>(name);
+	obj->setXYZCW(x, y, z, c, w);
+	return NULL;
+}
+
 void TFactory2::patchTVertex2( const std::string &vertex, 
 							  const std::string &up, const std::string &down, 
 							  const std::string &north, const std::string &west, 
@@ -103,6 +110,79 @@ void TFactory2::patchTVertex2( const TVertex2Ptr &vertex, const std::string &up,
 	TLink2Ptr link_east = findTObject<TLink2>(east);
 
 	vertex->setNeighbours(link_up, link_down, link_north, link_west, link_south, link_east);
+}
+
+void TFactory2::patchTVertexByVertices2(const TVertex2Ptr &vertex, const std::string &up, const std::string &down, const std::string &north, const std::string &west, const std::string &south, const std::string &east)
+{
+	TVertex2Ptr vertex_up = findTObject<TVertex2>(up);
+	TVertex2Ptr vertex_down = findTObject<TVertex2>(down);
+	TVertex2Ptr vertex_north = findTObject<TVertex2>(north);
+	TVertex2Ptr vertex_west = findTObject<TVertex2>(west);
+	TVertex2Ptr vertex_south = findTObject<TVertex2>(south);
+	TVertex2Ptr vertex_east = findTObject<TVertex2>(east);
+
+	TLinkPtr link_up = findTLinkByStartEndVertices(vertex, vertex_up);
+	TLinkPtr link_down = findTLinkByStartEndVertices(vertex, vertex_down);
+	TLinkPtr link_north = findTLinkByStartEndVertices(vertex, vertex_north);
+	TLinkPtr link_west = findTLinkByStartEndVertices(vertex, vertex_west);
+	TLinkPtr link_south = findTLinkByStartEndVertices(vertex, vertex_south);
+	TLinkPtr link_east = findTLinkByStartEndVertices(vertex, vertex_east);
+
+	vertex->setNeighbours(link_up, link_down, link_north, link_west, link_south, link_east);
+}
+
+void TFactory2::patchTVertexByVertices2(const std::string &vertex, const std::string &up, const std::string &down, const std::string &north, const std::string &west, const std::string &south, const std::string &east)
+{
+	patchTVertexByVertices2(findTObject<TVertex2>(vertex), up, down, north, west, south, east);
+}
+
+void TFactory2::patchTEdge2(const TEdge2Ptr &edge, const std::string &vstart_name, const std::string &vend_name, const std::string &lface_name, const std::string &rface_name, const std::string &aface_name, const std::string &bface_name)
+{
+	edge->setStartVertex(findTObject<TVertex2>(vstart_name));
+	edge->setEndVertex(findTObject<TVertex2>(vend_name));
+	edge->setLeftFace(findTObject<TFace2>(lface_name));
+	edge->setRightFace(findTObject<TFace2>(rface_name));
+	edge->setAboveFace(findTObject<TFace2>(aface_name));
+	edge->setBelowFace(findTObject<TFace2>(bface_name));
+}
+
+void TFactory2::patchTEdge2(const std::string &edge, const std::string &vstart_name, const std::string &vend_name, const std::string &lface_name, const std::string &rface_name, const std::string &aface_name, const std::string &bface_name)
+{
+	patchTEdge2(findTObject<TEdge2>(edge), vstart_name, vend_name, lface_name, rface_name, aface_name, bface_name);
+}
+
+void TFactory2::patchTNodeV6( const TNodeV6Ptr &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down )
+{
+	TFactory::patchTNode(node_v6, mapper, point);
+	node_v6->setNeighbours(findTObject<TNodeV6>(north), findTObject<TNodeV6>(west),findTObject<TNodeV6>(south), findTObject<TNodeV6>(east), 
+		findTObject<TNodeV6>(up), findTObject<TNodeV6>(down));
+}
+
+void TFactory2::patchTNodeV6( const std::string &node_v6, const std::string &mapper, const std::string &point, const std::string &north, const std::string &west, const std::string &south, const std::string &east, const std::string &up, const std::string &down )
+{
+	patchTNodeV6(findTObject<TNodeV6>(node_v6), mapper, point, north, west, south, east, up, down);
+}
+
+void TFactory2::patchTPointset2(const TPointsetPtr &tpoint_grid, const std::vector<std::string> &points)
+{
+	std::vector<std::string>::const_iterator iter;
+	for (iter = points.begin(); iter != points.end(); iter++)
+	{
+		TPoint2Ptr point = findTObject<TPoint2>(*iter);
+		tpoint_grid->addObject(point);
+	}
+}
+
+void TFactory2::patchTPointset2(const std::string &tpoint_grid, const std::vector<std::string> &points)
+{
+	patchTPointset2(findTObject<TPointset>(tpoint_grid), points);
+}
+
+void TFactory2::prepareTNodeHalfLinkages()
+{
+	TVtxVector vertices;
+	findObjects<TVertex>(vertices);
+	//std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTNodes2());
 }
 
 #ifdef use_namespace

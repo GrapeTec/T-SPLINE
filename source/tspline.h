@@ -83,6 +83,7 @@ DECLARE_ASSISTANCES(TFace2, TFac2)
 DECLARE_ASSISTANCES(TBox, TBox)
 DECLARE_ASSISTANCES(TImage2, TImg2)
 DECLARE_ASSISTANCES(TNodeV6, TNodV6)
+DECLARE_ASSISTANCES(TPoint2, TPts2)
 
 enum TObjType {E_TOBJECT, E_TGROUP, E_MAPPABLEOBJECT, E_TVERTEX, E_TEDGE, E_TLINK, 
 	E_TEDGECONDITION, E_TFACE, E_TIMAGE, E_TNODE, E_TNODEV4, E_TCONNECT,
@@ -649,11 +650,11 @@ public:
 	TNodVIterator blendingNodeIteratorEnd();
 
 public:
-	/** Get the length of the T-link. */
+	/** Get the width of the T-face. */
 	virtual Real width();
-	/** Check if the T-link is to the north. */
+	/** Get the height of the T-face. */
 	virtual Real height();
-	/** Check if the T-link is to the west. */
+	/** Get the area of the T-face. */
 	virtual Real area();
 	/** Get the northwest parameter of the T-face. */
 	virtual Parameter northWest();
@@ -876,6 +877,7 @@ public:
    typedef TPointTag TCategory;
 public:
 	virtual TPointPtr asTPoint();
+	virtual TPoint2Ptr asTPoint2(){return 0;}
 
 	/** Get the coordinate x. */
 	inline Real getX() const { return _x; }

@@ -59,6 +59,7 @@ namespace TSPLINE {
   using namespace NEWMAT;
 #endif
 
+
 class TVertex2 : public TVertex
 {
 	friend class TLink2;
@@ -305,6 +306,33 @@ private:
 	TNodeV6Ptr _up;	
 	TNodeV6Ptr _down;	
 };
+
+/**  
+  *  @class  <TPoint2> 
+  *  @brief  T-point2 class
+  *  @note  
+  *  TPoint contains a coordinate (x, y, z, c) and a weight w. Additionally, it gives the pointer to its corresponding T-node2.
+*/
+class TPoint2 : public TPoint 
+{
+public:
+	TPoint2(const std::string & name = "", Real x = 0.0, Real y = 0.0, Real z = 0.0, Real c = 0.0, Real w = 1.0);
+	virtual ~TPoint2(){};
+public:
+	virtual TPoint2Ptr asTPoint2(){ return castPtr<TPoint2>(shared_from_this()); };
+	
+	Real getC() const { return _c; }
+	
+	void setXYZCW(Real x, Real y, Real z, Real c, Real w)
+	{
+		TPoint::setXYZW(x, y, z, w);
+		_c = c;
+	}
+private:
+	Real _c;
+};
+
+
 
 #ifdef use_namespace
 }

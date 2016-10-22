@@ -14,7 +14,9 @@ add_library(tspline
 			virtual.cpp
 			tjunction.cpp
 			multiplicity.cpp
+			multiplicity2.cpp
 			visitor.cpp
+			visitor2.cpp
 			finder.cpp
 			extractor.cpp
 			editor.cpp

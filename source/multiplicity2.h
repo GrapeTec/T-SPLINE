@@ -147,6 +147,50 @@ private:
 	TNodeV6Ptr _node;
 };
 
+/**  
+  *  @class  <TPseudoNodeMatrix> 
+  *  @brief  Pseudo T-node matrix
+  *  @note  
+  *  TPseudoNodeMatrix is used to derive the multiplicity of a T-vertex.
+*/
+class TPseudoNodeMatrix2
+{
+public:
+	TPseudoNodeMatrix2(const TNodVIterator &begin, const TNodVIterator &end);
+	~TPseudoNodeMatrix2();
+public:
+	/** Find all the north T-nodes*/
+	TNodV6Vector nodesNorth();
+	/** Find all the west T-nodes*/
+	TNodV6Vector nodesWest();
+	/** Find all the south T-nodes*/
+	TNodV6Vector nodesSouth();
+	/** Find all the east T-nodes*/
+	TNodV6Vector nodesEast();
+	/** Find all the up T-nodes*/
+	TNodV6Vector nodesUp();
+	/** Find all the down T-nodes*/
+	TNodV6Vector nodesDown();
+
+	/** Find the north tip T-node*/
+	TNodeV6Ptr nodeTipNorth();
+	/** Find the west tip T-node*/
+	TNodeV6Ptr nodeTipWest();
+	/** Find the south tip T-node*/
+	TNodeV6Ptr nodeTipSouth();
+	/** Find the east tip T-node*/
+	TNodeV6Ptr nodeTipEast();
+	/** Find the up tip T-node*/
+	TNodeV6Ptr nodeTipUp();
+	/** Find the down tip T-node*/
+	TNodeV6Ptr nodeTipDown();
+	/** Find the center T-node*/
+	TNodeV6Ptr nodeCenter();
+protected:
+	void initializePseudo(const TNodVIterator &begin, const TNodVIterator &end);
+private:
+	TPsdNodV6Vector _peuso_nodes;
+};
 
 #ifdef use_namespace
 }

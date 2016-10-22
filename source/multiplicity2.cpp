@@ -46,7 +46,8 @@ namespace TSPLINE {
 	using namespace NEWMAT;
 #endif
 
-TPseudoNodeV6::TPseudoNodeV6(const TNodeV6Ptr &node)
+TPseudoNodeV6::TPseudoNodeV6(const TNodeV6Ptr &node) :
+	_node(node)
 {
 
 }
@@ -54,6 +55,141 @@ TPseudoNodeV6::TPseudoNodeV6(const TNodeV6Ptr &node)
 TPseudoNodeV6::~TPseudoNodeV6()
 {
 
+}
+
+TPseudoNodeMatrix2::TPseudoNodeMatrix2( const TNodVIterator &begin, const TNodVIterator &end )
+{
+	initializePseudo(begin, end);
+}
+
+TPseudoNodeMatrix2::~TPseudoNodeMatrix2()
+{
+
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesNorth()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesWest()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesSouth()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesEast()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesUp()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodV6Vector TPseudoNodeMatrix2::nodesDown()
+{
+	TNodV6Vector nodes;
+	return nodes;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipNorth()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipWest()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipSouth()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipEast()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipUp()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeTipDown()
+{
+	return 0;
+}
+
+TNodeV6Ptr TPseudoNodeMatrix2::nodeCenter()
+{
+	return 0;
+}
+
+void TPseudoNodeMatrix2::initializePseudo( const TNodVIterator &begin, const TNodVIterator &end )
+{
+	TNodVIterator iter;
+	for (iter = begin; iter!=end; iter++)
+	{
+		TNodeV6Ptr node_v6 = (*iter)->asTNodeV6();
+		TPseudoNodeV6Ptr pnode = makePtr<TPseudoNodeV6>(node_v6);
+		_peuso_nodes.push_back(pnode);
+	}
+
+	TLocalFinder<TNodVIterator> finder(begin, end);
+	TPsdNodV6VIterator piter = _peuso_nodes.begin();
+	for (;piter!=_peuso_nodes.end();piter++)
+	{
+		TPseudoNodeV6Ptr pnode = *piter;
+		TNodeV6Ptr north = pnode->getNorth();
+		TNodeV6Ptr west = pnode->getWest();
+		TNodeV6Ptr south = pnode->getSouth();
+		TNodeV6Ptr east = pnode->getEast();
+		TNodeV6Ptr up = pnode->getUp();
+		TNodeV6Ptr down = pnode->getDown();
+		if( finder.has(north) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(north));
+			pnode->setPseudoNorth(*piter);
+		}
+		if( finder.has(west) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(west));
+			pnode->setPseudoWest(*piter);
+		}
+		if( finder.has(south) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(south));
+			pnode->setPseudoSouth(*piter);
+		}
+		if( finder.has(east) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(east));
+			pnode->setPseudoEast(*piter);
+		}
+		if( finder.has(up) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(up));
+			pnode->setPseudoUp(*piter);
+		}
+		if( finder.has(down) )
+		{
+			TPsdNodV6VIterator piter = std::find_if(_peuso_nodes.begin(), _peuso_nodes.end(), TPseudoNodeChecker2(down));
+			pnode->setPseudoDown(*piter);
+		}
+	}
 }
 
 

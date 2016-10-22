@@ -46,6 +46,17 @@ namespace TSPLINE {
 	using namespace NEWMAT;
 #endif
 
+TPseudoNodeV6::TPseudoNodeV6(const TNodeV6Ptr &node)
+{
+
+}
+
+TPseudoNodeV6::~TPseudoNodeV6()
+{
+
+}
+
+
 
 
 

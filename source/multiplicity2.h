@@ -52,15 +52,102 @@ Revision_history:
 #define MULTIPLICITY_H
 
 #include <utils.h>
-#include <tspline.h>
+#include <tspline2.h>
 
 #ifdef use_namespace
 namespace TSPLINE {
 	using namespace NEWMAT;
 #endif
 
+DECLARE_ASSISTANCES(TPseudoNodeV6, TPsdNodV6)
 
-	
+/**  
+  *  @class  <TPseudoNodeV6> 
+  *  @brief  Pseudo T-node valence 6 
+  *  @note  
+  *  TPseudoNodeV6 has very similar structure with TNodeV6, while its neighborhood is slightly different.
+*/
+class TPseudoNodeV6
+{
+public:
+	TPseudoNodeV6(const TNodeV6Ptr &node);
+	~TPseudoNodeV6();
+public:
+	/** Set the pseudo north nodev6. */
+	void setPseudoNorth(const TPseudoNodeV6Ptr &node) {_north = node;}
+	/** Set the pseudo west nodev6. */
+	void setPseudoWest(const TPseudoNodeV6Ptr &node) {_west = node;}
+	/** Set the pseudo south nodev6. */
+	void setPseudoSouth(const TPseudoNodeV6Ptr &node) {_south = node;}
+	/** Set the pseudo east nodev6. */
+	void setPseudoEast(const TPseudoNodeV6Ptr &node) {_east = node;}
+	/** Set the pseudo up nodev6. */
+	void setPseudoUp(const TPseudoNodeV6Ptr &node) {_up = node;}
+	/** Set the pseudo down nodev6. */
+	void setPseudoDown(const TPseudoNodeV6Ptr &node) {_down = node;}
+
+	/** Return the pseudo north nodev6. */
+	TPseudoNodeV6Ptr getPseudoNorth() {return _north;}
+	/** Return the pseudo west nodev6. */
+	TPseudoNodeV6Ptr getPseudoWest() {return _west;}
+	/** Return the pseudo south nodev6. */
+	TPseudoNodeV6Ptr getPseudoSouth() {return _south;}
+	/** Return the pseudo east nodev6. */
+	TPseudoNodeV6Ptr getPseudoEast() {return _east;}
+	/** Return the pseudo up nodev6. */
+	TPseudoNodeV6Ptr getPseudoUp() {return _up;}
+	/** Return the pseudo down nodev6. */
+	TPseudoNodeV6Ptr getPseudoDown() {return _down;}
+
+	/** Return the nodev4. */
+	TNodeV6Ptr getNode() {return _node;}
+	/** Return the north nodes of the nodev6. */
+	TNodeV6Ptr getNorth() {return _node->getNorth();}
+	/** Return the west nodes of the nodev6. */
+	TNodeV6Ptr getWest() {return _node->getWest();}
+	/** Return the south nodes of the nodev6. */
+	TNodeV6Ptr getSouth() {return _node->getSouth();}
+	/** Return the east nodes of the nodev6. */
+	TNodeV6Ptr getEast() {return _node->getEast();}
+	/** Return the up nodes of the nodev6. */
+	TNodeV6Ptr getUp() {return _node->getUp();}
+	/** Return the down nodes of the nodev6. */
+	TNodeV6Ptr getDown() {return _node->getDown();}
+private:
+	TNodeV6Ptr _node;
+	TPseudoNodeV6Ptr _north;
+	TPseudoNodeV6Ptr _west;
+	TPseudoNodeV6Ptr _south;
+	TPseudoNodeV6Ptr _east;
+	TPseudoNodeV6Ptr _up;
+	TPseudoNodeV6Ptr _down;
+};
+
+/**  
+  *  @class  <TPseudoNodeChecker2> 
+  *  @brief  Check if the TPseudoNodeV4 is valid
+  *  @note  
+  *  If the center T-node of a TPseudoNodeV4 is null, it is invalid.
+*/
+struct TPseudoNodeChecker2
+{
+	TPseudoNodeChecker2(const TNodeV6Ptr &node): _node(node) {}
+	bool operator() (const TPseudoNodeV6Ptr &pnode)
+	{
+		if(pnode->getNode() == _node)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+private:
+	TNodeV6Ptr _node;
+};
+
+
 #ifdef use_namespace
 }
 #endif

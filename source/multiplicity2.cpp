@@ -255,6 +255,33 @@ TNodeV6Ptr TPseudoNodeMatrix2::nodeTipDown()
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeCenter()
 {
+	TNodeV6Ptr north = nodeTipNorth();
+	TNodeV6Ptr west = nodeTipWest();
+	TNodeV6Ptr south = nodeTipSouth();
+	TNodeV6Ptr east = nodeTipEast();
+	TNodeV6Ptr up = nodeTipUp();
+	TNodeV6Ptr down = nodeTipDown();
+
+	if(north == south)
+		return north;
+	if(east == west)
+		return east;
+	if(up == down)
+		return up;
+
+	if(north)
+		return north->getSouth();
+	if(south)
+		return south->getNorth();
+	if(west)
+		return west->getEast();
+	if(east)
+		return east->getWest();
+	if(up)
+		return up->getDown();
+	if(down)
+		return down->getUp();
+
 	return 0;
 }
 

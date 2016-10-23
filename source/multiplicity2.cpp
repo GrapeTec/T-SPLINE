@@ -70,71 +70,218 @@ TPseudoNodeMatrix2::~TPseudoNodeMatrix2()
 TNodV6Vector TPseudoNodeMatrix2::nodesNorth()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_north = pseudoNodesNorth();
+	TPsdNodV6VIterator iter = nodes_north.begin();
+	for (;iter!=nodes_north.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
 }
 
 TNodV6Vector TPseudoNodeMatrix2::nodesWest()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_west = pseudoNodesWest();
+	TPsdNodV6VIterator iter = nodes_west.begin();
+	for (;iter!=nodes_west.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
 }
 
 TNodV6Vector TPseudoNodeMatrix2::nodesSouth()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_south = pseudoNodesSouth();
+	TPsdNodV6VIterator iter = nodes_south.begin();
+	for (;iter!=nodes_south.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
 }
 
 TNodV6Vector TPseudoNodeMatrix2::nodesEast()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_east = pseudoNodesEast();
+	TPsdNodV6VIterator iter = nodes_east.begin();
+	for (;iter!=nodes_east.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
 }
 
 TNodV6Vector TPseudoNodeMatrix2::nodesUp()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_up = pseudoNodesUp();
+	TPsdNodV6VIterator iter = nodes_up.begin();
+	for (;iter!=nodes_up.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
 }
 
 TNodV6Vector TPseudoNodeMatrix2::nodesDown()
 {
 	TNodV6Vector nodes;
+	TPsdNodV6Vector nodes_down = pseudoNodesDown();
+	TPsdNodV6VIterator iter = nodes_down.begin();
+	for (;iter!=nodes_down.end();iter++)
+	{
+		nodes.push_back((*iter)->getNode());
+	}
 	return nodes;
+}
+
+bool hasNorth(const TNodeV6Ptr &node)
+{
+	return (node && node->getNorth());
+}
+
+bool hasWest(const TNodeV6Ptr &node)
+{
+	return (node && node->getWest());
+}
+
+bool hasSouth(const TNodeV6Ptr &node)
+{
+	return (node && node->getSouth());
+}
+
+bool hasEast(const TNodeV6Ptr &node)
+{
+	return (node && node->getEast());
+}
+
+bool hasUp(const TNodeV6Ptr &node)
+{
+	return (node && node->getUp());
+}
+
+bool hasDown(const TNodeV6Ptr &node)
+{
+	return (node && node->getDown());
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipNorth()
 {
-	return 0;
+	TNodV6Vector norths = nodesNorth();
+	TNodV6VIterator iter = std::find_if(norths.begin(), norths.end(), hasNorth);
+	if (iter!=norths.end())
+	{
+		return (*iter)->getNorth()->getSouth();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipWest()
 {
-	return 0;
+	TNodV6Vector wests = nodesWest();
+	TNodV6VIterator iter = std::find_if(wests.begin(), wests.end(), hasWest);
+	if (iter!=wests.end())
+	{
+		return (*iter)->getWest()->getEast();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipSouth()
 {
-	return 0;
+	TNodV6Vector souths = nodesSouth();
+	TNodV6VIterator iter = std::find_if(souths.begin(), souths.end(), hasSouth);
+	if (iter!=souths.end())
+	{
+		return (*iter)->getSouth()->getNorth();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipEast()
 {
-	return 0;
+	TNodV6Vector easts = nodesEast();
+	TNodV6VIterator iter = std::find_if(easts.begin(), easts.end(), hasEast);
+	if (iter!=easts.end())
+	{
+		return (*iter)->getEast()->getWest();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipUp()
 {
-	return 0;
+	TNodV6Vector ups = nodesUp();
+	TNodV6VIterator iter = std::find_if(ups.begin(), ups.end(), hasUp);
+	if (iter!=ups.end())
+	{
+		return (*iter)->getUp()->getDown();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipDown()
 {
-	return 0;
+	TNodV6Vector downs = nodesDown();
+	TNodV6VIterator iter = std::find_if(downs.begin(), downs.end(), hasDown);
+	if (iter!=downs.end())
+	{
+		return (*iter)->getDown()->getUp();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeCenter()
 {
+	TNodeV6Ptr north = nodeTipNorth();
+	TNodeV6Ptr west = nodeTipWest();
+	TNodeV6Ptr south = nodeTipSouth();
+	TNodeV6Ptr east = nodeTipEast();
+	TNodeV6Ptr up = nodeTipUp();
+	TNodeV6Ptr down = nodeTipDown();
+
+	if(north == south)
+		return north;
+	if(east == west)
+		return east;
+	if(up == down)
+		return up;
+
+	if(north)
+		return north->getSouth();
+	if(south)
+		return south->getNorth();
+	if(west)
+		return west->getEast();
+	if(east)
+		return east->getWest();
+	if(up)
+		return up->getDown();
+	if(down)
+		return down->getUp();
+
 	return 0;
 }
 
@@ -190,6 +337,300 @@ void TPseudoNodeMatrix2::initializePseudo( const TNodVIterator &begin, const TNo
 			pnode->setPseudoDown(*piter);
 		}
 	}
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesNorth()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector north_south_plane = extendToNodesNorthSouthPlane(*iter);
+		if (!nodesNorthSouthPlaneHasNorth(north_south_plane))
+		{
+			return north_south_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesWest()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector west_east_plane = extendToNodesWestEastPlane(*iter);
+		if (!nodesWestEastPlaneHasWest(west_east_plane))
+		{
+			return west_east_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesSouth()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector north_south_plane = extendToNodesNorthSouthPlane(*iter);
+		if (!nodesNorthSouthPlaneHasSouth(north_south_plane))
+		{
+			return north_south_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesEast()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector west_east_plane = extendToNodesWestEastPlane(*iter);
+		if (!nodesWestEastPlaneHasEast(west_east_plane))
+		{
+			return west_east_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesUp()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector up_down_plane = extendToNodesUpDownPlane(*iter);
+		if (!nodesUpDownPlaneHasUp(up_down_plane))
+		{
+			return up_down_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::pseudoNodesDown()
+{
+	TPsdNodV6VIterator iter = _peuso_nodes.begin();
+	for (;iter!=_peuso_nodes.end();iter++)
+	{
+		TPsdNodV6Vector up_down_plane = extendToNodesUpDownPlane(*iter);
+		if (!nodesUpDownPlaneHasDown(up_down_plane))
+		{
+			return up_down_plane;
+		}
+	}
+	TPsdNodV6Vector empty;
+	return empty;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::extendToNodesNorthSouthPlane(const TPseudoNodeV6Ptr &node)
+{
+	TPsdNodV6Vector nodes;
+	if(!node) return nodes;
+
+	//west<->east * up<->down
+	TPsdNodV6Vector nodes_scan;
+	pushFrontUps(nodes_scan, node);
+	nodes_scan.push_back(node);
+	pushBackDowns(nodes_scan, node);
+
+	TPsdNodV6VIterator iter = nodes_scan.begin();
+	for (;iter!=nodes_scan.end();iter++)
+	{
+		pushFrontWests(nodes, *iter);
+		nodes.push_back(*iter);
+		pushBackEasts(nodes, *iter);
+	}
+
+	return nodes;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::extendToNodesWestEastPlane(const TPseudoNodeV6Ptr &node)
+{
+	TPsdNodV6Vector nodes;
+	if(!node) return nodes;
+
+	//north<->south * up<->down
+	TPsdNodV6Vector nodes_scan;
+	pushFrontUps(nodes_scan, node);
+	nodes_scan.push_back(node);
+	pushBackDowns(nodes_scan, node);
+
+	TPsdNodV6VIterator iter = nodes_scan.begin();
+	for (;iter!=nodes_scan.end();iter++)
+	{
+		pushFrontNorths(nodes, *iter);
+		nodes.push_back(*iter);
+		pushBackSouths(nodes, *iter);
+	}
+
+	return nodes;
+}
+
+TPsdNodV6Vector TPseudoNodeMatrix2::extendToNodesUpDownPlane(const TPseudoNodeV6Ptr &node)
+{
+	TPsdNodV6Vector nodes;
+	if(!node) return nodes;
+
+	//west<->east * north<->south
+	TPsdNodV6Vector nodes_scan;
+	pushFrontWests(nodes_scan, node);
+	nodes_scan.push_back(node);
+	pushBackEasts(nodes_scan, node);
+
+	TPsdNodV6VIterator iter = nodes_scan.begin();
+	for (;iter!=nodes_scan.end();iter++)
+	{
+		pushFrontNorths(nodes, *iter);
+		nodes.push_back(*iter);
+		pushBackSouths(nodes, *iter);
+	}
+
+	return nodes;
+}
+
+void TPseudoNodeMatrix2::pushFrontWests(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr west = node->getPseudoWest();
+	while (west)
+	{
+		nodes.insert(nodes.begin(), west);
+		west = west->getPseudoWest();
+	}
+}
+
+void TPseudoNodeMatrix2::pushBackEasts(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr east = node->getPseudoEast();
+	while (east)
+	{
+		nodes.push_back(east);
+		east = east->getPseudoEast();
+	}
+}
+
+void TPseudoNodeMatrix2::pushFrontNorths(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr north = node->getPseudoNorth();
+	while (north)
+	{
+		nodes.insert(nodes.begin(), north);
+		north = north->getPseudoNorth();
+	}
+}
+
+void TPseudoNodeMatrix2::pushBackSouths(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr south = node->getPseudoSouth();
+	while (south)
+	{
+		nodes.push_back(south);
+		south = south->getPseudoSouth();
+	}
+}
+
+void TPseudoNodeMatrix2::pushFrontUps(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr up = node->getPseudoUp();
+	while (up)
+	{
+		nodes.insert(nodes.begin(), up);
+		up = up->getPseudoUp();
+	}
+}
+
+void TPseudoNodeMatrix2::pushBackDowns(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node)
+{
+	if(!node) return;
+	TPseudoNodeV6Ptr down = node->getPseudoDown();
+	while (down)
+	{
+		nodes.push_back(down);
+		down = down->getPseudoDown();
+	}
+}
+
+bool TPseudoNodeMatrix2::nodesNorthSouthPlaneHasNorth(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoNorth())
+			return true;
+	}
+	return false;
+}
+
+bool TPseudoNodeMatrix2::nodesNorthSouthPlaneHasSouth(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoSouth())
+			return true;
+	}
+	return false;
+}
+
+bool TPseudoNodeMatrix2::nodesWestEastPlaneHasWest(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoWest())
+			return true;
+	}
+	return false;
+}
+
+bool TPseudoNodeMatrix2::nodesWestEastPlaneHasEast(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoEast())
+			return true;
+	}
+	return false;
+}
+
+bool TPseudoNodeMatrix2::nodesUpDownPlaneHasUp(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoUp())
+			return true;
+	}
+	return false;
+}
+
+bool TPseudoNodeMatrix2::nodesUpDownPlaneHasDown(TPsdNodV6Vector &nodes)
+{
+	TPsdNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		TPseudoNodeV6Ptr node = *iter;
+		if(node->getPseudoDown())
+			return true;
+	}
+	return false;
 }
 
 

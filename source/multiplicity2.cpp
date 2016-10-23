@@ -171,32 +171,86 @@ bool hasDown(const TNodeV6Ptr &node)
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipNorth()
 {
-	return 0;
+	TNodV6Vector norths = nodesNorth();
+	TNodV6VIterator iter = std::find_if(norths.begin(), norths.end(), hasNorth);
+	if (iter!=norths.end())
+	{
+		return (*iter)->getNorth()->getSouth();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipWest()
 {
-	return 0;
+	TNodV6Vector wests = nodesWest();
+	TNodV6VIterator iter = std::find_if(wests.begin(), wests.end(), hasWest);
+	if (iter!=wests.end())
+	{
+		return (*iter)->getWest()->getEast();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipSouth()
 {
-	return 0;
+	TNodV6Vector souths = nodesSouth();
+	TNodV6VIterator iter = std::find_if(souths.begin(), souths.end(), hasSouth);
+	if (iter!=souths.end())
+	{
+		return (*iter)->getSouth()->getNorth();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipEast()
 {
-	return 0;
+	TNodV6Vector easts = nodesEast();
+	TNodV6VIterator iter = std::find_if(easts.begin(), easts.end(), hasEast);
+	if (iter!=easts.end())
+	{
+		return (*iter)->getEast()->getWest();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipUp()
 {
-	return 0;
+	TNodV6Vector ups = nodesUp();
+	TNodV6VIterator iter = std::find_if(ups.begin(), ups.end(), hasUp);
+	if (iter!=ups.end())
+	{
+		return (*iter)->getUp()->getDown();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeTipDown()
 {
-	return 0;
+	TNodV6Vector downs = nodesDown();
+	TNodV6VIterator iter = std::find_if(downs.begin(), downs.end(), hasDown);
+	if (iter!=downs.end())
+	{
+		return (*iter)->getDown()->getUp();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 TNodeV6Ptr TPseudoNodeMatrix2::nodeCenter()

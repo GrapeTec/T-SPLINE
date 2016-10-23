@@ -188,6 +188,31 @@ public:
 	TNodeV6Ptr nodeCenter();
 protected:
 	void initializePseudo(const TNodVIterator &begin, const TNodVIterator &end);
+
+	TPsdNodV6Vector pseudoNodesNorth();
+	TPsdNodV6Vector pseudoNodesWest();
+	TPsdNodV6Vector pseudoNodesSouth();
+	TPsdNodV6Vector pseudoNodesEast();
+	TPsdNodV6Vector pseudoNodesUp();
+	TPsdNodV6Vector pseudoNodesDown();
+
+	TPsdNodV6Vector extendToNodesNorthSouthPlane(const TPseudoNodeV6Ptr &node);
+	TPsdNodV6Vector extendToNodesWestEastPlane(const TPseudoNodeV6Ptr &node);
+	TPsdNodV6Vector extendToNodesUpDownPlane(const TPseudoNodeV6Ptr &node);
+
+	void pushFrontWests(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+	void pushBackEasts(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+	void pushFrontNorths(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+	void pushBackSouths(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+	void pushFrontUps(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+	void pushBackDowns(TPsdNodV6Vector &nodes, TPseudoNodeV6Ptr node);
+
+	bool nodesNorthSouthPlaneHasNorth(TPsdNodV6Vector &nodes);
+	bool nodesNorthSouthPlaneHasSouth(TPsdNodV6Vector &nodes);
+	bool nodesWestEastPlaneHasWest(TPsdNodV6Vector &nodes);
+	bool nodesWestEastPlaneHasEast(TPsdNodV6Vector &nodes);
+	bool nodesUpDownPlaneHasUp(TPsdNodV6Vector &nodes);
+	bool nodesUpDownPlaneHasDown(TPsdNodV6Vector &nodes);
 private:
 	TPsdNodV6Vector _peuso_nodes;
 };

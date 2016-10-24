@@ -69,6 +69,7 @@ public:
 		Real s = 0.0, 
 		Real t = 0.0);
 	virtual ~TVertex2() {}
+	typedef TVertex2Tag TCategory;
 public:
 	virtual TVertex2Ptr asTVertex2() { return castPtr<TVertex2>(shared_from_this()); }
 

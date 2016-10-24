@@ -57,6 +57,12 @@ namespace TSPLINE {
 	using namespace NEWMAT;
 #endif
 
+/**  
+  *  @struct  <TVertexVisitorCheckTNodes2> 
+  *  @brief  A T-vertex2 visitor.   
+  *  @note  
+  *  A T-vertex2 visitor to set common neighbors.
+*/ 
 struct TVertexVisitorCheckTNodes2
 {
 	TVertexVisitorCheckTNodes2(){}
@@ -68,6 +74,18 @@ private:
 	void setCommonEast(TNodV6Vector &nodes, TNodeV6Ptr east);
 	void setCommonUp(TNodV6Vector &nodes, TNodeV6Ptr up);
 	void setCommonDown(TNodV6Vector &nodes, TNodeV6Ptr down);
+};
+
+/**  
+  *  @struct  <TVertexVisitorCheckTJunctions2> 
+  *  @brief  A T-vertex2 visitor.   
+  *  @note  
+  *  A T-vertex2 visitor to check if the T-vertex2 is a T-junction.
+*/ 
+struct TVertexVisitorCheckTJunctions2
+{
+	TVertexVisitorCheckTJunctions2(){}
+	void operator()(const TVertex2Ptr &vertex);
 };
 
 #ifdef use_namespace

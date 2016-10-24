@@ -35,7 +35,7 @@ Revision_history:
 */
 
 #include <factory2.h>
-#include <visitor.h>
+#include <visitor2.h>
 #include <extractor.h>
 
 #ifdef use_namespace
@@ -180,9 +180,16 @@ void TFactory2::patchTPointset2(const std::string &tpoint_grid, const std::vecto
 
 void TFactory2::prepareTNodeHalfLinkages()
 {
-	TVtxVector vertices;
-	findObjects<TVertex>(vertices);
-	//std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTNodes2());
+	TVtx2Vector vertices;
+	findObjects<TVertex2>(vertices);
+	std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTNodes2());
+}
+
+void TFactory2::prepareTJunctions()
+{
+	TVtx2Vector vertices;
+	findObjects<TVertex2>(vertices);
+	std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTJunctions2());
 }
 
 #ifdef use_namespace

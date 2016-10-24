@@ -633,10 +633,6 @@ bool TPseudoNodeMatrix2::nodesUpDownPlaneHasDown(TPsdNodV6Vector &nodes)
 	return false;
 }
 
-
-
-
-
 #ifdef use_namespace
 }
 #endif

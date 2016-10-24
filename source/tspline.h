@@ -139,6 +139,8 @@ public:
 	virtual TPointsetPtr asTPointset() { return 0; }
 	/** Check if this object is a TSpline */
 	virtual TSplinePtr asTSpline() { return 0; }
+	/** Check if this object is a TVertex2 */
+	virtual TVertex2Ptr asTVertex2() { return 0; }
 
 	/** Check if this object is virtual */
 	virtual bool isVirtual() const { return false; }
@@ -365,7 +367,7 @@ public:
    typedef TVertexTag TCategory;
 public:
 	virtual TVertexPtr asTVertex();
-	virtual TVertex2Ptr asTVertex2() { return 0; }
+	//virtual TVertex2Ptr asTVertex2() { return 0; }
 
 	/** Return the s parameter. */
 	Real getS(void) const {return _s; }

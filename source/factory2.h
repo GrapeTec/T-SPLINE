@@ -124,6 +124,8 @@ public:
 
 	/** Prepare all the T-nodes' half linkages*/
 	void prepareTNodeHalfLinkages();
+	/** Prepare all T-junctions*/
+	void prepareTJunctions();
 };
 
 #ifdef use_namespace

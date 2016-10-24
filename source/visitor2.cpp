@@ -60,7 +60,18 @@ void TVertexVisitorCheckTNodes2::operator()(const TVertex2Ptr &vertex)
 	TNodeV6Ptr up_tip = pnode_matrix.nodeTipUp();
 	TNodeV6Ptr down_tip = pnode_matrix.nodeTipDown();
 	
-
+	if(north_tip)
+		setCommonNorth(norths, north_tip->getNorth());
+	if(west_tip)
+		setCommonWest(wests, west_tip->getWest());
+	if(south_tip)
+		setCommonSouth(souths, south_tip->getSouth());
+	if(east_tip)
+		setCommonEast(easts, east_tip->getEast());
+	if(up_tip)
+		setCommonUp(ups, up_tip->getUp());
+	if(down_tip)
+		setCommonDown(downs, down_tip->getDown());
 }
 
 void TVertexVisitorCheckTNodes2::setCommonNorth(TNodV6Vector &nodes, TNodeV6Ptr north)
@@ -114,6 +125,14 @@ void TVertexVisitorCheckTNodes2::setCommonDown(TNodV6Vector &nodes, TNodeV6Ptr d
 	for (;iter!=nodes.end();iter++)
 	{
 		(*iter)->setDown(down);
+	}
+}
+
+void TVertexVisitorCheckTJunctions2::operator()( const TVertex2Ptr &vertex )
+{
+	if (vertex->numberOfNeighbors() == 4)
+	{
+		//T-junctions
 	}
 }
 

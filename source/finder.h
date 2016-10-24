@@ -341,6 +341,19 @@ protected:
 			if (spline) objects.push_back(spline);
 		}
 	}
+	template<class T>
+	void doFindObjects(std::vector<std::shared_ptr<T>> &objects, TVertex2Tag)
+	{
+		TObjVIterator biter = _group->iteratorBegin();
+		TObjVIterator eiter = _group->iteratorEnd();
+
+		for (TObjVIterator iter=biter;iter!=eiter;iter++)
+		{
+			TObjectPtr object = *iter;
+			TVertex2Ptr vertex = object->asTVertex2();
+			if (vertex) objects.push_back(vertex);
+		}
+	}
 private:
 	TGroupPtr _group;
 };

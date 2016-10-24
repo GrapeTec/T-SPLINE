@@ -13,6 +13,7 @@ add_library(tspline
 			factory2.cpp
 			virtual.cpp
 			tjunction.cpp
+			tjunction2.cpp
 			multiplicity.cpp
 			multiplicity2.cpp
 			visitor.cpp

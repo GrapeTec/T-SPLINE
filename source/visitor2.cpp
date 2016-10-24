@@ -35,6 +35,7 @@ Revision_history:
 */
 
 #include <visitor2.h>
+#include <multiplicity2.h>
 
 #ifdef use_namespace
 namespace TSPLINE {
@@ -44,37 +45,76 @@ namespace TSPLINE {
 
 void TVertexVisitorCheckTNodes2::operator()(const TVertex2Ptr &vertex)
 {
+	TPseudoNodeMatrix2 pnode_matrix(vertex->nodeIteratorBegin(), vertex->nodeIteratorEnd());
+	TNodV6Vector norths = pnode_matrix.nodesNorth();
+	TNodV6Vector wests = pnode_matrix.nodesWest();
+	TNodV6Vector souths = pnode_matrix.nodesSouth();
+	TNodV6Vector easts = pnode_matrix.nodesEast();
+	TNodV6Vector ups = pnode_matrix.nodesUp();
+	TNodV6Vector downs = pnode_matrix.nodesDown();
+
+	TNodeV6Ptr north_tip = pnode_matrix.nodeTipNorth();
+	TNodeV6Ptr west_tip = pnode_matrix.nodeTipWest();
+	TNodeV6Ptr south_tip = pnode_matrix.nodeTipSouth();
+	TNodeV6Ptr east_tip = pnode_matrix.nodeTipEast();
+	TNodeV6Ptr up_tip = pnode_matrix.nodeTipUp();
+	TNodeV6Ptr down_tip = pnode_matrix.nodeTipDown();
+	
 
 }
 
 void TVertexVisitorCheckTNodes2::setCommonNorth(TNodV6Vector &nodes, TNodeV6Ptr north)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setNorth(north);
+	}
 }
 
 void TVertexVisitorCheckTNodes2::setCommonWest(TNodV6Vector &nodes, TNodeV6Ptr west)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setWest(west);
+	}
 }
 
 void TVertexVisitorCheckTNodes2::setCommonSouth(TNodV6Vector &nodes, TNodeV6Ptr south)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setSouth(south);
+	}
 }
 
 void TVertexVisitorCheckTNodes2::setCommonEast(TNodV6Vector &nodes, TNodeV6Ptr east)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setEast(east);
+	}
 }
 
 void TVertexVisitorCheckTNodes2::setCommonUp(TNodV6Vector &nodes, TNodeV6Ptr up)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setUp(up);
+	}
 }
 
 void TVertexVisitorCheckTNodes2::setCommonDown(TNodV6Vector &nodes, TNodeV6Ptr down)
 {
-
+	TNodV6VIterator iter = nodes.begin();
+	for (;iter!=nodes.end();iter++)
+	{
+		(*iter)->setDown(down);
+	}
 }
 
 #ifdef use_namespace

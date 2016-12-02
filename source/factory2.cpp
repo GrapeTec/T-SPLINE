@@ -189,7 +189,7 @@ void TFactory2::prepareTJunctions()
 {
 	TVtx2Vector vertices;
 	findObjects<TVertex2>(vertices);
-	std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTJunctions2());
+	//std::for_each(vertices.begin(), vertices.end(), TVertexVisitorCheckTJunctions2());
 }
 
 #ifdef use_namespace

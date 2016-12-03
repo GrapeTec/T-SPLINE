@@ -114,6 +114,8 @@ public:
 	void setName(const std::string &name) {_name = name;}
 	/** Get the name. */
 	std::string getName() {return _name;}
+	/** Return trimesh using newmat matrix form. */
+	ReturnMatrix matrixTriMesh();
 
 	/** Add a point (x, y, z). */
 	void addPoint(Real x, Real y, Real z);
@@ -175,7 +177,8 @@ public:
 	TriFacVIterator faceIteratorEnd() {return _faces.end();}
 	/** Return the ith point. */
 	Point3DPtr pointAt(unsigned int i) {return _points[i];}
-	
+	/** Return the ith normal. */
+	Vector3DPtr normalAt(unsigned int i) {return _normals[i];}
 protected:
 	std::vector<long>& thisRow();
 	std::vector<long>& lastRow();

@@ -314,43 +314,6 @@ void TriMesh::generateTriangle( const TriEdgePtr &edge1, const TriEdgePtr &edge2
 	}
 }
 
-ReturnMatrix TriMesh::matrixTriMesh()
-{
-	Matrix matrix_mesh;
-	bool init_matrix = false;
-	TriVIterator it = this->triangleIteratorBegin();
-	for (it;it!=this->triangleIteratorEnd();it++)
-	{
-		TrianglePtr triangle = *it;
-		Word v0 = triangle->point_indices[0];
-		Word v1 = triangle->point_indices[1];
-		Word v2 = triangle->point_indices[2];
-
-		Point3DPtr point0 = this->pointAt(v0);
-		Point3DPtr point1 = this->pointAt(v1);
-		Point3DPtr point2 = this->pointAt(v2);
-		Vector3DPtr normal0 = this->normalAt(v0);
-		Vector3DPtr normal1 = this->normalAt(v1);
-		Vector3DPtr normal2 = this->normalAt(v2);
-
-		Matrix m(3,6);
-		m << point0->x() << point0->y() << point0->z() << normal0->i() << normal0->j() << normal0->k()
-			<< point1->x() << point1->y() << point1->z() << normal1->i() << normal1->j() << normal1->k()
-			<< point2->x() << point2->y() << point2->z() << normal2->i() << normal2->j() << normal2->k();
-		if (!init_matrix)
-		{
-			matrix_mesh = m;
-			init_matrix = true;
-		}
-		else
-		{
-			matrix_mesh = matrix_mesh & m;
-		}
-	}
-	
-	return matrix_mesh;
-}
-
 #ifdef use_namespace
 }
 #endif

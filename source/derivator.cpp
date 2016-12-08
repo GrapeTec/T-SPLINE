@@ -290,11 +290,6 @@ ReturnMatrix TFaceDerivator::secondPartialDerive( const Parameter &parameter )
 	return _equation->computeUpToSecondDerivatives(parameter);
 }
 
-ReturnMatrix TFaceDerivator::firstAndSecondFundamentalForm(const Parameter &parameter)
-{
-	return _equation->computeUpToSecondDerivatives(parameter);
-}
-
 #ifdef use_namespace
 }
 #endif

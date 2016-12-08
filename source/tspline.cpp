@@ -161,7 +161,7 @@ TNodVIterator TMappableObject::nodeIteratorEnd()
 	return _nodes.end();
 }
 
-long TMappableObject::sizeNodes() const
+long TMappableObject::sizeNodes()
 {
 	return _nodes.size();
 }
@@ -209,7 +209,7 @@ TVertexPtr TVertex::getEndVertex( const TLinkPtr &link )
 		return 0;
 }
 
-int TVertex::numberOfNeighbors() const
+int TVertex::numberOfNeighbors()
 {
 	int number = 0;
 	if (_north) number++;
@@ -328,7 +328,7 @@ TVertexPtr TEdge::getNextVertex( bool orientation ) const
 	return orientation? getEndVertex() : getStartVertex();
 }
 
-Real TEdge::length() const
+Real TEdge::length()
 {
 	Real ds = _start->getS() - _end->getS();
 	Real dt = _start->getT() - _end->getT();
@@ -336,7 +336,7 @@ Real TEdge::length() const
 	return sqrt(ds*ds + dt*dt);
 }
 
-bool TEdge::toNorth() const
+bool TEdge::toNorth()
 {
 	Real dt = _end->getT() - _start->getT();
 	if (fabs(dt) > M_EPS)
@@ -349,7 +349,7 @@ bool TEdge::toNorth() const
 	}
 }
 
-bool TEdge::toWest() const
+bool TEdge::toWest()
 {
 	Real ds = _end->getS() - _start->getS();
 	if (fabs(ds) > M_EPS)
@@ -362,7 +362,7 @@ bool TEdge::toWest() const
 	}
 }
 
-bool TEdge::toSouth() const
+bool TEdge::toSouth()
 {
 	Real dt = _end->getT() - _start->getT();
 	if (fabs(dt) > M_EPS)
@@ -375,7 +375,7 @@ bool TEdge::toSouth() const
 	}
 }
 
-bool TEdge::toEast() const
+bool TEdge::toEast()
 {
 	Real ds = _end->getS() - _start->getS();
 	if (fabs(ds) > M_EPS)
@@ -527,7 +527,7 @@ Real TLink::length() const
 	return 0.0;
 }
 
-bool TLink::toNorth() const
+bool TLink::toNorth()
 {
 	if (_orientation)
 	{
@@ -539,7 +539,7 @@ bool TLink::toNorth() const
 	}
 }
 
-bool TLink::toWest() const
+bool TLink::toWest()
 {
 	if (_orientation)
 	{
@@ -551,7 +551,7 @@ bool TLink::toWest() const
 	}
 }
 
-bool TLink::toSouth() const
+bool TLink::toSouth()
 {
 	if (_orientation)
 	{
@@ -563,7 +563,7 @@ bool TLink::toSouth() const
 	}
 }
 
-bool TLink::toEast() const
+bool TLink::toEast()
 {
 	if (_orientation)
 	{
@@ -649,6 +649,11 @@ void TLinkLoop::findEastLinks( TLnkVector &east_links )
 			east_links.push_back(link);
 		}
 	}
+}
+
+long TLinkLoop::size()
+{
+	return _links.size();
 }
 
 TLnkLIterator TLinkLoop::linkIteratorBegin()
@@ -774,6 +779,16 @@ void TFace::findRightFaces( const TLnkVector &links, TFacVector &faces )
 	std::copy(sfaces.begin(), sfaces.end(), faces.begin());
 }
 
+long TFace::sizeLinks()
+{
+	return _link_loop->size();
+}
+
+long TFace::sizeBlendingNodes()
+{
+	return _blending_nodes.size();
+}
+
 TLnkLIterator TFace::linkIteratorBegin()
 {
 	return _link_loop->linkIteratorBegin();
@@ -827,6 +842,16 @@ void TEdgeCondition::setEdgeCondition( const TEdgePtr &edge, bool boundary_condi
 	}
 }
 
+TEdgePtr TEdgeCondition::getEdge()
+{
+	return _edge;
+}
+
+bool TEdgeCondition::getBoundaryCondtion()
+{
+	return _boundary_condition;
+}
+
 TImage::TImage(const std::string & name /* = "" */) :
 	TObject(name)
 {
@@ -856,6 +881,31 @@ void TImage::addLink( const TLinkPtr &link )
 void TImage::addVertex( const TVertexPtr &vertex )
 {
 	_vertices.push_back(vertex);
+}
+
+// void TImage::addEdgeCondition( const TEdgeConditionPtr &edge_condition )
+// {
+// 	_edge_conditions.push_back(edge_condition);
+// }
+
+int TImage::sizeFaces()
+{
+	return _faces.size();
+}
+
+int TImage::sizeEdges()
+{
+	return _edges.size();
+}
+
+int TImage::sizeLinks()
+{
+	return _links.size();
+}
+
+int TImage::sizeVertices()
+{
+	return _vertices.size();
 }
 
 TFacVIterator TImage::faceIteratorBegin()

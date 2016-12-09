@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('T-SPLINE EXAMPLE',''),'1');
-FILE_NAME('../export/mouse/mouse.stp','18-10-2016',('WENLEI XIAO','RUI LI','WEI WANG','GANG ZHAO'),('GrapeTec, BUAA'),$,'ISO 10303-238e1',$);
+FILE_NAME('../export/mouse/mouse.stp','8-9-2016',('WENLEI XIAO','RUI LI','WEI WANG','GANG ZHAO'),('GrapeTec, BUAA'),$,'ISO 10303-238e1',$);
 FILE_SCHEMA(('integrated_cnc_schema'));
 ENDSEC;
 

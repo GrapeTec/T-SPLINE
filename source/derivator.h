@@ -153,10 +153,7 @@ public:
 	6th column:	 point on the T-spline surface.
 	*/
 	virtual ReturnMatrix secondPartialDerive(const Parameter &parameter);
-	/** Calculate the first and second fundamental form coefficients and store them using a column vector
-	E F G L M N
-	*/
-	ReturnMatrix firstAndSecondFundamentalForm(const Parameter &parameter);
+
 protected:
 
 private:

@@ -62,7 +62,7 @@ T-SPLINE has been developed for more than one year. Beside the developers, I wis
 
 It is recommended to cite our article, if the source code can help you:
 
-Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016.06. (Published on-line)
+Reconsideration of T-spline data models and their exchanges using STEP. Computer-Aided Design, 2016, 79, 36-47.
 
 	@article{Xiao201636,
 	title = "Reconsideration of T-spline data models and their exchanges using \{STEP\} ",
@@ -104,7 +104,6 @@ To build and compile the T-SPLINE library, CMake tools have to be used.
 		OpenMP (allows to activate multiprocessing): <yes> <no>.
 	- Press Generate button(it will generate all the binary files in the SOURCE_DIRECTORY);
 	- Open tspline.sln file in MSVC and build the solution;
-	- If problems with building of the "viewer" project appears, see section 3.4 to solve them;
 	- To generate "*.lib" files and header files, build INSTALL project;
 	- To generate documentation Doxyfile created in the SOURCE_DIRECTORY/doxy folder can be used for the Doxygen tool
 		
@@ -208,10 +207,13 @@ gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
 	- Converts TSM file to GNUPlot(T-mesh, T-imgage, T-connect and T-pointset) files.
 	- Usage: tsm2gpl.exe [*.tsm]
 
+### 4.7 VIEWER
+	- A T-spline 3D viewer with GUI(developed using GLC Player libaries).
+	
 ### 4.8 NOTES
-
 	- For Windows, use '..\' to get the parent directory and use '.\' to get the current directory.
 	- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
+	
 ## 5. TODO LIST
 * 5.1 Manifold T-spline has not been supported yet.
 * 5.2 T-NURCCS has not been supported yet.

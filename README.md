@@ -50,7 +50,8 @@ Developing History:
 - 2016.10：Lorenz Lechner from TU Graz, Austria added the python bindings;
 - 2016.10: Yazui Liu and Oleksandr Zavalnyi rewrite the viewer using GLC Player;
 - 2016.12: Wenlei Xiao suggested and Yazui Liu developed the Matrix-like mesh data structure;
-- 2017.02: Oleksandr Zavalnyi developed the Andriod viewer for T-SPLINE (https://github.com/RubykoAlex/T-spline-android-viewer)
+- 2017.02: Oleksandr Zavalnyi developed the Andriod viewer for T-SPLINE (https://github.com/RubykoAlex/T-spline-android-viewer);
+- 2017.02: Jia Zhang joined the team;
 
 Acknowledgements:
 

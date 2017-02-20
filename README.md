@@ -217,7 +217,7 @@ gplwriter.writeGnuplTPointset(); //Write T-pointset to the GNUPlot file.
 	- For Linux & MAC, use '../' to get the parent directory and use './' to get the current directory.
 	
 ## 5. TODO LIST
-* 5.1 Manifold T-spline has not been supported yet.
+* 5.1 Close T-spline has not been supported yet.
 * 5.2 T-NURCCS has not been supported yet.
 
 ## Reference: 

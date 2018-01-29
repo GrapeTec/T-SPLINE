@@ -61,6 +61,7 @@ Revision_history:
 #include <vector>
 #include <list>
 #include <set>
+#include <iterator>
 //#include <hash_map>
 #include <algorithm>
 #include <functional>

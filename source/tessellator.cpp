@@ -78,8 +78,8 @@ namespace TSPLINE {
 		if (!face || !tri_mesh) return;
 		TFaceDerivatorPtr derivator = makePtr<TFaceDerivator>(_spline, face);
 		TFaceTessellator tessellator(derivator);
-		tessellator.setBoundaryChordalError(_chordal_error);
-		tessellator.setChordalError(_chordal_error);
+		tessellator.setBoundaryRatio(_chordal_error);
+		tessellator.setInnerResolution(_chordal_error);
 		tessellator.process(tri_mesh, _discreted_edges);
 	}
 
@@ -136,7 +136,7 @@ namespace TSPLINE {
 	}
 
 	TFaceTessellator::TFaceTessellator(const TFaceDerivatorPtr &derivator) :
-		_derivator(derivator), _boundary_chordal_error(0.05), _chordal_error(0.05)
+		_derivator(derivator), _boundary_chordal_error(0.1), _chordal_error(0.1)
 	{
 	}
 
@@ -183,27 +183,22 @@ namespace TSPLINE {
 	{
 		TriVector triangles;
 		triangles = processBoundary(discreted_edges);
+		_parameters.erase(_parameters.end() - 3, _parameters.end());	//delete the super triangle vertices
 		triangles = processInner(triangles);
 
 		//points and normals added to trimesh
 		Point3D point; Vector3D normal;
 		for (auto iter = _parameters.begin(); iter != _parameters.end(); iter++)
 		{
-			if ((iter->s() <= _derivator->getFace()->southEast().s()) && (iter->s() >= _derivator->getFace()->northWest().s())
-				&& (iter->t() >= _derivator->getFace()->southEast().t()) && (iter->t() <= _derivator->getFace()->northWest().t()))
-			{
-				_derivator->pointAndNormalDerive(*iter, point, normal);
-			}
-			else	//if parameter value is on super triangle, the parameter is not belong to the TFace
-			{
-				point.x(0); point.y(0); point.z(0);
-				normal.i(0); normal.j(0); normal.k(0);
-			}
-			tri_mesh->addPointNormal(point, normal);
+			if (_derivator->pointAndNormalDerive(*iter, point, normal))
+				tri_mesh->addPointNormal(point, normal);
 		}
 		//triangles added to trimesh
 		for (TriVIterator iter = triangles.begin(); iter != triangles.end(); iter++)
 		{
+			(*iter)->normal_indices[0] = (*iter)->point_indices[0];
+			(*iter)->normal_indices[1] = (*iter)->point_indices[1];
+			(*iter)->normal_indices[2] = (*iter)->point_indices[2];
 			tri_mesh->addTriangle(**iter);
 		}
 	}
@@ -212,15 +207,16 @@ namespace TSPLINE {
 	{
 		TFacePtr face = _derivator->getFace();
 		TLnkVector nlinks, wlinks, slinks, elinks;
+
 		face->findEastLinks(elinks);
 		face->findNorthLinks(nlinks);
-		face->findSouthLinks(slinks);
-		face->findWestLinks(wlinks);
+		face->findSouthLinks(wlinks);
+		face->findWestLinks(slinks);
 
 		processLinkVector(elinks, discreted_edges);
-		processLinkVector(wlinks, discreted_edges);
 		processLinkVector(nlinks, discreted_edges);
 		processLinkVector(slinks, discreted_edges);
+		processLinkVector(wlinks, discreted_edges);
 
 		purifyParameters(0);
 
@@ -262,7 +258,6 @@ namespace TSPLINE {
 			purifyParameters(num_parameters);
 			generationTriangles(final_triangles, num_parameters, _parameters.size());
 		}
-
 		return final_triangles;
 	}
 
@@ -315,7 +310,7 @@ namespace TSPLINE {
 	std::vector<Parameter> TFaceTessellator::processLink(const TLinkPtr &link)
 	{
 		TLinkTessellator tessellator(link, _derivator);
-		tessellator.setChordalError(_boundary_chordal_error);
+		tessellator.setRatio(_boundary_chordal_error);
 		return tessellator.process();
 	}
 
@@ -563,7 +558,7 @@ namespace TSPLINE {
 	}
 
 	TLinkTessellator::TLinkTessellator(const TLinkPtr &link, const TFaceDerivatorPtr &derivator) :
-		_link(link), _derivator(derivator), _chordal_error(0.05)
+		_link(link), _derivator(derivator), _chordal_error(0.1)
 	{
 
 	}

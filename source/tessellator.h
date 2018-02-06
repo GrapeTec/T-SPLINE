@@ -140,10 +140,9 @@ namespace TSPLINE {
 
 	public:
 		/** Set the required chordal error for boundary of the TFace */
-		void setBoundaryChordalError(Real boundary_chordal_error) { _boundary_chordal_error = boundary_chordal_error; }
+		void setBoundaryRatio(Real boundary_chordal_error) { _boundary_chordal_error = boundary_chordal_error; }
 		/** Set the required chordal error for inner of the TFace */
-		void setChordalError(Real chordal_error) { _chordal_error = chordal_error; }
-
+		void setInnerResolution(Real chordal_error) { _chordal_error = chordal_error; }
 		/** Process the tessellation of the T-face into a TriMesh. */
 		void process(const TriMeshPtr &tri_mesh, DsctEdgVector &discreted_edges);
 
@@ -188,7 +187,7 @@ namespace TSPLINE {
 
 	public:
 		/** Set the chordal error. */
-		void setChordalError(Real chordal_error) { _chordal_error = chordal_error; }
+		void setRatio(Real chordal_error) { _chordal_error = chordal_error; }
 		/** Process the tessellation of a T-link into a TriMesh. */
 		std::vector<Parameter> process();
 

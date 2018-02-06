@@ -65,10 +65,10 @@ namespace TSPLINE {
 	{
 		_group = _spline->getCollector();
 		_finder = makePtr<TFinder>(_group);
-		setChordalError(0.1);
+		setResolution(0.1);
 	}
 
-	void TTessellator::setChordalError(Real chordal_error)
+	void TTessellator::setResolution(Real chordal_error)
 	{
 		_chordal_error = chordal_error;
 	}

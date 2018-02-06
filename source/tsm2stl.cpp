@@ -105,7 +105,7 @@ int main(int argc, char **argv)
    TSplinePtr spline = reader->findTSpline();
    
    TTessellator tessellator(spline);
-   tessellator.setResolution(0.05);
+   tessellator.setResolution(0.1);
    TriMeshPtr trimesh = tessellator.interpolateAll();
    
    std::vector<std::string> faces;

@@ -73,7 +73,7 @@ int main(void)
 	std::string splinename = spline->getName();
 
 	TTessellator tessellator(spline);
-	tessellator.setChordalError(0.3);
+	tessellator.setResolution(0.1);
 
 	TriMeshPtr trimesh = tessellator.interpolateAll();
 

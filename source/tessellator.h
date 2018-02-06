@@ -106,7 +106,7 @@ namespace TSPLINE {
 
 	public:
 		/** Set the required chordal error. */
-		void setChordalError(Real chordal_error);
+		void setResolution(Real chordal_error);
 
 	public:
 		/** Convert all T-faces into a Trimesh. */

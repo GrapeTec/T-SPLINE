@@ -53,6 +53,7 @@ Developing History:
 - 2017.02: Oleksandr Zavalnyi developed the Andriod viewer for T-SPLINE (https://github.com/RubykoAlex/T-spline-android-viewer);
 - 2017.02: Jia Zhang joined the team;
 - 2017.11: Xinjie Zhang joined the team;
+- 2018.02: Xinjie Zhang rewrite the tessellator;
 
 Acknowledgements:
 

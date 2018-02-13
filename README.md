@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 Report problems and direct all questions to:
 
-Wenlei Xiao, Associated Professor<br>
+Wenlei Xiao, Associate Professor<br>
 School of Mechanical Engineering and Automation<br>
 Beihang University<br>
 D-315, New Main Building, <br>

@@ -395,7 +395,7 @@ namespace TSPLINE {
 		Real a2 = pa3.t() - pa2.t();
 		Real b2 = pa2.s() - pa3.s();
 
-		if ((isZero(a1) && isZero(a2)) || isZero(b1) && isZero(b2))	// collinear in horizontal or vertical direction
+		if ((isZero(a1) && isZero(a2)) || (isZero(b1) && isZero(b2)))	// collinear in horizontal or vertical direction
 		{
 			return false;
 		}

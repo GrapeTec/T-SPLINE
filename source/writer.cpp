@@ -393,13 +393,13 @@ struct cmp_find : std::binary_function<T, T, bool>
 
 static void findVertexPosition(const TVertexPtr& vertex, std::vector<double>& uniques, std::vector<double>& uniquet, int& posx, int& posy)
 {
-	std::vector<double>::iterator results = std::find_if(uniques.begin(), uniques.end(), bind2nd(cmp_find<double>(),vertex->getS()));
+	std::vector<double>::iterator results = std::find_if(uniques.begin(), uniques.end(), std::bind(cmp_find<double>(),std::placeholders::_1,vertex->getS()));
 	if(results != uniques.end())
 	{
 		posx = std::distance(uniques.begin(), results);
 	}
 
-	std::vector<double>::iterator resultt = std::find_if(uniquet.begin(), uniquet.end(), bind2nd(cmp_find<double>(),vertex->getT()));
+	std::vector<double>::iterator resultt = std::find_if(uniquet.begin(), uniquet.end(), std::bind(cmp_find<double>(),std::placeholders::_1,vertex->getT()));
 	if(resultt != uniquet.end())
 	{
 		posy = std::distance(uniquet.begin(), resultt);

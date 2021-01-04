@@ -367,7 +367,7 @@ static void getUniqueST(const TVtxVIterator& vbegin, const TVtxVIterator& vend, 
 {
 	TVtxVIterator vit = vbegin;
 	std::vector<double> alls,allt;
-	for (vit;vit!=vend;vit++)
+	for (;vit!=vend;vit++)
 	{
 		uniques.push_back((*vit)->getS());
 		uniquet.push_back((*vit)->getT());

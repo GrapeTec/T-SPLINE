@@ -529,6 +529,7 @@ public:
 			return _knots[vertexid];
 		else
 			cout<<"Knots: out of range."<<endl;
+		return NULL;
 	};
 	/** Return the RhMKnot by vertex id . */
 	RhMKnotPtr getMKnot(int vertexid)
@@ -537,6 +538,7 @@ public:
 			return _mknots[vertexid];
 		else
 			cout<<"MultiKnots: out of range."<<endl;
+		return NULL;
 	}
 private:
 	RhKntVector _knots;

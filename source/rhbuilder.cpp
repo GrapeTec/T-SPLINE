@@ -411,6 +411,11 @@ bool RhBuilder::getLinkBinaryOrientation(const int linkid, const RhImageSpreader
 		else
 			return false;
 	}
+	else
+	{
+		cout<<"edge: "<<edgeid<< " does not exist."<<endl;
+	}
+	return false;
 }
 
 std::string RhBuilder::getNodeName(int id)

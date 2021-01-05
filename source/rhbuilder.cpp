@@ -97,7 +97,7 @@ void RhBuilder::createTVertices(const RhImageSpreaderPtr &imgsp)
 {
 	RhVtxVIterator it = imgsp->getVerticesBegin();
 	int i = 1;
-	for(it;it!=imgsp->getVerticesEnd();it++,i++)
+	for(;it!=imgsp->getVerticesEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -167,7 +167,7 @@ void RhBuilder::createTNodes( const RhConnectSpreaderPtr &consp )
 {
 	RhSmpKntVIterator it = consp->getSimpleKnotsBegin();
 	int i = 1;
-	for (it;it!=consp->getSimpleKnotsEnd();it++,i++)
+	for (;it!=consp->getSimpleKnotsEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -232,7 +232,7 @@ void RhBuilder::patchTVertices( const RhImageSpreaderPtr &imgsp )
 	RhVtxVIterator it = imgsp->getVerticesBegin();
 	int i = 1;
 	//Matrix vertex_parameter = imgsp->getVertexParameter();
-	for (it;it!=imgsp->getVerticesEnd();it++,i++)
+	for (;it!=imgsp->getVerticesEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -261,7 +261,7 @@ void RhBuilder::patchTEdges( const RhImageSpreaderPtr &imgsp )
 {
 	RhEdgVIterator it = imgsp->getEdgesBegin();
 	int i = 1;
-	for (it;it!=imgsp->getEdgesEnd();it++,i++)
+	for (;it!=imgsp->getEdgesEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -290,7 +290,7 @@ void RhBuilder::patchTLinks( const RhImageSpreaderPtr &imgsp )
 {
 	RhLnkVIterator it = imgsp->getLinksBegin();
 	int i = 1;
-	for (it;it!=imgsp->getLinksEnd();it++,i++)
+	for (;it!=imgsp->getLinksEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -306,7 +306,7 @@ void RhBuilder::patchTFaces( const RhImageSpreaderPtr &imgsp )
 {
 	RhFacVIterator it = imgsp->getFacesBegin();
 	int i=1;
-	for (it;it!=imgsp->getFacesEnd();it++,i++)
+	for (;it!=imgsp->getFacesEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -326,7 +326,7 @@ void RhBuilder::patchTNodesAndTPoints( const RhConnectSpreaderPtr &consp )
 {
 	RhSmpKntVIterator it = consp->getSimpleKnotsBegin();
 	int i = 1;
-	for (it;it!=consp->getSimpleKnotsEnd();it++,i++)
+	for (;it!=consp->getSimpleKnotsEnd();it++,i++)
 	{
 		if(*it)
 		{
@@ -411,6 +411,11 @@ bool RhBuilder::getLinkBinaryOrientation(const int linkid, const RhImageSpreader
 		else
 			return false;
 	}
+	else
+	{
+		cout<<"edge: "<<edgeid<< " does not exist."<<endl;
+	}
+	return false;
 }
 
 std::string RhBuilder::getNodeName(int id)

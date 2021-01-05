@@ -544,9 +544,8 @@ RhSimpleKnotPtr RhComplexKnot::operator()(const int nrows, const int ncols)
 		int index = _matrix(nrows,ncols);
 		if(index>-1)
 			return _knot[_matrix(nrows,ncols)];
-		else
-			return NULL;
 	}
+	return NULL;
 }
 
 RhComplexKnotPtr RhComplexKnot::asComplex()
@@ -577,11 +576,8 @@ RhSimpleKnotPtr RhKnotMatrix::operator()(const int nrows, const int ncols)
 		int index = _matrix(nrows,ncols);
 		if(index>-1)
 			return _knots[_matrix(nrows,ncols)];
-		else
-		{
-			return NULL;
-		}
 	}
+	return NULL;
 }
 
 void RhKnotMatrix::addKnot(const RhSimpleKnotPtr &knot, const int nrows, const int ncols)
@@ -608,12 +604,10 @@ Matrix RhKnotIdMatrix::operator()(const int nrows, const int ncols)
 		int index = _matrix(nrows,ncols);
 		if(index>-1)
 			return _complexid[_matrix(nrows,ncols)];
-		else
-		{
-			Matrix m(0,0);
-			return m;
-		}
 	}
+	/*an error has occurd, return a null-matrix*/
+	Matrix m(0,0);
+	return m;
 }
 
 void RhKnotIdMatrix::addKnotid(const Matrix &id, int row, int col)
@@ -981,6 +975,10 @@ int RhConnectSpreader::orientation2Rotation(const int &orientation)
 		break;
 	case -2:
 		return 180;
+		break;
+	default:
+		/*non-valid orientation, return 0 rotation*/
+		return 0;
 		break;
 	}
 }

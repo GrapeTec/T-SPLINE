@@ -199,6 +199,9 @@ TLinkPtr TVertex::checkNeighborhood( const TVertexPtr &vertex )
 	if (vertex == getEndVertex(_west)) return _west;
 	if (vertex == getEndVertex(_south)) return _south;
 	if (vertex == getEndVertex(_east)) return _east;
+
+	Tracer tr("TVertex::checkNeighborhood");
+	Throw(ProgramException("invalud neighbourhood"));
 }
 
 TVertexPtr TVertex::getEndVertex( const TLinkPtr &link )
@@ -427,6 +430,8 @@ Parameter TEdge::northWest()
 	{
 		return Parameter(_start->getS(), _start->getT());
 	}
+	Tracer tr("TEdge::northWest");
+	Throw(ProgramException("northWest invalid direction"));
 }
 
 Parameter TEdge::southEast()
@@ -439,6 +444,8 @@ Parameter TEdge::southEast()
 	{
 		return Parameter(_end->getS(), _end->getT());
 	}
+	Tracer tr("TEdge::northWest");
+	Throw(ProgramException("northWest invalid direction"));
 }
 
 TLink::TLink(const std::string & name /* = "" */) :

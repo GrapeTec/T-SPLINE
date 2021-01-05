@@ -487,7 +487,7 @@ MatrixInput GetSubMatrix::operator<<(float f)
    }
    return MatrixInput(n, r+1);
 }
-MatrixInput::~MatrixInput()
+MatrixInput::~MatrixInput() noexcept(false)
 {
    REPORT
    Tracer et("MatrixInput");

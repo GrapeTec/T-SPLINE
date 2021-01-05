@@ -200,13 +200,13 @@ void TriMesh::merge(const TriMeshPtr &mesh)
 
 	P3dVIterator pit = mesh->pointIteratorBegin();
 	N3dVIterator nit = mesh->normalIteratorBegin();
-	for (pit;pit!=mesh->pointIteratorEnd();pit++,nit++)
+	for (;pit!=mesh->pointIteratorEnd();pit++,nit++)
 	{
 		this->addPointNormal(*(*pit).get(), *(*nit).get());
 	}
 
 	TriVIterator tit = mesh->triangleIteratorBegin();
-	for (tit;tit!=mesh->triangleIteratorEnd();tit++)
+	for (;tit!=mesh->triangleIteratorEnd();tit++)
 	{
 		Triangle tri;
 		tri.point_indices[0] = (*tit)->point_indices[0] + offset;
@@ -319,7 +319,7 @@ ReturnMatrix TriMesh::matrixTriMesh()
 	Matrix matrix_mesh;
 	bool init_matrix = false;
 	TriVIterator it = this->triangleIteratorBegin();
-	for (it;it!=this->triangleIteratorEnd();it++)
+	for (;it!=this->triangleIteratorEnd();it++)
 	{
 		TrianglePtr triangle = *it;
 		Word v0 = triangle->point_indices[0];

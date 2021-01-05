@@ -395,7 +395,7 @@ namespace TSPLINE {
 		Real a2 = pa3.t() - pa2.t();
 		Real b2 = pa2.s() - pa3.s();
 
-		if ((isZero(a1) && isZero(a2)) || isZero(b1) && isZero(b2))	// collinear in horizontal or vertical direction
+		if ((isZero(a1) && isZero(a2)) || (isZero(b1) && isZero(b2)))	// collinear in horizontal or vertical direction
 		{
 			return false;
 		}
@@ -503,7 +503,7 @@ namespace TSPLINE {
 					m2 = -(x3 - x2) / (y3 - y2);
 					if (isZero(m1 - m2))
 					{
-						cout << "collinear with angle£¡\n" << endl;
+						cout << "collinear with angle! \n" << endl;
 						return NULL;
 					}
 					else
@@ -520,7 +520,7 @@ namespace TSPLINE {
 		}
 		else
 		{
-			cout << "collinear in vertical direction£¡\n" << endl;
+			cout << "collinear in vertical direction! \n" << endl;
 			return NULL;
 		}
 		return Parameter(xc, yc);
